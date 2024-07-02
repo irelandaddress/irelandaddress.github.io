@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4235.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>安装、升级pip，但是python -m pip install &#8211;upgrade pip报错的解决办法。 - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">安装、升级pip，但是python -m pip install &#8211;upgrade pip报错的解决办法。</h1>
+                          				  				  				<div id="content_views" class="htmledit_views"> <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;一般我们在安装或者调用pip库的时候，会告诉你pip版本较低，需要你升级，比如我的本机是如下。</p> <p>&nbsp; &nbsp; &nbsp;一、&nbsp; &nbsp; 我是直接cd到我pip目录文件下查看版本：</p> <pre class="has"><code class="language-python">E:\Program Files (x86)\python\Scripts&gt;pip show pip Name: pip Version: 10.0.1 Summary: The PyPA recommended tool for installing Python packages. Home-page: https://pip.pypa.io/ Author: The pip developers Author-email: python-virtualenv@groups.google.com License: MIT Location: e:\program files (x86)\python\lib\site-packages Requires: Required-by: You are using pip version 10.0.1, however version 19.0.3 is available. You should consider upgrading via the 'python -m pip install --upgrade pip' command.</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; 特别是Required-by:以及命令窗中黄色的字，</p> <p><img decoding="async" alt="" class="has" height="58" src="http://img.555519.xyz/uploads/20230110/e9c81219d5e3301365f199b10f110329.jpg"></p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 提示我可用的有19.0.3的版本可用，说明我的pip版本太低了，需要升级。</p> <p>&nbsp; &nbsp; 二、在命令窗中我按照要求，进行升级，敲入‘<strong><span style="color:#f33b45;">python -m pip install --upgrade pip</span></strong>’，但是提示我安装失败。</p> <pre class="has"><code class="language-python">E:\Program Files (x86)\python\Scripts&gt;python -m pip install --upgrade pip Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='pypi.org', port=443): Read timed out. (read timeout=15)",)': /simple/pip/ Collecting pip   Downloading https://files.pythonhosted.org/packages/d8/f3/413bab4ff08e1fc4828dfc59996d721917df8e8583ea85385d51125dceff/pip-19.0.3-py2.py3-none-any.whl (1.4MB)     99% |███████████████████████████████▊| 1.3MB 74kB/s eta 0:00:01Exception: Traceback (most recent call last):   File "E:\Program Files (x86)\python\lib\site-packages\pip\_internal\basecommand.py", line 228, in main     status = self.run(options, args)   File "E:\Program Files (x86)\python\lib\site-packages\pip\_internal\commands\install.py", line 291, in run     resolver.resolve(requirement_set)   File "E:\Program Files (x86)\python\lib\site-packages\pip\_internal\resolve.py", line 103, in resolve     self._resolve_one(requirement_set, req)   File "E:\Program Files (x86)\python\lib\site-packages\pip\_internal\resolve.py", line 257, in _resolve_one     abstract_dist = self._get_abstract_dist_for(req_to_install)   File "E:\Program Files (x86)\python\lib\site-packages\pip\_internal\resolve.py", line 210, in _get_abstract_dist_for     self.require_hashes   File "E:\Program Files (x86)\python\lib\site-packages\pip\_internal\operations\prepare.py", line 310, in prepare_linked_requirement     progress_bar=self.progress_bar   File "E:\Program Files (x86)\python\lib\site-packages\pip\_internal\download.py", line 837, in unpack_url     progress_bar=progress_bar   File "E:\Program Files (x86)\python\lib\site-packages\pip\_internal\download.py", line 674, in unpack_http_url     progress_bar)   File "E:\Program Files (x86)\python\lib\site-packages\pip\_internal\download.py", line 898, in _download_http_url     _download_url(resp, link, content_file, hashes, progress_bar)   File "E:\Program Files (x86)\python\lib\site-packages\pip\_internal\download.py", line 618, in _download_url     hashes.check_against_chunks(downloaded_chunks)   File "E:\Program Files (x86)\python\lib\site-packages\pip\_internal\utils\hashes.py", line 48, in check_against_chunks     for chunk in chunks:   File "E:\Program Files (x86)\python\lib\site-packages\pip\_internal\download.py", line 586, in written_chunks     for chunk in chunks:   File "E:\Program Files (x86)\python\lib\site-packages\pip\_internal\utils\ui.py", line 159, in iter     for x in it:   File "E:\Program Files (x86)\python\lib\site-packages\pip\_internal\download.py", line 575, in resp_read     decode_content=False):   File "E:\Program Files (x86)\python\lib\site-packages\pip\_vendor\urllib3\response.py", line 436, in stream     data = self.read(amt=amt, decode_content=decode_content)   File "E:\Program Files (x86)\python\lib\site-packages\pip\_vendor\urllib3\response.py", line 401, in read     raise IncompleteRead(self._fp_bytes_read, self.length_remaining)   File "E:\Program Files (x86)\python\lib\contextlib.py", line 35, in __exit__     self.gen.throw(type, value, traceback)   File "E:\Program Files (x86)\python\lib\site-packages\pip\_vendor\urllib3\response.py", line 316, in _error_catcher     raise ReadTimeoutError(self._pool, None, 'Read timed out.') ReadTimeoutError: HTTPSConnectionPool(host='files.pythonhosted.org', port=443): Read timed out. You are using pip version 10.0.1, however version 19.0.3 is available. You should consider upgrading via the 'python -m pip install --upgrade pip' command.</code></pre> <p>&nbsp; &nbsp; &nbsp; 这个时候我看到，检查升级不能覆盖，这个时候可以去到你的安装目录，找到<strong><span style="color:#f33b45;">site-packages</span></strong>文件夹，把原来的<span style="color:#f33b45;"><strong>pip-10.0.1.dist-info</strong></span>这个消息目录删除，<strong><span style="color:#f33b45;">（经过询问，很多同学的安装不成功都是和这个目录有关系）</span></strong>。下图我是删除后重新升级并自动升级的目录。</p> <p style="text-align:center;"><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads/20230110/433d6543613f2f256cbebb2fe51eda14.jpg"></p> <p>&nbsp;</p> <p>&nbsp; &nbsp;三、 再次运行<strong><span style="color:#f33b45;"><code>python -m pip install --upgrade pip</code>&nbsp;</span></strong>后升级成功，之前不能安装的包也能安装了！</p> <p>&nbsp; &nbsp; &nbsp;</p> <p style="text-align:center;"><img fetchpriority="high" decoding="async" alt="" class="has" height="112" src="http://img.555519.xyz/uploads/20230110/1fbd1942d1ced23feeddf83fb3b6c8a5.jpg"></p> <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;是不是很开心？！</p> <p>&nbsp;</p> <p><em>注：本文属于原创，本博客下所有内容，凡注明"来源：laofashi2015"的所有文字、图片和音视频资料，版权均属laofashi2015所有，任何媒体、网站或个人未经本人协议授权不得转载、链接、转贴或以其他方式复制发布/发表。已经本人协议授权的媒体、网站，在下载使用时必须注明"稿件来源：laofashi2015"，违者本人将依法追究责任。</em></p> </p></div> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4234.htm">C语言数据结构之算法的时间复杂度_C 语言</a></p>
+                                                <p>下一个：<a href="/html/category/article-4236.htm">安装Pytorch如何选择CUDA的版本</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

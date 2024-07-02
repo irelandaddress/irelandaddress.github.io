@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4230.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>Go语言学习——map_在线工具 - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">Go语言学习——map_在线工具</h1>
+                          				  				  				<p>map</p> <ul> <li>映射关系容器 内部使用散列表（hash）实现</li> <li>map是引用类型 必须初始化才能使用</li> <li>无序的基于key-value的数据结构</li> </ul> <p>map定义</p> <p>map的定义语法：</p> <pre><code>map[KeyType]ValueType</code></pre> <p>其中，</p> <ul> <li>KeyType:表示键的类型。</li> <li>ValueType:表示键对应的值的类型。</li> </ul> <p>map类型的变量默认初始值为nil，需要使用make()函数来分配内存。语法为：</p> <pre><code>make(map[KeyType]ValueType, [cap])</code></pre> <p>其中cap表示map的容量，该参数不是必须的，但是在初始化map的时候应该为其指定一个合适的容量</p> <p>map基本使用</p> <p>判断某个键是否存在</p> <p>判断map中键是否存在 :</p> <pre><code>value, ok := map[key]</code></pre> <p>map的遍历</p> <p>使用for range遍历map</p> <p>使用delete()函数删除键值对</p> <p>delete()格式：</p> <pre><code>delete(map, key)</code></pre> <p>其中，</p> <ul> <li>map:表示要删除键值对的map</li> <li>key:表示要删除的键值对的键</li> </ul> <p>go doc builtin.delete 查看文档</p> <pre><code>package main  import "fmt"  // map  func main(){ 	var m1 map[string]int 	fmt.Println(m1==nil) // 还没有初始化（没有在内存中开辟空间） 	m1 = make(map[string]int, 10) // 要估算号该map容量，避免在程序运行期间再动态扩容 	m1["理想"] = 18 	m1["李时珍"] = 35 	fmt.Println(m1) 	fmt.Println(m1["理想"]) 	// 约定成俗用OK接收返回的布尔值 	fmt.Println(m1["貂蝉"]) // 0 如果不存在这个key拿到对应值类型的零值 	value, ok := m1["貂蝉"] 	if !ok { 		fmt.Println("查无此key") 	} else { 		fmt.Println(value) 	}  	// map的遍历 	for k, v := range m1 { 		fmt.Println(k, v) 	} 	// 遍历key 	for k := range m1 { 		fmt.Println(k) 	} 	// 只遍历value 	for _, v := range m1 { 		fmt.Println(v) 	} 	// 删除 	delete(m1, "李时珍") 	fmt.Println(m1) 	delete(m1, "李白") // 删除不存在的key }</code></pre> <p>按照指定顺序遍历map</p> <pre><code>package main  import ( 	"fmt" 	"math/rand" 	"sort" 	"time" )  func main() { 	rand.Seed(time.Now().UnixNano()) //初始化随机数种子  当前时间纳秒数  	var scoreMap = make(map[string]int, 200)  	for i := 0; i &lt; 100; i++ { 		key := fmt.Sprintf("stu%02d", i) //生成stu开头的字符串 		value := rand.Intn(100)          //生成0~99的随机整数 		scoreMap[key] = value 	} 	fmt.Println(scoreMap) 	//取出map中的所有key存入切片keys 	var keys = make([]string, 0, 200) 	for key := range scoreMap { 		keys = append(keys, key) 	} 	//对切片进行排序 	sort.Strings(keys) 	//按照排序后的key遍历map 	for _, key := range keys { 		fmt.Println(key, scoreMap[key]) 	} }</code></pre> <p>元素为map类型的切片</p> <p>值为切片类型的map</p> <p>一定要初始化</p> <pre><code>package main  import "fmt"  // map和slice组合  func main(){ 	// 元素类型为map的切片 	// var s1 = make([]map[int]string, 0, 10) // 长度为0 内部没有元素 	// var s1 = make([]map[int]string, 1, 10) 	var s1 = make([]map[int]string, 10, 10) 	// 没有对内部的map做初始化 	// s1[0][100] = "A" 	s1[0] = make(map[int]string, 1) 	s1[0][10] = "泰山" 	// fmt.Println(s1) // index out of range [0] with length 0 	// fmt.Println(s1) // panic: assignment to entry in nil map 	fmt.Println(s1) // [map[10:泰山] map[] map[] map[] map[] map[] map[] map[] map[] map[]]  	// 值为切片类型的map 	var m1 = make(map[string][]int, 10) 	m1["北京"] = []int{10, 20, 30} 	fmt.Println(m1) }</code></pre> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4229.htm">setup中的props和context</a></p>
+                                                <p>下一个：<a href="/html/category/article-4231.htm">SpringBoot实现热部署，修改代码不用重启服务</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

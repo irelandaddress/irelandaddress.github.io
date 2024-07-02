@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4220.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>Maven入门如何在idea中配置Maven - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">Maven入门如何在idea中配置Maven</h1>
+                          				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>Maven入门---如何在idea中配置Maven</h3> <ul> <li><a href="#Maven_1" rel="nofollow">一、下载Maven</a></li> <li><a href="#_7" rel="nofollow">二、配置环境变量</a></li> <li><a href="#_19" rel="nofollow">三、配置本地仓库</a></li> <li><a href="#_34" rel="nofollow">四、配置镜像</a></li> <li><a href="#JDK_49" rel="nofollow">五、配置统一的JDK</a></li> <li><a href="#Maven_72" rel="nofollow">六、创建Maven项目</a></li> <li><a href="#MavenWeb_88" rel="nofollow">七、Maven项目变为Web项目</a></li> </ul> </div> <h1><a id="Maven_1" rel="nofollow"></a>一、下载Maven</h1> <p>Maven官网：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://maven.apache.org/download.cgi"  rel="nofollow">http://maven.apache.org/download.cgi</a><br /> 或者其他下载渠道</p> <blockquote> <p>建议在D盘或者其他盘新建目录（D:/maven）用于存放Maven</p> </blockquote> <h1><a id="_7" rel="nofollow"></a>二、配置环境变量</h1> <blockquote> <p>此电脑右键→属性→环境变量→添加环境变量→编辑系统变量中的path添加maven的bin路径，具体如下：</p> </blockquote> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/c328daf44af0d5d7f3de4ac070f00b37.jpg" alt="Maven入门如何在idea中配置Maven"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/618dce3d2f182c810c243bbdf0131d77.jpg" alt="Maven入门如何在idea中配置Maven"><br /><strong>如果配置成功，打开cmd，输入<code>mvn -v</code>，如果正确显示版本号，代表成功，如图：</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/b6c50089857ef5ae120520ce430dafcf.jpg" alt="Maven入门如何在idea中配置Maven"></p> <h1><a id="_19" rel="nofollow"></a>三、配置本地仓库</h1> <ul> <li>简单说明：配置本地仓库的作用→存放jar包，如果本地没有，Maven则去远程仓库下载</li> </ul> <blockquote> <p>本地仓库主要用来存放jar包，官方默认的位置：C:\Users\用户名.m2\repository目录，并不有利于查阅<br /> 所以，这里建议修改本地仓库的路径， 最好在D盘新建一个文件夹<br /> D:/repository</p> </blockquote> <blockquote> <p>用idea打开conf文件夹下setting.xml文件</p> </blockquote> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/b7478e6ef3af08259087a09a5a848f63.jpg" alt="Maven入门如何在idea中配置Maven"></p> <blockquote> <p>添加一段代码</p> </blockquote> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/a1fcdcb5a7cd2b135404f223b46f78c6.jpg" alt="Maven入门如何在idea中配置Maven"></p> <h1><a id="_34" rel="nofollow"></a>四、配置镜像</h1> <ul> <li>简单说明：配置镜像的作用→为了解决因网络波动影响jar包的下载</li> </ul> <blockquote> <p>还是在setting.xml文件中，找到<code>&lt;mirrors&gt;</code>标签，在这个标签内添加以下代码添加阿里云镜像</p> </blockquote> <pre><code class="prism language-java"><span class="token generics function"><span class="token punctuation">&lt;</span>mirror<span class="token punctuation">&gt;</span></span><span class="token generics function"><span class="token punctuation">&lt;</span>id<span class="token punctuation">&gt;</span></span>aliyunmaven<span class="token operator">&lt;</span><span class="token operator">/</span>id<span class="token operator">&gt;</span><span class="token generics function"><span class="token punctuation">&lt;</span>mirrorOf<span class="token punctuation">&gt;</span></span>central<span class="token operator">&lt;</span><span class="token operator">/</span>mirrorOf<span class="token operator">&gt;</span><span class="token generics function"><span class="token punctuation">&lt;</span>name<span class="token punctuation">&gt;</span></span>aliyun maven<span class="token operator">&lt;</span><span class="token operator">/</span>name<span class="token operator">&gt;</span><span class="token generics function"><span class="token punctuation">&lt;</span>url<span class="token punctuation">&gt;</span></span>https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>maven<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>com<span class="token operator">/</span>repository<span class="token operator">/</span><span class="token keyword">public</span><span class="token operator">&lt;</span><span class="token operator">/</span>url<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>mirror<span class="token operator">&gt;</span></code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/e1eff97e58bccf6917ca37b1193c5c4c.jpg" alt="Maven入门如何在idea中配置Maven"></p> <h1><a id="JDK_49" rel="nofollow"></a>五、配置统一的JDK</h1> <ul> <li>简单说明：配置统一JDK作用→为了解决版本冲突</li> </ul> <blockquote> <p>还是在setting.xml文件中，找到<code>&lt;profiles&gt;</code>标签，在这个标签内添加以下代码</p> </blockquote> <pre><code class="prism language-java"><span class="token generics function"><span class="token punctuation">&lt;</span>profile<span class="token punctuation">&gt;</span></span><span class="token generics function"><span class="token punctuation">&lt;</span>id<span class="token punctuation">&gt;</span></span>jdk<span class="token operator">-</span><span class="token number">1.8</span><span class="token operator">&lt;</span><span class="token operator">/</span>id<span class="token operator">&gt;</span><span class="token generics function"><span class="token punctuation">&lt;</span>activation<span class="token punctuation">&gt;</span></span><span class="token generics function"><span class="token punctuation">&lt;</span>activeByDefault<span class="token punctuation">&gt;</span></span><span class="token boolean">true</span><span class="token operator">&lt;</span><span class="token operator">/</span>activeByDefault<span class="token operator">&gt;</span><span class="token generics function"><span class="token punctuation">&lt;</span>jdk<span class="token punctuation">&gt;</span></span><span class="token number">1.8</span><span class="token operator">&lt;</span><span class="token operator">/</span>jdk<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>activation<span class="token operator">&gt;</span><span class="token generics function"><span class="token punctuation">&lt;</span>properties<span class="token punctuation">&gt;</span></span><span class="token operator">&lt;</span>maven<span class="token punctuation">.</span>compiler<span class="token punctuation">.</span>source<span class="token operator">&gt;</span><span class="token number">1.8</span><span class="token operator">&lt;</span><span class="token operator">/</span>maven<span class="token punctuation">.</span>compiler<span class="token punctuation">.</span>source<span class="token operator">&gt;</span><span class="token operator">&lt;</span>maven<span class="token punctuation">.</span>compiler<span class="token punctuation">.</span>target<span class="token operator">&gt;</span><span class="token number">1.8</span><span class="token operator">&lt;</span><span class="token operator">/</span>maven<span class="token punctuation">.</span>compiler<span class="token punctuation">.</span>target<span class="token operator">&gt;</span><span class="token operator">&lt;</span>maven<span class="token punctuation">.</span>compiler<span class="token punctuation">.</span>compilerVersion<span class="token operator">&gt;</span><span class="token number">1.8</span><span class="token operator">&lt;</span><span class="token operator">/</span>maven<span class="token punctuation">.</span>compiler<span class="token punctuation">.</span>compilerVersion<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>properties<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>profile<span class="token operator">&gt;</span></code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/3da1be845700ce1b512a67ebcee52bb4.jpg" alt="Maven入门如何在idea中配置Maven"></p> <h1><a id="Maven_72" rel="nofollow"></a>六、创建Maven项目</h1> <blockquote> <p>在创建之前我们先在idea中close project(关闭当前项目)，去做一些全局配置，如图：</p> </blockquote> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/a5041653ccf1f5f9778d4ff428193eed.jpg" alt="Maven入门如何在idea中配置Maven"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/a8311a755fab4dfe92e725c87e21efa2.jpg" alt="Maven入门如何在idea中配置Maven"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/d66aefd278758eb4e9bb73f3f98b18a3.jpg" alt="Maven入门如何在idea中配置Maven"></p> <blockquote> <p>配置完之后我们就可以直接创建maven项目了，点击new project→选择Maven</p> </blockquote> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/7b978dc212168ee12a79f87cce362072.jpg" alt="Maven入门如何在idea中配置Maven"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/90ffd805eb2add35235dc5a24ae4493e.jpg" alt="Maven入门如何在idea中配置Maven"></p> <h1><a id="MavenWeb_88" rel="nofollow"></a>七、Maven项目变为Web项目</h1> <blockquote> <p>在Maven项目的基础上，我们打开pom.xml文件，添加打包方式（下面代码）</p> </blockquote> <pre><code class="prism language-java"><span class="token generics function"><span class="token punctuation">&lt;</span>packaging<span class="token punctuation">&gt;</span></span>war<span class="token operator">&lt;</span><span class="token operator">/</span>packaging<span class="token operator">&gt;</span></code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/72531c3075fb7e06fa9a199cb9612b7a.jpg" alt="Maven入门如何在idea中配置Maven"></p> <blockquote> <p>记得点击右上角的这个图标进行更新Maven</p> </blockquote> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/acef59d6d173f4d0f6668255dbf22d94.jpg" alt="Maven入门如何在idea中配置Maven"><br /> ----------------分割线------------------------------------------------------------------------------------------------------------</p> <blockquote> <p>然后更改项目结构</p> </blockquote> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/aca01885e197fa16ecf15bc04a3c1db5.jpg" alt="Maven入门如何在idea中配置Maven"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/7ef31586b17b2caf1e458eaef69d49ba.jpg" alt="Maven入门如何在idea中配置Maven"></p> <blockquote> <p>添加web.xml</p> </blockquote> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/e637f984f99cbd1f485c1328f0380e00.jpg" alt="Maven入门如何在idea中配置Maven"></p> <blockquote> <p>修改一下路径，红圈部分为需要添加的</p> </blockquote> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/c59bc3f0355ce296ba49a5fe263243a0.jpg" alt="Maven入门如何在idea中配置Maven"></p> <p><strong><mark>最后呈现出来的web项目结构大概长这样：</mark></strong></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/43c9aad156e4a81e60c068e48d8d4e80.jpg" alt="Maven入门如何在idea中配置Maven"></p> <blockquote> <p><mark>idea配置Maven的步骤大概就是这样了，如有不对，请指正，如果觉得对你有用，不忘点点三连加关注</mark></p> </blockquote> </div> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4219.htm">YARN基本介绍与HA</a></p>
+                                                <p>下一个：<a href="/html/category/article-4221.htm">HBase架构中各种组件的作用</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

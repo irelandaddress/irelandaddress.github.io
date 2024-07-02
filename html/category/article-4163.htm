@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4163.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>Java中输入与输出的方法总结_java_ - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">Java中输入与输出的方法总结_java_</h1>
+                          				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">输入方法</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_0_0" rel="nofollow">第一种输入方法:scanner</a></li> <li><a href="#_lab2_0_1" rel="nofollow">第二种输入方法:JOptionPane</a></li> <li><a href="#_lab2_0_2" rel="nofollow">第三种输入方法:io.Console</a></li> </ul> <li><a href="#_label1" rel="nofollow">输出方法</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_3" rel="nofollow">第一种输出方法:System.out.print()</a></li> <li><a href="#_lab2_1_4" rel="nofollow">第二种输出方法:System.out.println()</a></li> <li><a href="#_lab2_1_5" rel="nofollow">第三种输出方法:System.out.printf()</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>输入方法</h2> <p class="maodian"><a name="_lab2_0_0" rel="nofollow"></a></p> <h3>第一种输入方法:scanner</h3> <div class="ay1code"> <pre class="brush:java;">import java.util.Scanner; // 导入java.util.Scanner    public class User {      public static void main(String[] args) {          var sc = new Scanner(System.in); //生成scanner对象          System.out.print("请输入你的姓名:");          String name = sc.nextLine();//输入字符串          System.out.print("请输入你的年龄:");          int age = sc.nextInt();//输入整数          System.out.println("姓名:" + name +"\n" +"年龄:" + age);      }  }</pre> </div> <p>运行结果</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220412/cb09bb4045b4fce7f1c839496fbea226.jpg"></p> <p>常用的next()方法</p> <p>nextInt() 输入整数</p> <p>nextLine() 输入字符串</p> <p>nextDouble() 输入双精度数</p> <p>next() 输入字符串(以空格作为分隔符</p> <p class="maodian"><a name="_lab2_0_1" rel="nofollow"></a></p> <h3>第二种输入方法:JOptionPane</h3> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220412/6d053471935169198dfe615bb576a9b7.jpg"></p> <p>运行结果</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220412/5629930c2b084f6d0946e919072a20fb.jpg"></p> <p class="maodian"><a name="_lab2_0_2" rel="nofollow"></a></p> <h3>第三种输入方法:io.Console</h3> <p>这种输入方法为安全输入方法，只能在cmd控制台运行，不能在IDEA、eclipse等1工具运行</p> <p>创建User.java文件</p> <div class="ay1code"> <pre class="brush:java;">import java.io.Console;//导入java.io.Console  public class User {      public static void main(String[] args) {          Console con = System.console();//建立安全输入          String name = con.readLine("请输入账号:");          String passworld = con.readLine("请输入密码:");          System.out.printf("账号:%s", name);          System.out.printf("%n密码:%s", passworld);      }  }  </pre> </div> <p>cmd进入文件所在目录，运行以下指令</p> <div class="ay1code"> <pre class="brush:bash;">java -Dfile.encoding=UTF-8 User.java</pre> </div> <p>运行结果</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220412/f4a9f138aebfbac166ccdfa3c1ad4959.jpg"></p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>输出方法</h2> <p class="maodian"><a name="_lab2_1_3" rel="nofollow"></a></p> <h3>第一种输出方法:System.out.print()</h3> <p>System.out.print()不换行直接输出</p> <div class="ay1code"> <pre class="brush:java;">public class User {      public static void main(String[] args) {      int a = 1;      int b = 2;      System.out.print(a);//print()不换行输出a的值      System.out.print(b);//print()不换行输出b的值      }  }  </pre> </div> <p>运行结果</p> <blockquote> <p>12</p> </blockquote> <p class="maodian"><a name="_lab2_1_4" rel="nofollow"></a></p> <h3>第二种输出方法:System.out.println()</h3> <p>System.out.println()换行输出</p> <div class="ay1code"> <pre class="brush:java;">public class User {      public static void main(String[] args) {      int a = 1;      int b = 2;      System.out.println(a);//println()换行输出a的值      System.out.println(b);//println()换行输出b的值      }  }  </pre> </div> <p>运行结果</p> <blockquote> <p>1<br />2</p> </blockquote> <p class="maodian"><a name="_lab2_1_5" rel="nofollow"></a></p> <h3>第三种输出方法:System.out.printf()</h3> <p>System.out.printf()格式化输出</p> <div class="ay1code"> <pre class="brush:java;">public class User {      public static void main(String[] args) {      int a = 1;      int b = 2;      System.out.printf("a=%d%n",a);//printf()格式化输出      System.out.printf("b=%d",b);//printf()格式化输出      }  }  </pre> </div> <p>运行结果</p> <blockquote> <p>a=1<br />b=2</p> </blockquote> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4162.htm">SpringBoot如何配置Druid数据源监控页面</a></p>
+                                                <p>下一个：<a href="/html/category/article-4164.htm">idea maven下载依赖失败</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

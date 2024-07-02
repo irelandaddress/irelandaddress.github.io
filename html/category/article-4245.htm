@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4245.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>React功能篇 &#8211; 使用react-i18next进行国际化 - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">React功能篇 &#8211; 使用react-i18next进行国际化</h1>
+                          				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>react-i18next国际化步骤</h3> <ul> <li><a href="#_1" rel="nofollow">一.安装依赖</a></li> <li><a href="#_7" rel="nofollow">二.配置文件</a></li> <li> <ul> <li><a href="#21_configjs_11" rel="nofollow">2.1 新建config.js</a></li> <li><a href="#22__39" rel="nofollow">2.2 语言文件示例</a></li> </ul> </li> <li><a href="#_83" rel="nofollow">三.详细使用</a></li> <li> <ul> <li><a href="#31_class_91" rel="nofollow">3.1 类（class）组件中使用</a></li> <li><a href="#32_functionHook_107" rel="nofollow">3.2 函数（function）组件或Hook中使用</a></li> <li><a href="#33__126" rel="nofollow">3.3 切换语言功能</a></li> </ul> </li> </ul> </div> <h1> <a id="_1" rel="nofollow"></a>一.安装依赖</h1> <p>安装react-i18next和 i18next依赖</p> <blockquote> <p>npm install react-i18next i18next<br /> 或<br /> yarn add react-i18next i18next</p> </blockquote> <h1> <a id="_7" rel="nofollow"></a>二.配置文件</h1> <p>在src下新建i18n文件夹，以存放国际化相关配置，可根据需要添加相应的语言文件<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230109/7223c62ff9bdae96a75ade0e740090ae.jpg" alt="React功能篇 - 使用react-i18next进行国际化"></p> <h2> <a id="21_configjs_11" rel="nofollow"></a>2.1 新建config.js</h2> <pre><code class="prism language-javascript"><span class="token keyword">import</span> i18n <span class="token keyword">from</span> <span class="token string">'i18next'</span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token punctuation">{<!-- --></span> initReactI18next <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-i18next'</span><span class="token punctuation">;</span> <span class="token comment">//配置中文的配置文件</span> <span class="token keyword">import</span> translation_zh <span class="token keyword">from</span> <span class="token string">'./zh.json'</span><span class="token punctuation">;</span> <span class="token comment">//配置英文的配置文件</span> <span class="token keyword">import</span> translation_en <span class="token keyword">from</span> <span class="token string">'./en.json'</span><span class="token punctuation">;</span>  <span class="token keyword">const</span> resources <span class="token operator">=</span> <span class="token punctuation">{<!-- --></span>   <span class="token literal-property property">en</span><span class="token operator">:</span> <span class="token punctuation">{<!-- --></span>     <span class="token literal-property property">translation</span><span class="token operator">:</span> translation_en   <span class="token punctuation">}</span><span class="token punctuation">,</span>   <span class="token literal-property property">zh</span><span class="token operator">:</span> <span class="token punctuation">{<!-- --></span>     <span class="token literal-property property">translation</span><span class="token operator">:</span> translation_zh   <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>  i18n<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>initReactI18next<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>   resources<span class="token punctuation">,</span>   <span class="token literal-property property">lng</span><span class="token operator">:</span> <span class="token string">'zh'</span><span class="token punctuation">,</span>   <span class="token literal-property property">interpolation</span><span class="token operator">:</span> <span class="token punctuation">{<!-- --></span>     <span class="token literal-property property">escapeValue</span><span class="token operator">:</span> <span class="token boolean">false</span>   <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token keyword">export</span> <span class="token keyword">default</span> i18n<span class="token punctuation">;</span> </code></pre> <h2> <a id="22__39" rel="nofollow"></a>2.2 语言文件示例</h2> <p><strong>en.json</strong></p> <pre><code class="prism language-javascript"><span class="token punctuation">{<!-- --></span>   <span class="token string-property property">"header"</span><span class="token operator">:</span> <span class="token punctuation">{<!-- --></span>     <span class="token string-property property">"register"</span><span class="token operator">:</span> <span class="token string">"Register"</span><span class="token punctuation">,</span>     <span class="token string-property property">"signin"</span><span class="token operator">:</span> <span class="token string">"Sign In"</span><span class="token punctuation">,</span>     <span class="token string-property property">"home"</span><span class="token operator">:</span> <span class="token string">"Home"</span>   <span class="token punctuation">}</span><span class="token punctuation">,</span>   <span class="token string-property property">"footer"</span><span class="token operator">:</span> <span class="token punctuation">{<!-- --></span>     <span class="token string-property property">"detail"</span><span class="token operator">:</span> <span class="token string">"All rights reserved @ React"</span>   <span class="token punctuation">}</span><span class="token punctuation">,</span>   <span class="token string-property property">"home"</span><span class="token operator">:</span> <span class="token punctuation">{<!-- --></span>     <span class="token string-property property">"mainTip"</span><span class="token operator">:</span> <span class="token string">"Im login page"</span>   <span class="token punctuation">}</span><span class="token punctuation">,</span>   <span class="token string-property property">"content"</span><span class="token operator">:</span> <span class="token punctuation">{<!-- --></span>     <span class="token string-property property">"description"</span><span class="token operator">:</span> <span class="token string">"this is a chinese graph"</span>   <span class="token punctuation">}</span> <span class="token punctuation">}</span>  </code></pre> <p><strong>zh.json</strong></p> <pre><code class="prism language-javascript"><span class="token punctuation">{<!-- --></span>   <span class="token string-property property">"header"</span><span class="token operator">:</span> <span class="token punctuation">{<!-- --></span>     <span class="token string-property property">"register"</span><span class="token operator">:</span> <span class="token string">"注册"</span><span class="token punctuation">,</span>     <span class="token string-property property">"signin"</span><span class="token operator">:</span> <span class="token string">"登录"</span><span class="token punctuation">,</span>     <span class="token string-property property">"home"</span><span class="token operator">:</span> <span class="token string">"首页"</span>   <span class="token punctuation">}</span><span class="token punctuation">,</span>   <span class="token string-property property">"footer"</span><span class="token operator">:</span> <span class="token punctuation">{<!-- --></span>     <span class="token string-property property">"detail"</span><span class="token operator">:</span> <span class="token string">"版权所有 @ React"</span>   <span class="token punctuation">}</span><span class="token punctuation">,</span>   <span class="token string-property property">"home"</span><span class="token operator">:</span> <span class="token punctuation">{<!-- --></span>     <span class="token string-property property">"mainTip"</span><span class="token operator">:</span> <span class="token string">"我是登录页面"</span>   <span class="token punctuation">}</span><span class="token punctuation">,</span>   <span class="token string-property property">"content"</span><span class="token operator">:</span> <span class="token punctuation">{<!-- --></span>     <span class="token string-property property">"description"</span><span class="token operator">:</span> <span class="token string">"这是个中文段落"</span>   <span class="token punctuation">}</span> <span class="token punctuation">}</span>  </code></pre> <h1> <a id="_83" rel="nofollow"></a>三.详细使用</h1> <blockquote> <p><strong>首先在index.jsx中引入国际化配置文件</strong></p> </blockquote> <pre><code class="prism language-javascript"><span class="token keyword">import</span> <span class="token string">'./i18n/config'</span><span class="token punctuation">;</span> </code></pre> <h2> <a id="31_class_91" rel="nofollow"></a>3.1 类（class）组件中使用</h2> <pre><code class="prism language-javascript"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{<!-- --></span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token punctuation">{<!-- --></span> withTranslation <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-i18next'</span><span class="token punctuation">;</span> <span class="token keyword">class</span> <span class="token class-name">login</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{<!-- --></span>   <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     <span class="token keyword">const</span> <span class="token punctuation">{<!-- --></span> t <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">;</span>     <span class="token keyword">return</span> <span class="token punctuation">(</span>       <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>         <span class="token operator">&lt;</span>h1<span class="token operator">&gt;</span><span class="token punctuation">{<!-- --></span><span class="token function">t</span><span class="token punctuation">(</span><span class="token string">'home.mainTip'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">&gt;</span>       <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>     <span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token punctuation">}</span> <span class="token punctuation">}</span> <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">withTranslation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">(</span>login<span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre> <h2> <a id="32_functionHook_107" rel="nofollow"></a>3.2 函数（function）组件或Hook中使用</h2> <pre><code class="prism language-javascript"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token punctuation">{<!-- --></span> useTranslation<span class="token punctuation">,</span>Trans <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-i18next'</span><span class="token punctuation">;</span> <span class="token keyword">function</span> <span class="token function">Example</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>   <span class="token keyword">const</span> <span class="token punctuation">{<!-- --></span> t<span class="token punctuation">,</span> i18n <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useTranslation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token keyword">return</span> <span class="token punctuation">(</span>     <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>     <span class="token comment">//第一种方式</span>       <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span><span class="token punctuation">{<!-- --></span><span class="token function">t</span><span class="token punctuation">(</span><span class="token string">'footer.detail'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>     <span class="token comment">//第二种方式</span>       <span class="token operator">&lt;</span>li<span class="token operator">&gt;</span><span class="token operator">&lt;</span>Trans<span class="token operator">&gt;</span>home<span class="token punctuation">.</span>new_arrival<span class="token operator">&lt;</span><span class="token operator">/</span>Trans<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">&gt;</span>     <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>   <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token keyword">export</span> <span class="token keyword">default</span> Example<span class="token punctuation">;</span>  </code></pre> <h2> <a id="33__126" rel="nofollow"></a>3.3 切换语言功能</h2> <pre><code class="prism language-javascript"><span class="token function-variable function">renderI18n</span> <span class="token operator">=</span> <span class="token parameter">item</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{<!-- --></span>     <span class="token keyword">const</span> <span class="token punctuation">{<!-- --></span> i18n <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">;</span>     <span class="token keyword">return</span> <span class="token punctuation">(</span>       <span class="token operator">&lt;</span>Button onClick<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> i18n<span class="token punctuation">.</span><span class="token function">changeLanguage</span><span class="token punctuation">(</span>i18n<span class="token punctuation">.</span>language <span class="token operator">===</span> <span class="token string">'en'</span> <span class="token operator">?</span> <span class="token string">'zh'</span> <span class="token operator">:</span> <span class="token string">'en'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>         <span class="token punctuation">{<!-- --></span>i18n<span class="token punctuation">.</span>language <span class="token operator">===</span> <span class="token string">'en'</span> <span class="token operator">?</span> <span class="token string">'切换成中文'</span> <span class="token operator">:</span> <span class="token string">'切换成英文'</span><span class="token punctuation">}</span>       <span class="token operator">&lt;</span><span class="token operator">/</span>Button<span class="token operator">&gt;</span>     <span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token punctuation">}</span><span class="token punctuation">;</span> </code></pre> </p></div> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4244.htm">flex布局，解决最后一排数量不够自动向两端对齐的问题（适合所有列的布局：3列、4列、5列等等）推荐使用！</a></p>
+                                                <p>下一个：<a href="/html/category/article-4246.htm">CentOS离线安装docker容器</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

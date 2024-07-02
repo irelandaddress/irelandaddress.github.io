@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4217.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>Arch Linux 安装简明流程 - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">Arch Linux 安装简明流程</h1>
+                          				  				  				<h1 id="arch-linux-安装简明流程">Arch Linux 安装简明流程</h1> <p>这是一篇为<strong>GPT/EFI 引导</strong> 的电脑安装 Arch Linux（双系统）的中文简明流程，尽可能省略了可以省略的流程与文字以使得篇幅尽量短小，基本上基于<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://wiki.archlinux.org/title/installation_guide"  target="_blank" rel="nofollow">Arch Wiki Installation guide</a> 以及这篇<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.viseator.com/2017/05/17/arch_install/"  target="_blank" rel="nofollow">优秀的安装教程</a>，特此表示感谢。</p> <p>本文严格按照操作顺序进行编写，还请认真阅读每一步操作的说明以及注意事项。</p> <blockquote> <p>说明：下文中所指教程均指此篇教程:<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://viseator.github.io/2017/05/17/arch_install/"  target="_blank" rel="nofollow">以官方Wiki的方式安装ArchLinux</a>。</p> </blockquote> <div class="toc"> <div class="toc-container-header">目录</div> <ul> <li><a href="#arch-linux-%E5%AE%89%E8%A3%85%E7%AE%80%E6%98%8E%E6%B5%81%E7%A8%8B" rel="nofollow">Arch Linux 安装简明流程</a> <ul> <li><a href="#%E5%AE%89%E8%A3%85%E5%89%8D%E5%87%86%E5%A4%87" rel="nofollow">安装前准备</a></li> <li><a href="#%E5%87%86%E5%A4%87%E5%AE%89%E8%A3%85%E4%BB%8B%E8%B4%A8%E4%B8%8E%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA" rel="nofollow">准备安装介质与磁盘分区</a> <ul> <li><a href="#%E5%AE%89%E8%A3%85%E4%BB%8B%E8%B4%A8" rel="nofollow">安装介质</a></li> <li><a href="#%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA" rel="nofollow">磁盘分区</a></li> </ul> </li> <li><a href="#bios-%E8%AE%BE%E7%BD%AE" rel="nofollow">BIOS 设置</a></li> <li><a href="#%E5%BC%80%E5%A7%8B%E5%AE%89%E8%A3%85-arch-linux" rel="nofollow">开始安装 Arch Linux</a></li> <li><a href="#%E8%BF%9E%E6%8E%A5%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%9B%B4%E6%96%B0%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4" rel="nofollow">连接网络与更新系统时间</a> <ul> <li><a href="#%E4%BA%8B%E5%89%8D%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4" rel="nofollow">事前故障排除</a></li> <li><a href="#%E8%BF%9E%E6%8E%A5%E6%9C%89%E7%BA%BF%E7%BD%91%E7%BB%9C" rel="nofollow">连接有线网络</a></li> <li><a href="#%E8%BF%9E%E6%8E%A5%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C" rel="nofollow">连接无线网络</a></li> <li><a href="#%E8%AE%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4" rel="nofollow">设置系统时间</a></li> </ul> </li> <li><a href="#%E5%88%86%E5%8C%BA%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%B8%8E%E6%8C%82%E8%BD%BD" rel="nofollow">分区的格式化与挂载</a> <ul> <li><a href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%95%B0%E6%8D%AE%E5%88%86%E5%8C%BA" rel="nofollow">格式化数据分区</a></li> <li><a href="#%E6%8C%82%E8%BD%BD%E5%88%86%E5%8C%BA" rel="nofollow">挂载分区</a></li> </ul> </li> <li><a href="#%E9%85%8D%E7%BD%AE%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8%E4%B8%8E%E5%AE%89%E8%A3%85%E5%9F%BA%E6%9C%AC%E5%8C%85" rel="nofollow">配置包管理器与安装基本包</a> <ul> <li><a href="#%E5%AD%A6%E4%B9%A0-vim-%E7%9A%84%E4%BD%BF%E7%94%A8" rel="nofollow">学习 Vim 的使用</a></li> <li><a href="#%E5%AE%89%E8%A3%85%E5%9F%BA%E6%9C%AC%E5%8C%85" rel="nofollow">安装基本包</a></li> </ul> </li> <li><a href="#%E7%94%9F%E6%88%90-fstab-%E6%96%87%E4%BB%B6" rel="nofollow">生成 Fstab 文件</a></li> <li><a href="#%E6%96%B0%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BF%85%E8%A6%81%E9%85%8D%E7%BD%AE" rel="nofollow">新系统的必要配置</a> <ul> <li><a href="#chroot" rel="nofollow">Chroot</a></li> <li><a href="#%E5%AE%89%E8%A3%85%E5%BF%85%E8%A6%81%E8%BD%AF%E4%BB%B6%E5%8C%85" rel="nofollow">安装必要软件包</a></li> <li><a href="#%E8%AE%BE%E7%BD%AE%E6%97%B6%E5%8C%BA%E5%9C%B0%E5%8C%BA%E4%B8%8E%E8%AF%AD%E8%A8%80%E4%BF%A1%E6%81%AF" rel="nofollow">设置时区、地区与语言信息</a></li> <li><a href="#%E8%AE%BE%E7%BD%AE%E4%B8%BB%E6%9C%BA%E5%90%8D" rel="nofollow">设置主机名</a></li> <li><a href="#%E8%AE%BE%E7%BD%AE-root-%E5%AF%86%E7%A0%81" rel="nofollow">设置 Root 密码</a></li> <li><a href="#%E6%96%B0%E5%BB%BA%E7%94%A8%E6%88%B7%E4%B8%8E%E9%85%8D%E7%BD%AE-sudo" rel="nofollow">新建用户与配置 sudo</a></li> <li><a href="#%E5%AE%89%E8%A3%85%E5%A4%84%E7%90%86%E5%99%A8%E5%BE%AE%E7%A0%81" rel="nofollow">安装处理器微码</a></li> </ul> </li> <li><a href="#%E9%85%8D%E7%BD%AE%E7%B3%BB%E7%BB%9F%E5%BC%95%E5%AF%BC" rel="nofollow">配置系统引导</a></li> <li><a href="#%E5%88%9B%E5%BB%BA%E4%BA%A4%E6%8D%A2%E6%96%87%E4%BB%B6" rel="nofollow">创建交换文件</a></li> <li><a href="#%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2" rel="nofollow">安装图形界面</a></li> </ul> </li> </ul> </div> <h2 id="安装前准备">安装前准备</h2> <ol> <li>大于 60G 的硬盘空余空间。</li> <li>一块储存空间至少 4G 的 U 盘。</li> <li>稳定，而不需要额外进行设备认证的有线/无线网络连接，如手机热点等。</li> <li>至少 3 小时<s>或长达数星期</s>的时间。</li> <li>基本的搜索引擎使用能力以及英语阅读能力。</li> </ol> <h2 id="准备安装介质与磁盘分区">准备安装介质与磁盘分区</h2> <h3 id="安装介质">安装介质</h3> <p>此处默认你使用 Windows 系统，其他情况请参阅<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://wiki.archlinux.org/title/USB_flash_installation_medium"  target="_blank" rel="nofollow">Arch Wiki</a>。</p> <ol> <li>下载 Arch Linux 最新的系统镜像，在<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://archlinux.org/download/"  target="_blank" rel="nofollow">下载页面</a> 下方找到 China 的镜像源，如<code>tuna.tsinghua.edu.cn</code>，下载文件名形如<code>archlinux-2022.04.05-x86_64.iso</code> 的 iso 镜像文件。</li> <li>下载<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://rufus.ie/zh/"  target="_blank" rel="nofollow">Rufus</a>，解压即用的便携版即可。</li> <li>使用 Rufus 将 Arch Linux 镜像装载到 U 盘，所有参数保持默认不修改即可，如果 U 盘内存放有数据请先备份。</li> </ol> <h3 id="磁盘分区">磁盘分区</h3> <blockquote> <p>重要提示：如果你的 Windows 电脑为磁盘加上了<strong>Bitlocker 锁</strong>，请务必解除后再进行任何磁盘操作，否则会为你带来巨大的不幸。</p> </blockquote> <p>此处默认 Arch Linux 与原系统安装在同一块硬盘上，如果你需要在一块新硬盘上安装，你还需要确定新硬盘的分区表为 GPT 格式，并新建一个 EFI 分区。具体的其他情况请查阅 Arch Wiki、<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.viseator.com/2017/05/17/arch_install/"  target="_blank" rel="nofollow">教程</a> 或自行搜索。</p> <ol> <li>使用 Windows 自带的磁盘管理，你可以直接在开始菜单中搜索找到它，或者右键单击计算机，选择管理。</li> <li><strong>压缩</strong> 有空余空间的磁盘分区，分配一块空间给 Arch Linux，越多越好，最小不要小于 60G。</li> <li>在压缩后的空闲空间新建一个简单卷（分区），卷标分配与格式化与否无所谓。</li> </ol> <blockquote> <p>说明：你也可以在进入 Arch Linux 安装程序后进行这一步。</p> </blockquote> <h2 id="bios-设置">BIOS 设置</h2> <p>不同品牌的电脑/主板进入 BIOS 设置的方法不一样，联想以及戴尔是在<strong>按下开机键出现品牌徽标时</strong> 按 F2（或 Fn+F2），启动菜单是按下 F12，其他品牌请自行搜索。</p> <p>各品牌 BIOS 设置界面各自不同，但需要做的事情大同小异。</p> <ol> <li> <p>关闭<code>Secure Boot</code>，Arch Linux 安装程序无法使用<code>Secure Boot</code> 启动，你可以在完成安装之后再启用此功能。</p> </li> <li> <p>某些品牌（如戴尔）的电脑可能不会在其他系统中默认开启网卡，需要在设置中启用<code>Enable UEFI Network Stack</code>。</p> </li> <li> <p>调整 BIOS 默认的启动顺序（<code>Boot Sequence</code> /<code>Boot Order</code>），检查是否有装载有 Arch Linux 的 U 盘，将其顺序调整到第一位（你也可以在计算机启动时手动进入启动菜单选择要启动的系统），保存 BIOS 设置并退出。</p> <blockquote> <p>说明：如果在这里找不到你的 U 盘（设备名形如<code>ARCH_202204</code> ），说明可能你的设备开启了<code>Secure Boot</code> 导致 BIOS 无法找到系统入口，保存 BIOS 设置退出后重新进行这一步即可。</p> </blockquote> </li> </ol> <h2 id="开始安装-arch-linux">开始安装 Arch Linux</h2> <p>完成了 BIOS 的设置后，重启计算机，我们应该进入到了 Arch Linux 的界面，选择第一个进入安装程序即可进入<code>zsh</code> 命令行界面。</p> <h2 id="连接网络与更新系统时间">连接网络与更新系统时间</h2> <blockquote> <p>说明：此部分问题较多，请耐心使用控制变量法以及搜索引擎进行问题排查。</p> </blockquote> <h3 id="事前故障排除">事前故障排除</h3> <p>解除可能出现的软硬件 block</p> <pre><code class="language-shell">rfkill unblock all</code></pre> <p>列出当前网络设备</p> <pre><code class="language-shell">ip link show</code></pre> <p>一般而言，无线网卡的名字默认为<code>wlan0</code>，检查其状态，若为<code>DOWN</code> 还需设置为<code>UP</code>，<em>wlan0</em> 请替换成此处显示的网卡名</p> <pre><code>ip link set wlan0 up</code></pre> <h3 id="连接有线网络">连接有线网络</h3> <p>不同型号的无线网卡的支持情况不同，若有条件推荐优先使用有线网网络进行连接，可以直接使用 USB 线将手机连接电脑使用手机的数据网络。</p> <p>接入网线或手机后，执行命令进行有线网连接</p> <pre><code>dhcpcd</code></pre> <p>测试网络是否联通</p> <pre><code>ping www.baidu.com</code></pre> <blockquote> <p>使用<code>Ctrl+C</code> 中止当前正在执行的命令</p> </blockquote> <h3 id="连接无线网络">连接无线网络</h3> <p>执行以下命令</p> <pre><code>iwctl</code></pre> <p>会进入一个以 [iwd] 开头的命令行环境中，接着执行：</p> <pre><code>device list</code></pre> <p>会列出当前可用的所有网卡设备，一般而言，无线网卡的名字默认为<code>wlan0</code>，接着执行下列命令进行无线网络的扫描：<code>wlan0</code> 请替换成此处显示的网卡名</p> <pre><code>station wlan0 scan</code></pre> <p>接着执行下列命令列出扫描到的网络：</p> <pre><code>station wlan0 get-networks</code></pre> <p>最后输入下列命令连接指定网络：<code>Wifi-SSID</code> 请切换成你想要连接的网络，输入密码回车即可连接成功。</p> <pre><code>station wlan0 connect Wifi-SSID</code></pre> <blockquote> <p>提示：单次或多次按下<code>Tab</code> 可以补全或选择可能的选项，免去输入校对之苦</p> </blockquote> <p>使用<code>quit</code> 退出<code>iwc</code>，测试网络是否联通</p> <pre><code>ping www.baidu.com</code></pre> <blockquote> <p>使用<code>Ctrl+C</code> 中止当前正在执行的命令</p> </blockquote> <blockquote> <p>提示：可以使用方向键的上、下键来查看曾经执行过的指令的历史记录</p> </blockquote> <h3 id="设置系统时间">设置系统时间</h3> <pre><code>timedatectl set-ntp true</code></pre> <p>操作成功无提示</p> <h2 id="分区的格式化与挂载">分区的格式化与挂载</h2> <blockquote> <p>警告：除非你清楚你自己在做什么，否则请不要对硬盘分区表、以及除前文新建的分区之外的分区进行任何操作，并且请多次检查自己有没有输错命令，以防对其他分区的数据产生影响。</p> <p>换而言之，只要你不对其他分区（Windows 相关分区）进行任何操作，就不需要担心有任何数据丢失的风险。</p> </blockquote> <h3 id="格式化数据分区">格式化数据分区</h3> <p>列出当前所有分区</p> <pre><code>fdisk -l</code></pre> <p>找到<strong>EFI System 分区</strong> 以及刚刚在 Windows 下建立的<strong>新分区</strong> ，<strong>记下这两个分区的路径</strong>（形如<code>/dev/nvme0n1p1</code> 与<code>/dev/nvme0n1p5</code>）。EFI 系统分区一般大小为 300-500M 不等。</p> <blockquote> <p>再次提示：单次或多次按下<code>Tab</code> 可以补全或选择可能的选项，免去输入校对之苦。<br /> 部分电脑蜂鸣器会在<code>Tab</code> 无法补全时发出刺耳的提示声，使用<code>rmmod pcspkr</code> 移除。</p> </blockquote> <p>格式化刚刚在Windows下新建的<strong>数据分区（替换为你自己的路径）</strong></p> <pre><code class="language-shell">mkfs.ext4 /dev/nvme0n1p5</code></pre> <h3 id="挂载分区">挂载分区</h3> <p>请将<code>nvme0n1p5</code> 替换为之前创建的数据分区，将<code>nvme0n1p1</code> 替换为已经存在的 EFI 系统分区</p> <pre><code>mount /dev/nvme0n1p5 /mnt</code></pre> <pre><code>mkdir /mnt/boot mount /dev/nvme0n1p1 /mnt/boot</code></pre> <p>检查挂载是否成功</p> <pre><code>mount</code></pre> <h2 id="配置包管理器与安装基本包">配置包管理器与安装基本包</h2> <p>Arch Linux 的包管理器<code>pacman</code> 十分强大，大部分情况下，一行命令就可以搞定包与依赖的问题。</p> <p>运行命令以配置<code>pacman</code> 所使用的镜像源，<code>Reflector</code> 会自动帮我们配置位于 China 的下载速度最快的镜像源</p> <pre><code>reflector --country China --sort rate --latest 5 --save /etc/pacman.d/mirrorlist</code></pre> <p>可能会报<code>WARNING</code> 但无需理会</p> <h3 id="学习-vim-的使用">学习 Vim 的使用</h3> <p>休息一下，接下来我们的所有文字编辑命令都需要使用<code>Vim</code>。推荐使用以下的链接进行学习，只需要掌握第一等级即可：</p> <blockquote> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://coolshell.cn/articles/5426.html"  target="_blank" rel="nofollow">简明 VIM 练级攻略</a></p> </blockquote> <p>打开<code>pacman</code> 设置，启用<code>pacman</code> 的并行下载功能，加速下载，事半功倍。</p> <pre><code>vim /etc/pacman.conf</code></pre> <p>找到<code>ParallelDownloads = 5</code> 这一行并取消其注释。</p> <h3 id="安装基本包">安装基本包</h3> <p>执行以下命令，安装 Arch Linux 所需要的基本包</p> <pre><code>pacstrap /mnt base base-devel linux linux-firmware dhcpcd</code></pre> <p>遇到需要选择的场合一路回车选择默认项即可。</p> <h2 id="生成-fstab-文件">生成 Fstab 文件</h2> <p>生成（Generate）自动挂载分区的<code>fstab</code> 文件（即文件系统表 File System Table）</p> <pre><code>genfstab -L /mnt &gt;&gt; /mnt/etc/fstab</code></pre> <p>由于这步比较重要，所以我们需要输出生成的文件来检查是否正确，执行以下命令：</p> <pre><code>cat /mnt/etc/fstab</code></pre> <p>如果前面的挂载操作没有出错，应该输出且<strong>仅输出</strong> 两条记录：（以你的磁盘分区情况为准）</p> <ul> <li> <p>根分区<code>/</code> 被挂载到了此前建立的<strong>数据分区</strong><code>/dev/nvme0n1p5</code></p> </li> <li> <p>引导分区<code>/boot</code> 被挂载到了<strong>硬盘已有的 EFI 系统分区</strong><code>/dev/nvme0n1p1</code></p> </li> </ul> <p>如果<code>fstab</code> 文件有任何错误，请先删除该文件。</p> <pre><code>rm -rf /mnt/etc/fstab</code></pre> <p>检查前面的挂载操作有没有出错，<code>umount</code> 之后再重新挂载、生成。</p> <h2 id="新系统的必要配置">新系统的必要配置</h2> <blockquote> <p>这里的配置流程虽然有些繁琐，但不会像前面的操作一样容易出错。</p> </blockquote> <h3 id="chroot">Chroot</h3> <p><code>Chroot</code> 意为<code>Change root</code> ，相当于把操纵权交给我们新安装（或已经存在）的<code>Linux</code> 系统，<strong>执行了这步以后，我们的操作都相当于在磁盘上新装的系统中进行</strong>。</p> <p>执行如下命令：</p> <pre><code>arch-chroot /mnt</code></pre> <p>顺带一提，如果以后系统出现了问题，只要插入任意一个安装有 Arch Linux 镜像的 U 盘并启动，将我们的系统根分区挂载到<code>/mnt</code> 下、EFI 系统分区挂载到<code>/mnt/boot</code> 下，再通过这条命令就可以进入我们的系统进行修复操作。</p> <h3 id="安装必要软件包">安装必要软件包</h3> <p>打开<code>pacman</code> 设置，启用<code>pacman</code> 的并行下载功能，加速下载，事半功倍。</p> <pre><code>vim /etc/pacman.conf</code></pre> <p>找到<code>ParallelDownloads = 5</code> 这一行并取消其注释，可以将<code>5</code> 调整为你想要的数值。</p> <p>目前，系统根目录已经从 U 盘切换到了硬盘中，需要安装一些必需的软件包</p> <pre><code>pacman -S vim dialog wpa_supplicant ntfs-3g networkmanager netctl</code></pre> <p>遇到需要选择的场合一路回车选择默认项即可。</p> <h3 id="设置时区地区与语言信息">设置时区、地区与语言信息</h3> <p>依次执行如下命令设置我们的时区为上海，并生成相关文件</p> <pre><code>ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime hwclock --systohc</code></pre> <p>执行如下命令，设置我们使用的语言选项</p> <pre><code>vim /etc/locale.gen</code></pre> <p>在文件中找到<code>en_US.UTF-8 UTF-8</code>、<code>zh_CN.UTF-8 UTF-8</code> 、<code>zh_HK.UTF-8 UTF-8</code> 及<code>zh_TW.UTF-8 UTF-8</code>  这四行，去掉行首的 # 号，保存并退出。</p> <p>执行如下命令，系统会生成我们需要的本地化文件</p> <pre><code>locale-gen</code></pre> <p>打开（不存在时会创建）<code>/etc/locale.conf</code>文件：</p> <pre><code>vim /etc/locale.conf</code></pre> <p>在文件的第一行加入以下内容</p> <pre><code>LANG=en_US.UTF-8</code></pre> <p>保存并退出</p> <h3 id="设置主机名">设置主机名</h3> <p>打开（不存在时会创建）<code>/etc/hostname</code> 文件：</p> <pre><code>vim /etc/hostname</code></pre> <p>在文件的第一行输入你自己设定的一个<code>myhostname</code>，这将会是你的<strong>计算机名</strong>，保存并退出。</p> <p>打开（不存在时会创建）<code>/etc/hosts</code> 文件：</p> <pre><code>vim /etc/hosts</code></pre> <p>在文件末添加如下内容（将<code>myhostname</code> 替换成你自己设定的主机名），保存并退出。</p> <pre><code>127.0.0.1	localhost ::1		localhost 127.0.1.1	myhostname.localdomain	myhostname</code></pre> <h3 id="设置-root-密码">设置 Root 密码</h3> <p><code>root</code> 账户是<code>Linux</code> 系统中的最高权限账户，需要设置密码保护起来，以免无意间实施了破坏性的敏感操作。</p> <pre><code>passwd</code></pre> <h3 id="新建用户与配置-sudo">新建用户与配置 sudo</h3> <blockquote> <p>关于这一步操作的说明，可以查看<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.viseator.com/2017/05/19/arch_setup/#%E6%96%B0%E5%BB%BA%E7%94%A8%E6%88%B7"  target="_blank" rel="nofollow">教程</a></p> </blockquote> <p>请自行替换<code>username</code> 为你想要使用的用户名</p> <pre><code>useradd -m -G wheel username</code></pre> <pre><code>passwd username</code></pre> <p>为了在普通用户下使用 root 操作，需要配置 sudo</p> <pre><code>pacman -S sudo</code></pre> <pre><code>vim /etc/sudoers</code></pre> <p>找到<code># %wheel ALL=(ALL)ALL</code>，取消注释并保存退出。</p> <blockquote> <p>或许有的人已经发现 Arch Wiki 和一些其他教程资料中的命令是以<code>#</code> 或<code>$</code> 开头的，这两个符号就对应着命令行中的命令提示符，<code>#</code> 代表以<code>Root</code> 用户执行命令，<code>$</code> 代表以普通用户执行命令，平时使用教程中的命令时应该注意这一点。</p> </blockquote> <h3 id="安装处理器微码">安装处理器微码</h3> <p>显然你应该根据你电脑的 CPU 型号选取一个包进行安装</p> <pre><code>pacman -S intel-ucode pacman -S amd-ucode</code></pre> <h2 id="配置系统引导">配置系统引导</h2> <p>此处使用<code>grub</code> 进行系统引导，先安装必要的包</p> <pre><code>pacman -S os-prober ntfs-3g grub efibootmgr</code></pre> <p>部署<code>grub</code></p> <pre><code>grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub</code></pre> <p>生成配置文件</p> <pre><code>grub-mkconfig -o /boot/grub/grub.cfg</code></pre> <p>检查文件末尾的<code>menuenrtry</code> 是否有 Arch Linux 入口</p> <pre><code>vim /boot/grub/grub.cfg</code></pre> <p>若有任何报错请查阅 Arch Wiki、教程或自行搜索。</p> <h2 id="创建交换文件">创建交换文件</h2> <p>交换文件可以在物理内存不足的时候将部分内存暂存到交换文件中，避免系统由于内存不足而完全停止工作。之前通常采用单独一个分区的方式作为交换分区，现在更推荐采用交换文件的方式，更便于我们的管理。分配一块空间用于交换文件，执行：</p> <pre><code>dd if=/dev/zero of=/swapfile bs=1M count=8192 status=progress</code></pre> <p>将<code>8192</code> 换成需要的大小，单位 Mb，一般与计算机 RAM 大小一致即可。</p> <p>更改权限，执行：</p> <pre><code>chmod 600 /swapfile</code></pre> <p>设置交换文件，执行：</p> <pre><code>mkswap /swapfile</code></pre> <p>启用交换文件，执行：</p> <pre><code>swapon /swapfile</code></pre> <p>最后我们需要编辑<code>/etc/fstab</code> 为交换文件设置一个入口，使用<code>Vim</code> 打开文件：</p> <pre><code>vim /etc/fstab</code></pre> <p><strong>注意编辑<code>fstab</code> 文件的时候要格外注意不要修改之前的内容，直接在最后新起一行加入以下内容</strong>：</p> <pre><code>/swapfile none swap defaults 0 0</code></pre> <h2 id="安装图形界面">安装图形界面</h2> <blockquote> <p>再次提醒，你应当开启<code>pacman</code> 的并行下载功能</p> <p>遇到需要选择的场合一路回车选择默认项即可</p> </blockquote> <p>安装 Xorg 图形服务</p> <pre><code>sudo pacman -S xorg</code></pre> <p>安装 KDE Plasma</p> <pre><code>sudo pacman -S plasma kde-applications</code></pre> <p>安装桌面管理器 sddm</p> <pre><code>sudo pacman -S sddm</code></pre> <p>设置 sddm 开机启动</p> <pre><code>sudo systemctl enable sddm</code></pre> <p>启用适用于桌面环境的网络服务<code>NetworkManager</code></p> <pre><code>sudo systemctl disable netctl sudo systemctl enable NetworkManager</code></pre> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4216.htm">windows查看所有连接过的wifi密码</a></p>
+                                                <p>下一个：<a href="/html/category/article-4218.htm">[ Shell ] 通过 Shell 脚本导出 GDSII/OASIS 文件</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

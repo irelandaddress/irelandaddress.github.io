@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4263.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>正确计算linux系统内存使用率 - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">正确计算linux系统内存使用率</h1>
+                          				  				  				<div id="content_views" class="htmledit_views"> <div class="artical-content-bak main-content editor-side-new"> <div class="con editor-preview-side" id="result"> <p>linux系统内存实际使用率</p> <p><a href="http://img.555519.xyz/uploads/20230207/bb05666758619eb0ce7b7487328b764b.jpg" rel="nofollow" class="fancybox" data-fancybox-group="button"><img decoding="async" border="0" alt="" src="http://img.555519.xyz/uploads/20230207/bb05666758619eb0ce7b7487328b764b.jpg"></a></p> <p><span class="FONTRED">图中的例子很典型，就是：多数的linux系统在free命令后会发现free（剩余）的内存很少，而自己又没有开过多的程序或服务。</span></p> <p><span class="FONTBLUE">对于上述的情况，正确的解释是：</span></p> <p>linux的内存管理机制与windows的有所不同。具体的机制我们无需知道，我们需要知道的是，linux的内存管理机制的思想包括（不敢说就是）内存利用率最大化。内核会把剩余的内存申请为cached，而cached不属于free范畴。当系统运行时间较久，会发现cached很大，对于有频繁文件读写操作的系统，这种现象会更加明显。</p> <p>直观的看，此时free的内存会非常小，但并不代表可用的内存小，当一个程序需要申请较大的内存时，如果free的内存不够，内核会把部分cached的内存回收，回收的内存再分配给应用程序。<span class="FONTBLUE">所以对于linux系统，可用于分配的内存不只是free的内存，还包括cached的内存（其实还包括buffers）</span>。</p> </p> <p>&nbsp;</p> <p>proc文件系统是一个伪文件系统，它只存在内存当中，而不占用外存空间。它以文件系统的方式为访问系统内核数据的操作提供接口。用户和应用程序可以通过proc得到系统的信息，并可以改变内核的某些参数。由于系统的信息，如进程，是动态改变的，所以用户或应用程序读取proc文件时，proc文件系统是动态从系统内核读出所需信息并提交的采集流程图。</p> <p><span class="FONTRED">/proc/meminfo 信息如下：</span></p> <p>需要使用的指标有：MemTotal ,MemFree,Buffers,Cached</p> <p>MemTotal:总内存大小<br /> MemFree: 空闲内存大小<br /> Buffers和Cached：磁盘缓存的大小</p> <p><span class="FONTBLUE">Buffers和Cached的区别：</span></p> <p>buffers 是指用来给块设备做的缓冲大小，他只记录文件系统的metadata以及 tracking in-flight pages.<br /> cached 是用来给文件做缓冲。<br /> buffers 是用来存储目录里面有什么内容，权限等等。<br /> 而cached直接用来记忆我们打开的文件，比如先后执行两次命令#man X ,你就可以明显的感觉到第二次的开打的速度快很多。<br /> 而buffers随时都在增加，比如先后两次使用ls /dev后，就会发现第二次执行的速度会较第一次快。<br /> 这就是buffers/chached的区别。</p> </p> <p>&nbsp;</p> <p>使用free命令可以看到</p> <p>&nbsp;<img decoding="async" border="0" alt="" src="http://img.555519.xyz/uploads/20230207/bb05666758619eb0ce7b7487328b764b.jpg"></p> <p>&nbsp;</p> <p><span class="FONTRED">对操作系统来说，Buffers和Cached是已经被使用的(上图Mem:这一行)</span><br /> &nbsp;</p> <pre>MemFree=total-used 314952=24946552-24631600 </pre> <p><span class="FONTRED">对应用程序来说（上图对应-/+ buffers/cache那一行）</span><br /> &nbsp;</p> <pre>MemFree=buffers+cached+free 19536392=152116+19069324+314952 </pre> <p>所以本着监控应用对物理内存使用情况的目的采取如下计算方法：<br /> &nbsp;</p> <pre>内存使用率(MEMUsedPerc)=100*(MemTotal-MemFree-Buffers-Cached)/MemTotal </pre> <p>在这里为了PatrolAgent的监控性能，采用定期读取/proc/meminfo文件来获取MemTotal ,MemFree,Buffers,Cached这些参数的值<br /> 该算法在MEMORY.km中实现。</p> <p>===============================================================</p> <p>通过看free命令的说明可以发现，free命令的数值是从/proc/meminfo文件重读取的。查看free的源码包查看其源码，明确知道了其中的每个数值的来源（具体内容可查看linux命令free源码解读：Procps free.c）。<br /> 有时我们计算内存使用率的时候会读取free命令的回显，但有时也会直接读取文件/proc/meminfo的内容，毕竟free命令的回显数据就是从meminfo文件中获得的。</p> <p>然而，由于不同的linux发行版，在系统制作过程中会修改部分源码。一般的系统（如Debian）使用free命令和读取meminfo文件两种方式计算的内存使用率是相同的。但是对于部分系统，如SUSE（并不确定是每个版本的都是，这里指SUSE Enterprise Server 11），其在free命令回显的结果中，cached部分的值并不等于meminfo文件中的cached所显示的值，而是等于meminfo文件中cached部分和SReclaimable部分之和。</p> <p>也就是说，debian之类的系统认为：</p> <pre>可用内存=free的内存+cached的内存+buffers的内存 </pre> <p>而SUSE之类的系统则认为：</p> <pre>可用内存=free的内存+cached的内存+buffers的内存+SReclaimable的内存 </pre> <p>PS:什么是SReclaimable？在linux内核中会有许多小对象，这些对象构造销毁十分频繁，比如i-node，dentry。这么这些对象如果每次构建的时候就向内存要一个页，而其实际大小可能只有几个字节，这样就非常浪费，为了解决这个问题就引入了一种新的机制来处理在同一页框中如何分配小存储器区，这个机制可以减少申请和释放内存带来的消耗，这些小存储器区的内存称为Slab。meminfo文件中标识了Slab的大小，而SReclaimable是指可收回Slab的大小。</p> <h3>2、下面分别从操作系统角度和应用程序角度来区别Buffers和Cached</h3> <h3>1、通过定期采集/proc文件系统内的meminfo文件来获取当前内存使用情况：</h3> </p></div> </div> <p>转载于:https://blog.51cto.com/loofeer/984111</p> </p></div> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4262.htm">Vue如何为GET或POST请求设置请求头_vue.js</a></p>
+                                                <p>下一个：<a href="/html/category/article-4264.htm">Python：多个tiff转csv，并按照像元合并成一个csv</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

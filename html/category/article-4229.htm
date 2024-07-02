@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4229.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>setup中的props和context - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">setup中的props和context</h1>
+                          				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2><a id="props_2" rel="nofollow"></a>props的使用：用于父子组件向子级组件传送数据</h2> <p>（1）在子级标签中写入要传送的数据</p> <pre><code class="prism language-javascript"><span class="token operator">&lt;</span>child<span class="token operator">:</span>msg<span class="token operator">=</span><span class="token string">"msg"</span> mdf<span class="token operator">=</span><span class="token string">"123"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>child<span class="token operator">&gt;</span></code></pre> <p>（2）子级组件接收</p> <pre><code class="prism language-javascript"><span class="token literal-property property">props</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">'msg'</span><span class="token punctuation">,</span><span class="token string">'mdf'</span><span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre> <p>（3）使用，直接使用即可</p> <pre><code class="prism language-javascript"><span class="token operator">&lt;</span>h3<span class="token operator">&gt;</span>msg<span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span>msg<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span>mdf<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>h3<span class="token operator">&gt;</span></code></pre> <p>如下图所示：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/002e36fa4f89dc500636f11a7c5656be.jpg" alt="setup中的props和context"></p> <h2><a id="context_31" rel="nofollow"></a>context的使用</h2> <p>context参数，是一个对象，里面有</p> <p>（1） attrs对象：获取当前组件标签上的所有属性，与props的区别：<br /> props在使用的时候，有个注册的过程，但是如果有的数据没有注册，依然可以通过context.attrs访问到</p> <p>例如：</p> <p>父组件：</p> <pre><code class="prism language-javascript"><span class="token operator">&lt;</span>child<span class="token operator">:</span>msg<span class="token operator">=</span><span class="token string">"msg"</span> mdf<span class="token operator">=</span><span class="token string">"123"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>child<span class="token operator">&gt;</span></code></pre> <p>子组件：我只接受了一个msg，mdf没有接收</p> <pre><code class="prism language-javascript"><span class="token literal-property property">props</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">'msg'</span><span class="token punctuation">]</span><span class="token punctuation">,</span></code></pre> <p>我怎么拿到mdf这个东西呢？这个时候可以通过context.attrs</p> <pre><code class="prism language-javascript"><span class="token function">setup</span><span class="token punctuation">(</span><span class="token parameter">props<span class="token punctuation">,</span>context</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>context<span class="token punctuation">.</span>attrs<span class="token punctuation">.</span>mdf<span class="token punctuation">)</span><span class="token punctuation">}</span></code></pre> <p>输出如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/0cfd46ba6aa1d525cdd6559dfba04ff7.jpg" alt="setup中的props和context"><br /> （2）emit方法：</p> <p>emit是用来分发事件的，分发事件的目的是通过在子组件元素上绑定事件，来触发父组件中的事件，<strong>来改变父组件的数据</strong>。</p> <p>用法：</p> <p>父组件：真正的改变数据的方法</p> <pre><code class="prism language-javascript"><span class="token comment">//@xxx="xxx"---通过emit</span><span class="token operator">&lt;</span>child<span class="token operator">:</span>msg<span class="token operator">=</span><span class="token string">"msg"</span> mdf<span class="token operator">=</span><span class="token string">"123"</span> @xxx<span class="token operator">=</span><span class="token string">"xxx"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>child<span class="token operator">&gt;</span><span class="token keyword">const</span><span class="token function-variable function">xxx</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">txt</span><span class="token operator">:</span>string</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span>   msg<span class="token punctuation">.</span>value<span class="token operator">+=</span> txt<span class="token punctuation">}</span><span class="token keyword">return</span><span class="token punctuation">{<!-- --></span>   msg<span class="token punctuation">,</span>   xxx<span class="token punctuation">}</span></code></pre> <p>子组件</p> <pre><code class="prism language-javascript"><span class="token operator">&lt;</span>button @click<span class="token operator">=</span><span class="token string">"emitxxx"</span><span class="token operator">&gt;</span>分发事件<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span><span class="token keyword">const</span><span class="token function-variable function">emitxxx</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span><span class="token comment">//xxx----父组件中的方法</span><span class="token comment">//'2123'---要给父组件传递的参数</span>   context<span class="token punctuation">.</span><span class="token function">emit</span><span class="token punctuation">(</span><span class="token string">'xxx'</span><span class="token punctuation">,</span><span class="token string">'2123'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token keyword">return</span><span class="token punctuation">{<!-- --></span>   emitxxx<span class="token punctuation">,</span><span class="token punctuation">}</span></code></pre> <p>具体流程：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/837f088d21a626feacda960c53c963ae.jpg" alt="setup中的props和context"></p> </div> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4228.htm">resttemplate  返回中文乱码解决</a></p>
+                                                <p>下一个：<a href="/html/category/article-4230.htm">Go语言学习——map_在线工具</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

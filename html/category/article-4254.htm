@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4254.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>记一次dotnet拆分包,并希望得大佬指点 - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">记一次dotnet拆分包,并希望得大佬指点</h1>
+                          				  				  				<h1 id="记一次dotnet拆分包并希望得大佬指点">记一次dotnet拆分包,并希望得大佬指点</h1> <p>之前做了一个用于excel导入导出的包, 定义了一些接口, 然后基于 NPOI EPPlus MiniExcel 做了三种实现</p> <p>接口大概长下面这样(现在可以在接口里面写静态函数了!)</p> <pre><code class="language-csharp">public interface IExcelReader {     // 根据一些条件返回下面的实现     public static IExcelReader GetExcelReader(string filePath, &lt;params&gt;)     {     } }</code></pre> <p>然后有对应三种实现</p> <pre><code class="language-csharp">public class NPOIReader: IExcelReader {}  public class EPPlusReader: IExcelReader {}  public class MiniExcel: IExcelReader {}</code></pre> <p>在使用时</p> <pre><code class="language-csharp">using var reader = IExcelReader.GetExcelReader("ExcelReader.xlsx", &lt;一堆杂七杂八的条件&gt;)</code></pre> <p>根据需要获取实例, 而<strong>不必去管</strong>什么 NPOI EPPlus MiniExcel</p> <p>用起来可以极大的降低心智负担, 也可以使用我认为比较 "人性化" 的操作</p> <p>这一堆东西都是写在一起的, 然后碰到了一些我比较在意的问题</p> <ol> <li>如果我只是更新了NPOI包的实现, 然后push了一个新的版本, 这就相当于其他的实现也被"升级"了, 尽管另外的实现没有任何变化, 我认为这样是不好的</li> <li>如果我只想使用 MiniExcel 的内容, 但由于三个实现写在了一起, NPOI 和 EPPlus 会被一起引入, 我认为这样是不好的</li> <li>如果我修改了接口<code>IExcelReader</code>, 那我必定需要同时修改对应的三个实现, 但是由于三个实现写在一起, 我必须将三个实现都改完测完, 然后才能push发包, 我认为这样是不好的</li> </ol> <p>因为这样那样的问题, 我开始考虑拆包了</p> <h2 id="初步构想">初步构想</h2> <p>一开始的想法是</p> <p>先把统一的接口和操作什么的东西抽出来, 做成一个Core包</p> <p>然后 NPOI EPPlus MiniExcel 相关的实现做成三个包, 都引用这个 Core</p> <p>如果代码中只用<code>IExcelReader</code> 这样的接口进行操作, 可以在不改变代码的前提下, 通过更换包引用(比如NPOI的包改为MiniExcel的包)轻松改变实现, 达成不同的效果</p> <p>但由于<strong>Core包是被引用的</strong>, 所以理论上来说<code>IExcelReader</code> 并不能像之前那样直接创建这三种实例</p> <p>碰到这种"我知道, 但是身不由己"的情况, 我想到了用委托来做</p> <pre><code class="language-csharp">// (大概是这么个感觉, 实际上我现在用的是字典) public static List&lt;Func&lt;string, IExcelReader&gt;&gt; Selector;</code></pre> <p>在Core中搞一个静态委托集合, 然后在那三个包中将创建对象的委托加到这个集合里, 之后在使用<code>IExcelReader.GetExcelReader("**.xlsx")</code> 时, 就可以通过这个委托集合获取到对应的实现了</p> <p>以上是我的大致思路</p> <h2 id="第一种尝试-静态构造函数">第一种尝试-静态构造函数</h2> <p>我最先想到的就是<strong>静态构造函数</strong></p> <p>毕竟<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/classes-and-structs/static-constructors"  target="_blank" rel="nofollow">微软的文档</a>上说了</p> <blockquote> <p>静态构造函数用于初始化任何静态数据，或执行仅需执行一次的特定操作。 将在创建第一个实例或引用任何静态成员之前自动调用静态构造函数。</p> </blockquote> <p>看描述还挺符合我的想法, 然后就有了如下代码</p> <pre><code class="language-csharp">public class NPOIExcelReader : IExcelReader {     static NPOIExcelReader()     {         Selector.Add((path) =&gt;         {             // 假装下面做了一堆事情             // ......             return new NPOIExcelReader(path);         });     } }</code></pre> <p>看着好像还行, 试了一下结果GG</p> <p>如果我只是使用<code>IExcelReader.GetExcelReader("**.xlsx")</code>, 则无法触发这个构造函数, 除非我在这之前调用一次<code>NPOIExcelReader</code>, 但这与我的设想差挺多的, 所以暂时放弃了这个方案, 另寻他法</p> <h2 id="第二种尝试-moduleinitializer">第二种尝试-ModuleInitializer</h2> <p>我觉得可能是因为<code>class</code> 太 "低" 了, 所以才无法触发静态构造函数</p> <p>然后我又想到了<code>ModuleInitializer</code>, 感觉这个总比<code>class</code> "高"一些, 不知道能不能实现我的想法</p> <pre><code class="language-csharp">internal class Init {     [ModuleInitializer]     public static void InitSelector()     {         Selector.Add((path) =&gt;         {             // 假装下面做了一堆事情             // ......             return new NPOIExcelReader(path);         });     } }</code></pre> <p>在NPOI包里写完上面的初始化之后我又尝试了一次, 结果还是GG......</p> <p>碰到了类似的问题, 如果不调用NPOI包内的东西, 则无法初始化</p> <h2 id="第三种尝试-appdomaincurrentdomainload">第三种尝试-AppDomain.CurrentDomain.Load</h2> <p>后来查看了<code>AppDomain.CurrentDomain.GetAssemblies()</code>, 发现程序运行时并没有加载 NPOI包 的程序集, 我觉得可能是因为这个原因才导致扑街的</p> <p>所以尝试在Core中用反射获取程序集(因为在代码中使用了<code>IExcelReader.GetExcelReader</code>, 所以可以触发Core包的<code>ModuleInitializer</code>初始化), 然后使用<code>AppDomain.CurrentDomain.load</code> 来加载</p> <pre><code class="language-csharp">public static class Init {     [ModuleInitializer]     public static void InitCellReader()     {         var files = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "我那几个包的实现.dll");         if (files.IsEmpty())             return;         var newAsses = files.Select(item =&gt; Assembly.LoadFrom(item)).ToList();         newAsses.ForEach(item =&gt; AppDomain.CurrentDomain.Load(item.FullName));     } }</code></pre> <p>运行之后打个断点, 确实执行了, 也确实加载到<code>AppDomain.CurrentDomain</code> 中了, 但是...还是没用, 全都木大木大了</p> <h2 id="绝望的尝试-反射activator">绝望的尝试-反射+Activator</h2> <p>既然发现问题出在 "不调用就不初始化" 上, 那我就调用一下...</p> <p>基于上面的第三种尝试, 尝试创建NPOI包中的实现, 能不能创建无所谓, 重要的是摆出一副 "我要调你" 的感觉, 然后初始化自己动起来</p> <p>还是写在Core包中</p> <pre><code class="language-csharp"> public static class Init {     [ModuleInitializer]     public static void InitCellReader()     {         var files = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "我那几个包的实现.dll");         if (files.IsEmpty())             return;         var newAsses = files.Select(item =&gt; Assembly.LoadFrom(item)).ToList();         newAsses.ForEach(item =&gt; AppDomain.CurrentDomain.Load(item.FullName));         var types = newAsses.SelectMany(s =&gt; s.GetTypes().Where(item =&gt; item.HasInterface(typeof(IExcelReader))));         types.ForEach(item =&gt;         {             try             {                 Activator.CreateInstance(item);             }             catch { }         });     } }</code></pre> <p>然后配合其他包的<code>Init</code>, 最后终于算是实现了我想要的效果</p> <p>但是实现的方式太丑陋了...不知道有没有更好, 更优雅的方式可以在运行或者编译的时候完成这个<strong>初始化操作</strong></p> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4253.htm">分布式缓存&#8211;缓存与数据库强一致场景下的方案</a></p>
+                                                <p>下一个：<a href="/html/category/article-4255.htm">深度学习网络篇——DenseNet</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

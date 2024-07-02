@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4171.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>SpringCloud基础（四）Spring Cloud Config：配置中心 - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">SpringCloud基础（四）Spring Cloud Config：配置中心</h1>
+                          				  				  				<div id="content_views" class="htmledit_views"> <h1>1、简介</h1> <p>Spring Cloud Config是一个分布式配置中心的解决方案，它为分布式系统提供了外部画的集中式管理功能，包含Config Server和Config Client</p> <p>简单来说，就是Spring Cloud Config利用git仓库进行配置维护。当有请求到达Config Server时，Config Server就会向git请求，拉取配置，让所有服务感知到配置文件。</p> <h1>2、简单使用</h1> <p>根据上一篇内容的项目构建，继续本次项目编写。</p> <p>新建项目，选择config server</p> <p><img fetchpriority="high" decoding="async" alt="" height="730" src="http://img.555519.xyz/uploads3/20220830/ba73a8c7d2a7b644346c0c718d506289.jpg"></p> <p>&nbsp;选择eureka client，完成构建</p> <p><img decoding="async" alt="" height="730" src="http://img.555519.xyz/uploads3/20220830/ffb47ec88ec6464efc3f4d25f9cdabee.jpg">&nbsp;在配置文件中，进行对应的配置</p> <pre><code>spring.application.name=spring-cloud-config-server server.port=8085  eureka.client.service-url.defaultZone=http://localhost:8081/eureka</code></pre> <p>&nbsp;配置完成后，还没有配置对应的git，因为Spring Cloud Config需要从git获取到配置，所以需要对git地址进行配置，在此就不放出用户名和密码了：</p> <pre><code>spring.cloud.config.server.git.uri=https://gitee.com/amidst_the_sun/spring-cloud-my-config-server.git spring.cloud.config.server.git.username= spring.cloud.config.server.git.password=</code></pre> <p>连接完成后，需要在git仓库中构建一个配置文件，如user.properties，内容如下：</p> <pre><code>spring.application.name=spring-cloud-user-provide server.port=8083 eureka.client.service-url.defaultZone=http://localhost:8081/eureka</code></pre> <p>可以对一个固定的url进行访问：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:8085/test/user-a.properties"  title="http://localhost:8085/test/user-a.properties" rel="nofollow">http://localhost:8085/test/user-a.properties</a></p> <p>或者：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:8085/test/user-a.json"  title="http://localhost:8085/test/user-a.json" rel="nofollow">http://localhost:8085/test/user-a.json</a></p> <p>为什么可以这样访问呢？</p> <p>这个配置文件的数据格式是可以在url的访问方式上进行定义，显示在网页上的数据格式也会呈现出对应的变化。</p> <p>定义的文件叫做user.properties，名字是user，但是直接用user作为名称是无法访问的，因为这有一种对应的映射关系。</p> <p>url和配置文件的映射关系，可以有以下几种访问方式：</p> <ol> <li>/{application}/{profile}/{lable}</li> <li>/{application}-{profile}.properties</li> <li>/{lable}/{application}-{profile}</li> </ol> <p>*application 应用</p> <p>*profile 环境（dev，prd，test）</p> <p>*label git仓库的分支名称，可以不写，默认为master</p> <p>因此，需要在user后面增加profile文件名作为访问路径，如果没有就随意定义一个就可以访问。</p> <p>再定义一个新的文件user-prd.properties</p> <pre><code>spring.application.name: spring-cloud-user-provide server.port: 8083 eureka.client.service-url.defaultZone: http://localhost:8081/eureka profile: prd</code></pre> <p>访问地址：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:8085/user-prd.properties"  title="http://localhost:8085/user-prd.properties" rel="nofollow">http://localhost:8085/user-prd.properties</a></p> <p>可以建立新的分支test，创建文件user.properties，进行访问：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:8085/test/user-a.properties"  title="http://localhost:8085/test/user-a.properties" rel="nofollow">http://localhost:8085/test/user-a.properties</a></p> <p>这样就验证完成了。</p> <p>除了指定文件，也可以指定文件的搜索范围，进行配置文件的分区隔离：</p> <pre><code>#相对搜索路径 spring.cloud.config.server.native.search-paths=</code></pre> <p>除了在git上进行定义，也可以在本地进行定义，配置为：</p> <pre><code>spring.profiles.active=native spring.cloud.config.server.native.search-locations=file:f:/properties/</code></pre> <h1>3、配置生效</h1> <h2>3.1、服务配置</h2> <p>简单的配置好config server肯定是不足以让其他服务读取到对应的git配置文件，想要做到这一点，还需要对各个服务进行配置。</p> <p>在一个需要进行统一配置管理的服务中，增加在git上的文件：spring-cloud-user-provide-prd.properties</p> <pre><code>spring.application.name=spring-cloud-user-provide server.port=8083 eureka.client.service-url.defaultZone=http://localhost:8081/eureka profile=prd</code></pre> <p>在对应的pom文件中，增加：</p> <pre><code>&lt;dependency&gt;     &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;     &lt;artifactId&gt;spring-cloud-config-client&lt;/artifactId&gt; &lt;/dependency&gt;</code></pre> <p>修改配置文件，去掉端口号，留下Eureka配置和服务名称，<br /> spring.cloud.config.discovery.service-id是config在eureka服务中的名称：</p> <pre><code>spring.application.name=spring-cloud-user-provide  spring.cloud.config.discovery.enabled=true spring.cloud.config.discovery.service-id=SPRING-CLOUD-CONFIG-SERVER spring.cloud.config.profile=test  eureka.client.service-url.defaultZone=http://localhost:8081/eureka</code></pre> <p>启动之后会发现，依旧找不到对应的配置文件，整个项目是按照对应的默认配置进行启动的。</p> <p>发生这种事情的原因是，git上的application.properties配置文件的优先级不够，优先加载本地的配置，为了能保证加载网络配置，还需要增加一个新的配置文件：bootstrap.properties，这个配置文件的加载优先级更高，能够保证一定会加载网络上配置中心的配置，由于版本的问题，2020.*之后的版本默认关闭了bootstrap.properties文件的加载，所以需要先增加jar包，在pom文件中添加：</p> <pre><code>&lt;dependency&gt;     &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;     &lt;artifactId&gt;spring-cloud-starter-bootstrap&lt;/artifactId&gt; &lt;/dependency&gt;</code></pre> <p>然后将application.properties配置文件中的配置复制到bootstrap.properties中，删除application.properties内容。</p> <p>启动项目，然后查看：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:8085/spring-cloud-user-provide-prd.properties"  title="http://localhost:8085/spring-cloud-user-provide-prd.properties" rel="nofollow">http://localhost:8085/spring-cloud-user-provide-prd.properties</a></p> <p>确认配置生效后，查看Eureka的界面：</p> <p><img decoding="async" alt="" height="270" src="http://img.555519.xyz/uploads3/20220830/43b85add87488ecdc147fbc59180354d.jpg"></p> <p>&nbsp;发现项目确实已经按照config中的配置启动了。</p> <p>可以再创建一个spring-cloud-user-provide-test.properties文件，将配置中心的spring.cloud.config.profile改为test</p> <pre><code>spring.cloud.config.profile=test</code></pre> <p>就可以发现，这个配置被改为了test文件的配置。</p> <h2>3.2、统一配置</h2> <p>除了分开的各种配置文件，还可以创建一个不带后缀的文件：spring-cloud-user-provide.properties，这个文件中可以增加一个配置：</p> <pre><code>userName=Jensen</code></pre> <p>prd，test这两个配置文件在进行查看的时候，<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:8085/spring-cloud-user-provide-prd.properties"  title="http://localhost:8085/spring-cloud-user-provide-prd.properties" rel="nofollow">http://localhost:8085/spring-cloud-user-provide-prd.properties</a></p> <p>可以发现，spring-cloud-user-provide.properties配置文件配置的内容会出现在带后缀的配置文件内，spring-cloud-user-provide.properties就是总配置文件。</p> <p>在总配置文件中的内容，userName是可以用@Value注解来引用的</p> <pre><code class="language-java">@Value("${userName}") private String userName;</code></pre> <p>&nbsp;如果在获取到userName的配置值之后，再更新配置文件，就会发现，在项目里的userName变量值没有发生改变，也就说，配置的动态更新不会通知到项目。</p> <p>如果想实现动态更新，就要使用消息总线，Spring Cloud Bus</p> <h1>4、Spring Cloud Bus 动态配置更新</h1> <p>想要实现动态更新，需要增加一些配置。</p> <p>首先要增加消息总线的jar包：</p> <pre><code>&lt;dependency&gt;     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;     &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt; &lt;/dependency&gt;</code></pre> <p>&nbsp;完成之后，在user-provider组件中增加配置，这个配置意味着可以监听配置的更新</p> <pre><code>management.endpoints.web.exposure.include=refresh</code></pre> <p>在user-provider组件中增加注解，@RefreshScope，开启刷新</p> <pre><code class="language-java">@RefreshScope @RestController public class UserController {      @Value("${userName}")     private String userName;      @GetMapping("/user")     public User queryUser() {         User user = new User();         user.setName("Lily");         user.setAge(18);         return user;     }      @GetMapping("/default")     public User queryDefaultUser() {         User user = new User();         user.setName(userName);         user.setAge(18);         return user;     }  }</code></pre> <p>之后再更新git上的配置内容，就会发现，数据还没有更新！</p> <p>因为想要项目感知到配置发生了变化，还需要主动进行一次刷新。</p> <p>以post方式执行接口：http://localhost:8083/actuator/refresh，可以看到结果：</p> <p><img loading="lazy" decoding="async" alt="" height="605" src="http://img.555519.xyz/uploads3/20220830/b936f7ba93818d94c452e55ddeccc7ff.jpg"></p> <p>可以看到，接口感知到配置版本更新了，哪一个配置项更新了，此刻再访问username接口，就可以发现，数据确实产生了变化。</p> <p>由此可见，想要自动感知配置变化，每次都需要执行一次接口，但这不现实。</p> <p>在gitee上，有一个功能：webhook</p> <p><img loading="lazy" decoding="async" alt="" height="737" src="http://img.555519.xyz/uploads3/20220830/87e7b5ed59227e0ff4506e001153f264.jpg"></p> <p>&nbsp;这个功能可以设定，在某些时候，比如代码被更新到库中时，执行某个方法，但是，这个方法必须要能被其他网络访问，也就是说，本地方法一定不行，必须要拥有一个服务器，在上面部署服务后，才能用这个功能进行配置更新。</p> </div> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4170.htm">es修改字段text类型为date类型</a></p>
+                                                <p>下一个：<a href="/html/category/article-4172.htm">我们如何卸载MySQL中的时间/日期处理？</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

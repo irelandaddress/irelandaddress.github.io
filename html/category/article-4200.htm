@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4200.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>spring boot Actuator之自定义Endpoint - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">spring boot Actuator之自定义Endpoint</h1>
+                          				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <blockquote> <p>本文基于spring boot 2.2.0 release版本。</p> </blockquote> <p>在上一篇文章《<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/weixin_38308374/article/details/114273724"  rel="nofollow">spring boot Actuator原理详解之启动</a>》详细介绍了在web环境下，Actuator是如何启动的，这里对流程做一个简单的总结：</p> <ol> <li>扫描所有@Endpoint注解的类，这些类都是Endpoint；</li> <li>使用过滤器对Endpoint对象进行过滤，没有被过滤掉的才可以进入下一步；</li> <li>读取Endpoint对象的每个方法，判断是否有@ReadOperation、@WriteOperation、@DeleteOperation三个注解，如果有，则针对每个被注解的方法创建操作对象Operation；</li> <li>根据操作对象、Endpoint对象、Endpoint名创建为RequestMappingInfo，并将其注册到spring mvc中；</li> <li>注册成功之后，Endpoint对象便可以对外提供服务。</li> </ol> <p>明白了上面整个启动流程之后，我们也可以编写一个自定义的Endpoint。<br /> 自定义Endpoint的关键点：</p> <ol> <li>类上必须有注解@Endpoint，注解必须设置id值，否则启动抛出如下异常：<code>Caused by: java.lang.IllegalStateException: No @Endpoint id attribute specified for XXXClass</code>；</li> <li>必须指定方法注解为下面三个中一个：<code>@ReadOperation、@WriteOperation、@DeleteOperation</code>；</li> <li>注解@Selector可以指定路径参数，比如<code>/actuator/caches/{cache}</code>花括号里面的内容是路径参数，我们可以在方法入参上添加@Selector来指定路径参数，比如<code>public String counters(@Selector int value)</code>；</li> <li>默认Endpoint对象的方法都是以json格式返回客户端，可以通过设置<code>@ReadOperation、@WriteOperation、@DeleteOperation</code>的produces属性指定其他格式。</li> </ol> <p>下面给出一个自定义Endpoint的例子：</p> <pre><code class="prism language-java"><span class="token comment">/**  * 统计方法该Endpoint对象的次数  */</span> <span class="token annotation punctuation">@Component</span> <span class="token annotation punctuation">@Endpoint</span><span class="token punctuation">(</span>id<span class="token operator">=</span><span class="token string">"counter"</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Counter</span>  <span class="token punctuation">{<!-- --></span>     <span class="token keyword">private</span> AtomicInteger cnt<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">AtomicInteger</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token annotation punctuation">@ReadOperation</span>     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">counter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">return</span> cnt<span class="token punctuation">.</span><span class="token function">getAndAdd</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>     <span class="token annotation punctuation">@ReadOperation</span>     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">counters</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Selector</span> <span class="token keyword">int</span> value<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">return</span> cnt<span class="token punctuation">.</span><span class="token function">getAndAdd</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <p>上面这个类只是一个示例，并没有实际意义。运行起来后，访问<code>http://localhost:8079/actuator/counter</code>，每次访问都会返回一个比之前大1的数字。</p> <p>我们还可以使用注解@EndpointWebExtension扩展已有的Endpoint。<br /> 下面是spring提供的对EnvironmentEndpoint的扩展：</p> <pre><code class="prism language-java"><span class="token annotation punctuation">@EndpointWebExtension</span><span class="token punctuation">(</span>endpoint <span class="token operator">=</span> EnvironmentEndpoint<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EnvironmentEndpointWebExtension</span> <span class="token punctuation">{<!-- --></span> 	<span class="token keyword">private</span> <span class="token keyword">final</span> EnvironmentEndpoint delegate<span class="token punctuation">;</span> 	<span class="token keyword">public</span> <span class="token function">EnvironmentEndpointWebExtension</span><span class="token punctuation">(</span>EnvironmentEndpoint delegate<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 		<span class="token keyword">this</span><span class="token punctuation">.</span>delegate <span class="token operator">=</span> delegate<span class="token punctuation">;</span> 	<span class="token punctuation">}</span>  	<span class="token annotation punctuation">@ReadOperation</span> 	<span class="token keyword">public</span> WebEndpointResponse<span class="token generics function"><span class="token punctuation">&lt;</span>EnvironmentEntryDescriptor<span class="token punctuation">&gt;</span></span> <span class="token function">environmentEntry</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Selector</span> String toMatch<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 		EnvironmentEntryDescriptor descriptor <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>delegate<span class="token punctuation">.</span><span class="token function">environmentEntry</span><span class="token punctuation">(</span>toMatch<span class="token punctuation">)</span><span class="token punctuation">;</span> 		<span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">WebEndpointResponse</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>descriptor<span class="token punctuation">,</span> <span class="token function">getStatus</span><span class="token punctuation">(</span>descriptor<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token punctuation">}</span>  	<span class="token keyword">private</span> <span class="token keyword">int</span> <span class="token function">getStatus</span><span class="token punctuation">(</span>EnvironmentEntryDescriptor descriptor<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 		<span class="token keyword">if</span> <span class="token punctuation">(</span>descriptor<span class="token punctuation">.</span><span class="token function">getProperty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 			<span class="token keyword">return</span> WebEndpointResponse<span class="token punctuation">.</span>STATUS_NOT_FOUND<span class="token punctuation">;</span> 		<span class="token punctuation">}</span> 		<span class="token keyword">return</span> WebEndpointResponse<span class="token punctuation">.</span>STATUS_OK<span class="token punctuation">;</span> 	<span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <p>就web环境下来说，如果扩展类的方法有与原类相同的http请求路径，那么扩展类会替换掉原来的方法，也就是说，访问该路径时，不会访问到原类的方法，而是访问到扩展类。</p> </p></div> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4199.htm">Redis缓存中间件详解</a></p>
+                                                <p>下一个：<a href="/html/category/article-4201.htm">vue实现动态列表尾部添加数据执行动画_vue.js</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

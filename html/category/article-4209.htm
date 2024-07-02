@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4209.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>springboot全局时间格式化 - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">springboot全局时间格式化</h1>
+                          				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <h2><a id="_0" rel="nofollow"></a>前言</h2> <p>这边一直用的返回参数加 @JsonFormat 注解的方式对日期进行格式化，但偶尔会出现忘记格式化（忘记添加注解的问题），遂在此添加全局配置，顺带做个笔记<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220903/896271aa509dd5162eebcc0ee0dc5123.jpg" alt="springboot全局时间格式化"></p> <h2><a id="1_5" rel="nofollow"></a>方法1：项目配置</h2> <p>这种方式只对 Date 类型生效</p> <pre><code class="prism language-yml"><span class="token comment"># 日期统一格式化</span><span class="token key atrule">spring</span><span class="token punctuation">:</span><span class="token key atrule">jackson</span><span class="token punctuation">:</span><span class="token key atrule">date-format</span><span class="token punctuation">:</span> yyyy<span class="token punctuation">-</span>MM<span class="token punctuation">-</span>dd HH<span class="token punctuation">:</span>mm<span class="token punctuation">:</span>ss<span class="token key atrule">time-zone</span><span class="token punctuation">:</span> GMT+8</code></pre> <p>下面这个也是亲测OK</p> <pre><code class="prism language-Properties"># 日期统一按时间戳返回 spring.jackson.serialization.write-dates-as-timestamps=true</code></pre> <h2><a id="JsonFormat_19" rel="nofollow"></a>方法二：@JsonFormat</h2> <p>部分格式化:@JsonFormat 注解需要用在实体类的时间字段上，对应的字段才能进行格式化。</p> <pre><code class="prism language-java"><span class="token annotation punctuation">@Getter</span><span class="token annotation punctuation">@Setter</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">TestTime</span><span class="token punctuation">{<!-- --></span><span class="token annotation punctuation">@JsonFormat</span><span class="token punctuation">(</span>locale<span class="token operator">=</span><span class="token string">"zh"</span><span class="token punctuation">,</span> timezone<span class="token operator">=</span><span class="token string">"GMT+8"</span><span class="token punctuation">,</span> pattern<span class="token operator">=</span><span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">)</span><span class="token keyword">private</span><span class="token class-name">Date</span> date<span class="token punctuation">;</span><span class="token keyword">private</span><span class="token class-name">LocalDateTime</span> localDateTime<span class="token punctuation">;</span><span class="token annotation punctuation">@JsonFormat</span><span class="token punctuation">(</span>locale<span class="token operator">=</span><span class="token string">"zh"</span><span class="token punctuation">,</span> timezone<span class="token operator">=</span><span class="token string">"GMT+8"</span><span class="token punctuation">,</span> pattern<span class="token operator">=</span><span class="token string">"yyyyMMdd"</span><span class="token punctuation">)</span><span class="token keyword">private</span><span class="token class-name">LocalDate</span> localDate<span class="token punctuation">;</span><span class="token annotation punctuation">@JsonFormat</span><span class="token punctuation">(</span>locale<span class="token operator">=</span><span class="token string">"zh"</span><span class="token punctuation">,</span> timezone<span class="token operator">=</span><span class="token string">"GMT+8"</span><span class="token punctuation">,</span> pattern<span class="token operator">=</span><span class="token string">"HHmmss"</span><span class="token punctuation">)</span><span class="token keyword">private</span><span class="token class-name">LocalTime</span> localTime<span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> <h2><a id="JsonComponent_39" rel="nofollow"></a>方法三：@JsonComponent</h2> <p>使用 @JsonComponent 注解自定义一个全局格式化类，分别对 Date 和 LocalDate 类型做格式化处理。</p> <pre><code class="prism language-java"><span class="token annotation punctuation">@JsonComponent</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">JsonComponentConfig</span><span class="token punctuation">{<!-- --></span><span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"${spring.jackson.date-format:yyyy-MM-dd HH:mm:ss}"</span><span class="token punctuation">)</span><span class="token keyword">private</span><span class="token class-name">String</span> pattern<span class="token punctuation">;</span><span class="token comment">/**      * date 类型全局时间格式化      */</span><span class="token annotation punctuation">@Bean</span><span class="token keyword">public</span><span class="token class-name">Jackson2ObjectMapperBuilderCustomizer</span><span class="token function">jackson2ObjectMapperBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span> builder<span class="token operator">-&gt;</span><span class="token punctuation">{<!-- --></span><span class="token class-name">TimeZone</span> tz<span class="token operator">=</span><span class="token class-name">TimeZone</span><span class="token punctuation">.</span><span class="token function">getTimeZone</span><span class="token punctuation">(</span><span class="token string">"UTC"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token class-name">DateFormat</span> df<span class="token operator">=</span><span class="token keyword">new</span><span class="token class-name">SimpleDateFormat</span><span class="token punctuation">(</span>pattern<span class="token punctuation">)</span><span class="token punctuation">;</span>             df<span class="token punctuation">.</span><span class="token function">setTimeZone</span><span class="token punctuation">(</span>tz<span class="token punctuation">)</span><span class="token punctuation">;</span>             builder<span class="token punctuation">.</span><span class="token function">failOnEmptyBeans</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">failOnUnknownProperties</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">featuresToDisable</span><span class="token punctuation">(</span><span class="token class-name">SerializationFeature</span><span class="token punctuation">.</span>WRITE_DATES_AS_TIMESTAMPS<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">dateFormat</span><span class="token punctuation">(</span>df<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">/**      * LocalDate 类型全局时间格式化      */</span><span class="token keyword">public</span><span class="token class-name">LocalDateTimeSerializer</span><span class="token function">localDateTimeDeserializer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token keyword">new</span><span class="token class-name">LocalDateTimeSerializer</span><span class="token punctuation">(</span><span class="token class-name">DateTimeFormatter</span><span class="token punctuation">.</span><span class="token function">ofPattern</span><span class="token punctuation">(</span>pattern<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token annotation punctuation">@Bean</span><span class="token keyword">public</span><span class="token class-name">Jackson2ObjectMapperBuilderCustomizer</span><span class="token function">jackson2ObjectMapperBuilderCustomizer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span> builder<span class="token operator">-&gt;</span> builder<span class="token punctuation">.</span><span class="token function">serializerByType</span><span class="token punctuation">(</span><span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span><span class="token function">localDateTimeDeserializer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> </div> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4208.htm">android系统修改深色模式（Dark theme） 默认值</a></p>
+                                                <p>下一个：<a href="/html/category/article-4210.htm">SpringBoot 上传/返回图片与Base64转换</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

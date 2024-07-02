@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4169.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>java 示例讲解循环语句的使用_java_ - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">java 示例讲解循环语句的使用_java_</h1>
+                          				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">1.跳转控制语句：</a></li> <li><a href="#_label1" rel="nofollow">2.循环嵌套：</a></li> <li><a href="#_label2" rel="nofollow">3.Random</a></li> </ul> </div> <p>目录</p> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>1.跳转控制语句：</h2> <p>区分continue和break；</p> <p> * continue：用于循环中，基于条件控制，跳过某次循环体内容的执行，继续下一次的执行；</p> <p> * break：用于循环中，基于条件控制，终止循环体内容的执行，也就是说结束当前的整个循环；</p> <p>示例代码：</p> <div class="ay1code"> <pre class="brush:java;">public static void main(String[] args) {      int i;      for (i=1;i&lt;=5;i++){      	if(i%2==0){      		//continue;      		break;      	}      	System.out.println(i);      }     	}</pre> </div> <p>如果条件控制语句为continue，则控制台输出结果为1,3,5，i=1，对于if后的条件判断语句（1%2==0），结果为false，跳过循环体内容的执行，在控制台输出1；i++，i=2，对于if后的条件判断语句结果为true，跳过system.out.println(i);的执行，i++=3....</p> <p>如果条件控制语句为break，则在控制台输出结果为1，i=1，对于if后的条件判断语句（1%2==0），结果为false，然后终止循环体内容的执行，在控制台只输出一个1；</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>2.循环嵌套：</h2> <p>循环语句嵌套概述</p> <p>* 顺序语句： 以分号结尾，表示一句换的结束；</p> <p>* 分支语句： 一对大括号表示if的整体结构，整体描述一个完整的if语句</p> <p>                     一对大括号表示Switch的整体结构，整体描述一个完整的Switch语句</p> <p>* 循环语句： 一对大括号表示for的整体结构，整体描述一个完整的for语句</p> <p>                     一对大括号表示while的整体结构，整体描述一个完整的while语句</p> <p>                      do...while以分号结尾，整体描述一个完整的do...while语句</p> <p>示例代码：利用循环嵌套在控制台输出一天的小时和分钟</p> <div class="ay1code"> <pre class="brush:java;">	public static void main(String[] args) {     		for (int hour=0;hour&lt;24;hour++){  			for(int minute=0;minute&lt;60;minute++){  				System.out.println(hour+"时"+minute+"分");  			}  		}  	}</pre> </div> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>3.Random</h2> <p>Random的作用和使用步骤</p> <p>作用：用于产生一个随机数</p> <p>使用步骤：</p> <p>1. 导包</p> <div class="ay1code"> <pre class="brush:java;">import java.util.Random;</pre> </div> <p>导包的动作必须出现在类定义的上面</p> <p>2.创建对象</p> <div class="ay1code"> <pre class="brush:java;">Random r = new Random();</pre> </div> <p>上面这个格式中r为变量名，可以改变，其它的都不允许改变</p> <p>3.获取随机数</p> <div class="ay1code"> <pre class="brush:java;">int number = r.nextInt(100);   //获取随机数范围为：[0.100) ,前闭后开</pre> </div> <p>上面这个格式中，number为变量名，可以改变，100为获取随机数范围，可以改变，其它都不允许改变</p> <p>代码示例：获取100以内的随机数[0.100)，并打印在控制台</p> <div class="ay1code"> <pre class="brush:java;">import java.util.Random;     public class text051 {     	public static void main(String[] args) {  		Random r = new Random();  		int number=r.nextInt(100);  		System.out.println(number);     	}     }</pre> </div> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4168.htm">tf.train.latest_checkpoint()报错，路径错误</a></p>
+                                                <p>下一个：<a href="/html/category/article-4170.htm">es修改字段text类型为date类型</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

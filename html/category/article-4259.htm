@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4259.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>Spring boot将图片转成base64,使用sun.misc.BASE64Decoder转换图片 - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">Spring boot将图片转成base64,使用sun.misc.BASE64Decoder转换图片</h1>
+                          				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h1><a id="_0" rel="nofollow"></a>一、前情</h1> <p>本来项目要求的是后台给前端返回文件的地址，前端可以读取文件，图片或者pdf文件都能读取到，pdf根据浏览器会有显示和下载两种情况，doc等其他类型需要联网使用微软公司的接口。但是这样就暴露了服务器存放文件的地址，所以更改为把图片大小限制后转成base64编码持久化保存。</p> <h1><a id="_2" rel="nofollow"></a>二、导包</h1> <p>pom文件直接导入：</p> <pre><code>&lt;!-- 图片转base64 --&gt;         &lt;!-- https://mvnrepository.com/artifact/com.slzx.third/sun.misc.BASE64Decoder --&gt; 		&lt;dependency&gt; 		    &lt;groupId&gt;com.slzx.third&lt;/groupId&gt; 		    &lt;artifactId&gt;sun.misc.BASE64Decoder&lt;/artifactId&gt; 		    &lt;version&gt;1.0&lt;/version&gt; 		&lt;/dependency&gt;</code></pre> <p>就是文件下载不下来，就直接把jar包下载下来放到本地mvn库中<br /> 路径不变<br /> 进cmd后输入</p> <pre><code>mvn install:install-file -DgroupId=com.slzx.third -DartifactId=sun.misc.BASE64Decoder -Dversion=1.0 -Dpackaging=jar -Dfile=D:\software\sunmiscbase64decoder\sun.misc.BASE64Decoder.jar</code></pre> <h1><a id="_20" rel="nofollow"></a>三、使用</h1> <p>@param imgFilePath 待处理图片的地址<br /> @return 注意这里只返回图片的base64编码，没有文件类型》》data:image/png;base64,添加类型信息后可以在img标签中显示</p> <pre><code>package com.psbc.pfpj.utils;  import java.io.File; import java.io.FileInputStream; import java.io.FileOutputStream; import java.io.IOException; import java.io.InputStream; import java.io.OutputStream;  import Decoder.BASE64Decoder; import Decoder.BASE64Encoder;  public class ImgTypeConvert { 	 	/** 	 * 将图片转换成Base64编码 	 *  	 * @param imgFilePath  待处理图片文件的地址 	 * @return 注意这里只返回图片的base64编码，没有文件类型》》data:image/png;base64,添加类型信息后可以在img标签中显示 	 */ 	public static String getImgStr(String imgFilePath) { 		// 将图片文件转化为字节数组字符串，并对其进行Base64编码处理 		File file=new File(imgFilePath); 		InputStream in = null; 		byte[] data = null; 		// 读取图片字节数组 		try { 			in = new FileInputStream(file); 			data = new byte[in.available()]; 			in.read(data); 			in.close(); 			if(data!=null&amp;&amp;data.length&gt;0){ 				//删除图片 //				file.delete(); 			} 		} catch (IOException e) { 			e.printStackTrace(); 		} 		 		BASE64Encoder encoder = new BASE64Encoder(); 		return encoder.encode(data); 	} 	          public static void main(String[] args) {     	String base64 = ImgTypeConvert.getImgStr("C:\\Users\\28054\\Pictures\\QQ浏览器截图\\QQ浏览器截图20210112094524.png"); 		System.out.println(base64); 		System.out.println(ImgTypeConvert.GenerateImage(base64, "D:\\a.jpg")); 		 	}          /** 	 * @Description: 将base64编码字符串转换为图片 	 * @Author:  	 * @CreateTime:  	 * @param imgStr base64编码字符串 	 * @param path 图片路径-文件名自己定义 	 * @return 	*/      public static boolean GenerateImage(String imgStr,String imgFilePath)       {   //对字节数组字符串进行Base64解码并生成图片           if (imgStr == null) //图像数据为空               return false;           BASE64Decoder decoder = new BASE64Decoder();           try            {               //Base64解码               byte[] b = decoder.decodeBuffer(imgStr);               for(int i=0;i&lt;b.length;++i)               {                   if(b[i]&lt;0)                   {//调整异常数据                       b[i]+=256;                   }               }               //生成图片               OutputStream out = new FileOutputStream(imgFilePath);                   out.write(b);               out.flush();               out.close();               return true;           }            catch (Exception e)            {               return false;           }       }               }</code></pre> </div> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4258.htm">Springboot 使用Maven实现多环境打包</a></p>
+                                                <p>下一个：<a href="/html/category/article-4260.htm">在Vue3项目中使用pinia代替Vuex进行数据存储</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

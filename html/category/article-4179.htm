@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4179.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>css的相对定位和绝对定位 - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">css的相对定位和绝对定位</h1>
+                          				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>css标签的相对定位和绝对定位是通过position属性来控制的，相对定位和绝对定位不改变元素的大小形状，只改变元素的位置。</p> <p>一、position属性的值有以下几种：<br /> static:默认值，没有定位，元素出现在正常的流中。<br /> absolute:使用绝对定位，相对于static定位以外的最近一个祖先元素进行定位。元素的位置通过left,top,right以及bottom属性进行规定。<br /> relative:使元素相对定位，相对于自己的正常位置进行定位。<br /> fixed:使元素绝对定位，相对于浏览器窗口进行定位。元素的位置通过left,top,right以及bottom属性进行规定。<br /> inherit:规定应该从父元素继承position属性的值。</p> <p>一个没有使用定位的例子：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220707/34e0dc8fe7f2db866ea429c302583c70.jpg" alt="css的相对定位和绝对定位"><br /> 显示结果如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220707/6fa0777e68cfd48a527bde46fc71de5c.jpg" alt="css的相对定位和绝对定位"></p> <p>二、相对定位<br /> 相对定位的参考点是标签定位之前的位置，不是相对于父节点、同级节点或浏览器。</p> <pre><code>   相对定位的元素，通过 left、right 属性来定义水平偏移量，top、bottom 属性来定义垂直偏移量。left 表示相对于原本位置的左外边界右移的距离，right 表示相对于原本位置的右外边界左移的距离，top 表示相对于原本位置的上外边界下移的距离，bottom 表示相对于原本位置的下外边界上移的距离。并且，偏移量可以是正值，也可以是负值，负值表示向相反的方向移动。     left、right、top、bottom 这 4 个属性的值，可以是长度值（可以是绝对单位或相对单位），也可以是百分比。使用百分比时，水平偏移量根据其父元素 width 属性的值计算得到，垂直偏移量根据其父元素 height 属性的值计算得到。需要注意的是，在设置偏移时，如果父元素没有显式定义 height 属性，就等同于 height 属性的值为 0。</code></pre> <p>对上例进行修改，对div2使用相对定位：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220707/f3b5f54752c75ed554a592dc306bfe30.jpg" alt="css的相对定位和绝对定位"><br /> 效果如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220707/238007f754bc27a7316823314b8a4cae.jpg" alt="css的相对定位和绝对定位"></p> <p>三、绝对定位：<br /> 绝对定位相对于最近的定位的祖先元素进行定位，如果没有祖先元素，他便使用文档主体（body）即浏览器，并随页面滚动一起移动；如果父级有定位则看父级，如果父级没有定位则继续向上找父级。<br /> 绝对定位的元素是脱离文档流的，即直接在标准流中删除，所以元素原来的位置会被占用。<br /> 对上例进行修改（无父节点）：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220707/639f7d3d030780eb599b571cedda449e.jpg" alt="css的相对定位和绝对定位"><br /> 效果如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220707/333d91e8be7fd71c51f2aa152e9c30a1.jpg" alt="css的相对定位和绝对定位"><br /> 再如（父节点有定位）：<br /> 不使用绝对定位时：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220707/e0848fb7548bde998da913154ae8e995.jpg" alt="css的相对定位和绝对定位"><br /> 效果如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220707/2487dad783f1c41ac6a432a11875022a.jpg" alt="css的相对定位和绝对定位"><br /> 使用绝对定位：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220707/2dded04e9a8c0b4ecf8d487b32ddf594.jpg" alt="css的相对定位和绝对定位"><br /> 效果如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220707/6b65f03fda0ed5e50eecfd247fe6d394.jpg" alt="css的相对定位和绝对定位"></p> </div> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4178.htm">JRebel热部署的使用</a></p>
+                                                <p>下一个：<a href="/html/category/article-4180.htm">1-100 内素数的查找 &#8211; c语言</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4198.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>spring-cloud之Feign服务调用降级 - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">spring-cloud之Feign服务调用降级</h1>
+                          				  				  				<div id="content_views" class="htmledit_views"> <h2 style="margin-left:0cm;">服务雪崩</h2> <p style="margin-left:0cm;"><img fetchpriority="high" decoding="async" alt="" class="has" height="99" src="http://img.555519.xyz/uploads/20221120/013ac302d42d941d3d2ac051b4bb66a8.jpg"></p> <p style="margin-left:0cm;">如图-1，如果所有服务A/B/C网络/应用等都正常，同时能够快速的处理请求并返回，服务之间就可以正常的调度。</p> <p style="margin-left:0cm;"><img decoding="async" alt="" class="has" height="137" src="http://img.555519.xyz/uploads/20221120/79a7ff934ff123280b7c3a0ce18d9f95.jpg"></p> <p style="margin-left:0cm;">&nbsp;&nbsp;&nbsp; 如图-2，如果A服务出现异常情况（网络异常/内部数据库异常等）无法在指定的时间内返回B服务结果，那么由于C服务会持续的请求B服务，最终导致B服务积压了大量的请求而服务器奔溃不可用。</p> <p style="margin-left:0cm;"><img decoding="async" alt="" class="has" height="161" src="http://img.555519.xyz/uploads/20221120/913fb80caf95552a82a7bb5694523ba7.jpg"></p> <p style="margin-left:0cm;">&nbsp;&nbsp;&nbsp; 如图-3，B服务由于A服务的不可用导致自身请求积压而崩溃，所以所有的请求蔓延到下游的C服务，最终也导致C服务不可用崩溃，如图-4所示。</p> <p style="margin-left:0cm;"><img loading="lazy" decoding="async" alt="" class="has" height="94" src="http://img.555519.xyz/uploads/20221120/6c639aaa318712535130701d6583aaf5.jpg"></p> <p style="margin-left:0cm;">&nbsp;&nbsp;&nbsp; 综上所述：服务雪崩就是由于上游（例如A）的服务异常不可用，最终蔓延到下游的所有服务，导致所有相关下游的微服务应用不可用而系统崩溃。</p> <h2 style="margin-left:0cm;">Feign使用Hystrix实现降级</h2> <h3 style="margin-left:0cm;">Hystrix简介</h3> <p style="margin-left:0cm;">&nbsp;&nbsp;&nbsp; Hystrix是由Netfix开源的一个延迟和容错工具库，用于解决远程调用/服务或者第三方库防止级联失败提示系统的可用性和容错性。</p> <h3 style="margin-left:0cm;">Feign整合Hystrix</h3> <p style="margin-left:0cm;">&nbsp;&nbsp;&nbsp; 之前的博文介绍过了spring cloud服务调用的两种方式，但是由于ribbon方式没有feign便捷。所以这里就只介绍feign方式使用htstrix实现服务降级，避免雪崩。</p> <p><strong>Maven依赖</strong></p> <p style="margin-left:0cm;">&nbsp;&nbsp;&nbsp; 由于spring cloud版本有差异，所以需要说明一下我这里使用的spring boot是2.1.5.RELEASE版本，所以依赖的hystrix如下。如spring boot是1.X版本artifactId应该是spring-cloud-starter-hystrix。Version属性可以不填，会根据spring boot自动配置找到对应的版本。</p> <pre class="has"><code class="language-html">&lt;dependency&gt;     &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;     &lt;artifactId&gt;spring-cloud-starter-netflix-hystrix&lt;/artifactId&gt; &lt;/dependency&gt;</code></pre> <p><strong>Application配置文件</strong></p> <p style="margin-left:0cm;">&nbsp;&nbsp;&nbsp; Feign开启支持hystrix的方式是在配置文件中添加feign.hystrix.enabled=true。这个值默认是false，所以需要开启。</p> <p><strong>添加降级类</strong></p> <p style="margin-left:0cm;">&nbsp;&nbsp;&nbsp; Feign服务熔断降级其实是通过调度超时就调用本地的方法，而不是一直等待服务返回。Feign调度服务是通过接口+注解方式的，我们需要实现该接口用于实现服务降级调用本地方法。</p> <pre class="has"><code class="language-java">@Component public class UserFeignClientFallback implements UserFeignClientInterface {       @Override     public String get(String name) {         return "error " + name;     } }</code></pre> <p><strong>Feign接口类</strong></p> <p style="margin-left:0cm;">&nbsp;&nbsp;&nbsp; 主要是通过@FeignClient的fallback属性定义降级后调用那个类的方法，这里方法名称等都是一致才可以。</p> <pre class="has"><code class="language-java">@FeignClient(name = "PROVIDER-USER",         fallback = UserFeignClientFallback.class) public interface UserFeignClientInterface {      @GetMapping(value = "/get")     String get(@RequestParam(value = "name") String name);  }</code></pre> <p><strong>验证步骤</strong></p> <ol> <li>启动注册中心</li> <li>启动服务提供者</li> <li>启动服务消费者</li> <li>访问服务消费者，看是否正常调度服务提供者的方法</li> <li>关闭服务提供者</li> <li>访问服务消费者，看是否正常调度本地方法返回</li> <li> <h1></h1> </li> </ol> </div> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4197.htm">AsyncLocal&lt;T&gt;在链路追踪中的应用_在线工具</a></p>
+                                                <p>下一个：<a href="/html/category/article-4199.htm">Redis缓存中间件详解</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

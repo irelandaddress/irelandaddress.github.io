@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4238.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>通过winsw将SpringBoot可运行jar包做成后台服务，启动运行 - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">通过winsw将SpringBoot可运行jar包做成后台服务，启动运行</h1>
+                          				  				  				<div id="content_views" class="htmledit_views"> <h2>一，背景</h2> <p>因为网络限制，目前开发的一个SpringBoot项目不能部署到Linux设备上，必须要部署到Windows上。在Linux设备上后台启动SpringBoot项目只需要一条命令：<strong>nohup sh run.sh &amp;，</strong>run.sh脚本包含了启动SpringBoot项目的命令。在windows上后台启动SpringBoot项目貌似就比较尴尬，没有那么好用的命令来后台启动项目，打成war包放到Tomcat等web容器中就浪费了SpringBoot内嵌web容器的优势。在网络上搜肠刮肚一番，最终选择了<strong>winsw(</strong><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/kohsuke/winsw/releases"  rel="nofollow">https://github.com/kohsuke/winsw/releases</a><strong>)</strong>，winsw是一个可以将任何应用程序注册成服务的软件。嗯，就是她了，哈哈哈。</p> <h2>二，步骤</h2> <p>a，去上面给出的链接里下载自己所需的文件，选择了最新版本的winsw。主要需要下载两个文件，一个是sample-minimal.xml和WinSW.NET4.exe(WinSW.NET2.exe也行)。</p> <p><img fetchpriority="high" decoding="async" alt="" class="has" height="347" src="http://img.555519.xyz/uploads/20230112/e37d1fbe2d3c802d05dedfe9a3bce853.jpg"></p> <p>a.+，下载winsw后，在window上安装 .net framework4&nbsp;，否则后面会出问题。（很重要）</p> <p>b，SpringBoot项目通过执行<strong>mvn clean package</strong>命令后得到可执行jar包：statement-0.0.1-SNAPSHOT.jar。</p> <p>c，将sample-minimal.xml和WinSW.NET4.exe改为statement-0.0.1-SNAPSHOT.xml和statement-0.0.1-SNAPSHOT.exe，文件名保持一致，方便后续操作。（<strong>jar包、.exe文件、.xml文件均在同一目录下</strong>）</p> <p>d，在statement-0.0.1-SNAPSHOT.xml文件中&lt;configuration&gt;标签内进行相关配置，如下。</p> <pre class="has"><code>&lt;configuration&gt;      &lt;!-- ID of the service. It should be unique accross the Windows system--&gt;   &lt;!--服务ID：启动、关闭、删除服务时，都是通过ID来操作的--&gt;   &lt;id&gt;statement-0.0.1-SNAPSHOT&lt;/id&gt;   &lt;!-- Display name of the service --&gt;   &lt;!--服务名称--&gt;   &lt;name&gt;statement-0.0.1-SNAPSHOT (powered by WinSW)&lt;/name&gt;   &lt;!-- Service description --&gt;   &lt;!--服务描述--&gt;   &lt;description&gt;This service is a service for Statement Project（http://www.eachtravel.com/）&lt;/description&gt;      &lt;!-- Path to the executable, which should be started --&gt;   &lt;!--当前电脑配置了java环境变量，直接写成“java”就行；你也可以写成类似这样：D:\develop\jdk1.8\jre\bin\java--&gt;   &lt;executable&gt;java&lt;/executable&gt;      &lt;!--启动参数--&gt;   &lt;arguments&gt;-jar statement-0.0.1-SNAPSHOT.jar&lt;/arguments&gt;   &lt;!--&lt;arguments&gt;-jar "C:\Users\Administrator\Desktop\winsw\statement-0.0.1-SNAPSHOT.jar"&lt;/arguments&gt;--&gt;   &lt;!--日志配置--&gt;   &lt;logmode&gt;rotate&lt;/logmode&gt;      &lt;/configuration&gt;</code></pre> <p>e，到此就完成了配置，可以安装并启动服务了</p> <p>e1，进入到三个文件的目标目录（比如target）,执行命令：statement-0.0.1-SNAPSHOT.exe install，安装服务。</p> <p>e2，安装服务成功后，通过命令：net start&nbsp;statement-0.0.1-SNAPSHOT(服务ID)启动服务。</p> <p><img decoding="async" alt="" class="has" height="237" src="http://img.555519.xyz/uploads/20230112/e14c0db9dc39be1ffbb27cc3eead4bd2.jpg"></p> <p>当然，也可以通过在开始那里输入：services.msc命令直接进入服务界面，通过服务ID找到服务，然后手动启动。</p> <p>&nbsp;<img decoding="async" alt="" class="has" height="343" src="http://img.555519.xyz/uploads/20230112/85504482b18c3bdf8de0cf38bc80f0f3.jpg"></p> <p>e3，通过命令：net stop statement-0.0.1-SNAPSHOT&nbsp;停止服务，或者是直接去服务界面手动停止服务。</p> <p>e4，停止服务后，可通过：sc delete ServiceName删除服务</p> <p><img loading="lazy" decoding="async" alt="" class="has" height="59" src="http://img.555519.xyz/uploads/20230112/54a107df87ff21919d3501a24f2fa4bf.jpg"></p> <p>e4,查找windows service的PID：SC queryex service_name</p> <p><img loading="lazy" decoding="async" alt="" class="has" height="179" src="http://img.555519.xyz/uploads/20230112/c82b75d22eaae4c6dd2352d1fb4ecb32.jpg"></p> <h2>三，总结&nbsp;</h2> <p>虽然不难，但还是捣鼓了好久，哈哈，记录下来，留个纪念！</p> </p></div> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4237.htm">Promise和async/await的区别</a></p>
+                                                <p>下一个：<a href="/html/category/article-4239.htm">CSS中的几种图片覆盖文本的方法</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

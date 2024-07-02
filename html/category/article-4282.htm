@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4282.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>JDK7的try-with-resource方式的使用 - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">JDK7的try-with-resource方式的使用</h1>
+                          				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>如果使用传统try-catch-finally管理资源链接，代码可能是下面这样，finally代码远远多于业务代码。 <br /><img decoding="async" src="http://img.555519.xyz/uploads/20230224/1fc49bb3150cf3b8a5a530b90284fdc1.jpg" alt="JDK7的try-with-resource方式的使用"><br /> 为了增加代码可读性和可维护性，建议使用jdk7 提供的新特性try-with-resource（只能在表面上省去finally块关闭资源的逻辑）： <br /><img decoding="async" src="http://img.555519.xyz/uploads/20230224/ae69b214f7d1c2fcd1e828b996b64f5a.jpg" alt="JDK7的try-with-resource方式的使用"><br /> 即：try(资源定义){ <br /> 业务逻辑 <br /> } <br /> 其实这只是个语法糖，因为编译时编译器会自动帮代码加上finally并调用close方法（前提是这些资源类都实现了Closeable接口）。（将你编译好的.class文件拖入idea即可看到编译后的代码（idea可以反编译出来）） <br /><img decoding="async" src="http://img.555519.xyz/uploads/20230224/58fdf987ca7027267d2de63e04464f1d.jpg" alt="JDK7的try-with-resource方式的使用"><br /> 可以看出finally代码块中除了正常关闭连接代码外，还包含了addSuppressed()方法，这个方法作用是保证一个异常不被另外一个异常抑制而无法抛出，比如try-catch块代码抛异常，程序会继续执行finally代码，但如果finally代码又抛错，就会导致try-catch的异常无法正常抛出，此时可以使用addSuppressed()方法可以将被抑制的异常也抛出。 <br /> 参考链接：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://my.oschina.net/fhd/blog/324484"  rel="nofollow">https://my.oschina.net/fhd/blog/324484</a>。 <br /> try-with-resource代码确实好用，程序可读性有所提高。但看着上面第二张图片的代码，你是否怀疑资源最大可能被关闭？是否编译器加上的fin.close()方法和out.close()方法就完整了？不是的。请看GZIPOutputStream类的close()方法 <br /> 下面是GZIPOutputStream类的父类的close()方法（GZIPOutputStream类没重写） <br /><img decoding="async" src="http://img.555519.xyz/uploads/20230224/1708a93e6512a1a7b9985b2e3b5e5c35.jpg" alt="JDK7的try-with-resource方式的使用"><br /> close()方法时先调用finish()方法再调用out.close()方法，所以如果finish()方法顺利执行，那么out.close()方法确实可以顺利执行。 <br /> 但进去finish()方法看看， <br /><img decoding="async" src="http://img.555519.xyz/uploads/20230224/b101979a395a38403d1b08952fc60ec1.jpg" alt="JDK7的try-with-resource方式的使用"><br /> finish()方法是声明了会抛异常的，也就是finish()方法不见得一定正常执行，也就导致了out.close()方法在finish()方法抛异常时不能被调用，进而导致资源没有被关闭。 <br /> 对于各个资源类的包装类，内部都是使用装饰者模式实现的，例子中调用out.close()方法，深层次还是调用FileOutputStream类的close方法，既然这样，我们程序就应该最大程度确保最内层资源的close()方法被调用（就算包装类的close()方法抛异常），才能最大程度上保证资源被关闭。 <br /> 因此上面try-with-resource例子的流嵌套是不合理的，应该使用下面这种方式（分开定义每个Closeable类的资源）： <br /><img decoding="async" src="http://img.555519.xyz/uploads/20230224/c613f6734459734b8afe67afc7e91d45.jpg" alt="JDK7的try-with-resource方式的使用"><br /> 看上面分开定义后编译生成的代码（如下）： <br /><img decoding="async" src="http://img.555519.xyz/uploads/20230224/4aa9660752c4dc319dc48174bc9221f8.jpg" alt="JDK7的try-with-resource方式的使用"><br /> 显然，每一层Closeable类的资源的close()方法都被显式地调用。保证了资源最大程度的关闭。</p> </p></div> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4281.htm">如何将CONCAT()函数与MySQL WHERE子句一起使用？</a></p>
+                                                <p>下一个：<a href="/html/category/article-4283.htm">MySQL中的“ SELECT”语句是什么意思，如何使用？</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

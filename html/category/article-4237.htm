@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4237.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>Promise和async/await的区别 - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">Promise和async/await的区别</h1>
+                          				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>【JavaScript】Promise和async/await的区别</h3> <ul> <li><a href="#Promise_2" rel="nofollow">Promise</a></li> <li><a href="#asyncawait_5" rel="nofollow">async/await</a></li> <li><a href="#asyncawait__Promise__17" rel="nofollow">async/await 比 Promise 更省内存？</a></li> <li><a href="#_21" rel="nofollow">总结</a></li> </ul> </div> <h1><a id="Promise_2" rel="nofollow"></a>Promise</h1> <p><code>Promise</code> 是一种异步编程机制，为异步代码提供了清晰的抽象。解决了代码越来越复杂，回调策略可扩展性越来越差的问题。</p> <h1><a id="asyncawait_5" rel="nofollow"></a>async/await</h1> <p><code>async/await</code> 是ES8的关键字，是异步函数，将<code>Promise</code> 应用于<code>JavaScript</code> 函数的结果，让同步方式写的代码能异步执行。<br /> 旨在解决利用异步结构组织代码的问题。</p> <p><code>async</code> 关键字用于声明异步函数，且异步函数始终返回<code>Promise</code> 对象，如果异步函数使用<code>return</code> 关键字，则异步函数的返回值会被<code>Promise.resolve()</code> 包装成一个<code>Promise</code> 对象。</p> <p><code>await</code> 关键字会暂停执行异步函数后面的代码，<code>JavaScript</code> 运行时记录暂停执行的位置并让出执行线程，等到<code>await</code> 右边的值可用时，<code>JavaScript</code> 运行时会向消息队列中推送一个任务，这个任务会恢复异步函数的执行。</p> <p><code>await</code> 关键字必须在异步函数中使用，且只能直接出现在异步函数的定义中。</p> <p>在<code>async/await</code> 关键字中，<code>async</code> 仅仅是一个标识符，起作用的是<code>await</code> 关键字，如果异步函数不包含<code>await</code> 关键字，基本上跟普通函数一样。</p> <h1><a id="asyncawait__Promise__17" rel="nofollow"></a>async/await 比 Promise 更省内存？</h1> <p><code>JavaScript</code> 引擎在创建<code>Promise</code> 时会尽可能的保留完整的调用栈。在抛出错误时，调用栈由运行时错误处理逻辑获取，并出现在栈追踪信息中。而栈追踪信息会占用内存，有一些计算和存储成本。<br /> 当使用<code>async/await</code> 时，栈追踪信息不会记录await后抛出的错误，因为异步函数内部嵌套函数中存储着指向包含函数的指针，故栈追踪信息不会带来额外的消耗。所以，<code>async/await</code> 更省内存。</p> <h1><a id="_21" rel="nofollow"></a>总结</h1> <ul> <li><code>Promise</code> 的主要功能是为异步代码提供了清晰的抽象。</li> <li>异步函数是将<code>Promise</code> 应用于<code>JavaScript</code> 函数的结果。异步函数可以暂停执行，而不阻塞主线程。</li> <li>推荐使用<code>await/async</code>。</li> </ul> </div> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4236.htm">安装Pytorch如何选择CUDA的版本</a></p>
+                                                <p>下一个：<a href="/html/category/article-4238.htm">通过winsw将SpringBoot可运行jar包做成后台服务，启动运行</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

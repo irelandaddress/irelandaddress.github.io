@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4175.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>用指针低三位存放额外信息的优化方法 &#8211; 程鑫 _在线工具 - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">用指针低三位存放额外信息的优化方法 &#8211; 程鑫 _在线工具</h1>
+                          				  				  				<h1 id="一种用指针低三位存放额外信息的优化方法">一种用指针低三位存放额外信息的优化方法</h1> <p>在8字节对齐的情况下指针的低三位都是0，在某些情况下我们需要维持跟指针对应的额外信息，例如标志位，但是又不想为此创建一个结构体，那就可以利用指针的低三位来存储额外信息。</p> <p>比如说我们希望原子操作的类型是64位的数据，这样可以利用CMPXCHG机器指令实现CAS操作，即我们希望定义<code>std::atomic&lt;T *&gt;</code>的变量实现原子操作，而不希望定义<code>std::atomic&lt;S&gt;</code>，S为某个结构体。这时候就可以应用上述技巧。</p> <p>具体实现方式如下所示：</p> <p><code>std::uintptr_t</code>是定义一个可以表示地址值（指针值即地址值）的无符号整型。将指针转换成<code>std::uintptr_t</code>然后进行位运算。以下代码作为示例：</p> <pre><code class="language-c++">#include &lt;iostream&gt; #include &lt;stdint.h&gt;  struct Data {     // 定义一些数据成员     long int a;     long int b;     long int c; };  // 定义三个标志位，不用细究三个标志位的具体含义，这个在这里不重要。 static constexpr std::uintptr_t HAS_DATA = 1; static constexpr std::uintptr_t NEED_DATA = 2; static constexpr std::uintptr_t CLOSED = 4; static constexpr std::uintptr_t FLAGS_MASK = HAS_DATA | NEED_DATA | CLOSED; static constexpr std::uintptr_t PTR_MASK = ~FLAGS_MASK;  int main() {     Data * dp = new Data();     dp-&gt;a = 88;     dp-&gt;b = 99;     dp-&gt;c = 77;      std::cout &lt;&lt; "指针值为 " &lt;&lt; std::hex &lt;&lt; reinterpret_cast&lt;int64_t&gt;(dp) &lt;&lt; std::endl;     // 在指针上附加上标志位     std::uintptr_t ptr_int = reinterpret_cast&lt;std::uintptr_t&gt;(dp) | HAS_DATA;     std::cout &lt;&lt; "加过标记位后 " &lt;&lt; std::hex &lt;&lt; ptr_int &lt;&lt; std::endl;      // 取标志位     std::uintptr_t flags = ptr_int &amp; FLAGS_MASK;     std::cout &lt;&lt; "标记位 " &lt;&lt; flags &lt;&lt; std::endl;      // 需要用指针的时候，清零低三位，恢复指针值原来的值     dp = reinterpret_cast&lt;Data*&gt;(ptr_int &amp; PTR_MASK);     std::cout &lt;&lt; "使用恢复后的指针" &lt;&lt; std::dec &lt;&lt; dp-&gt;a &lt;&lt; ", " &lt;&lt; dp-&gt;b &lt;&lt; ", " &lt;&lt; dp-&gt;c &lt;&lt; std::endl;     return 0; } </code></pre> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4174.htm">C++定义全局变量的方法</a></p>
+                                                <p>下一个：<a href="/html/category/article-4176.htm">C/C++编程：异常处理(exception handling)的原理</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

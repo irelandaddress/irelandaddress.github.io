@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4269.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>【C语言】指针初阶 - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">【C语言】指针初阶</h1>
+                          				  				  				<div id="content_views" class="htmledit_views"> <p>&nbsp; &nbsp; &nbsp; &nbsp; 本文将从以下方面进行讲述：</p> <p>1.指针是什么</p> <p>2.指针和指针类型</p> <p>3.野指针</p> <p>4.指针运算</p> <p>5.指针和数组</p> <p>6.二级指针</p> <p>7.指针数组</p> <h2>1.指针是什么</h2> <p>&nbsp; &nbsp; &nbsp; &nbsp; 指针是个变量，存放内存单元的地址。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 详细见：<a class="link-info" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://mp.csdn.net/mp_blog/creation/editor/126272240"  title="https://mp.csdn.net/mp_blog/creation/editor/126272240" rel="nofollow">https://mp.csdn.net/mp_blog/creation/editor/126272240</a></p> <h2>2.指针和指针类型</h2> <p>&nbsp; &nbsp; &nbsp; &nbsp; 指针类型的意义：</p> <p>1.指针类型决定了指针解引用的权限有多大（能操作几个字节）。比如char*的指针解引用就只能访问一个字节，而int*的解引用可以访问四个字节。</p> <p>2.指针类型决定了指针走一步能走多长，比如int型的指针一步是4个字节，而char型的指针一步是1个字节。</p> <h2>3.野指针</h2> <p>&nbsp; &nbsp; &nbsp; &nbsp; 概念：野指针就是指针指向的位置是不可知的（随机的，不正确的，没有明确限制的）</p> <h3>野指针形成原因：</h3> <h3>1.指针未初始化，</h3> <p><img fetchpriority="high" decoding="async" alt="" height="228" src="http://img.555519.xyz/uploads/20230119/8d9ebe98c174344f69eb4597360f4091.jpg"></p> <h3>2.指针越界访问</h3> <p><img decoding="async" alt="" height="326" src="http://img.555519.xyz/uploads/20230119/7977865d67db65c5dcc211a78f25f4e2.jpg"></p> <p>&nbsp;</p> <h3>3.指针指向的空间释放</h3> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p><img decoding="async" alt="" height="228" src="http://img.555519.xyz/uploads/20230119/be742bf70d772b52fbbff3f879396873.jpg"></p> <p>&nbsp;</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 如何避免使用野指针：</p> <p>1.指针初始化 ——当目前不知道p应该初始化为什么地址的时候，直接初始化为NULL</p> <p>2.小心指针越界——C语言本身不会检查数组的越界行为，只能我们自己多加注意</p> <p>3.当指针指向的空间被释放时，及时将指针指向NULL</p> <p>4.指针使用之前检查有效性</p> <p>&nbsp;</p> <h2>4.指针运算</h2> <h3>指针+ -整数</h3> <p>&nbsp; &nbsp; &nbsp; &nbsp; 参考上下文</p> <h3>指针-指针</h3> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;指针 - 指针得到的是两个指针之间元素的个数，且相减的前提是两个指针指向同一块空间。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 指针+指针没有什么意义，可类比于日期减去日期等于天数，日期加天数或者减去天数都可以得到日期，而日期加日期就没有什么意义</p> <h3>指针的关系运算</h3> <p>&nbsp; &nbsp; &nbsp; &nbsp; 允许指向数组元素的指针与指向数组最后一个元素后面的那个内存位置的指针比较，但是不允许与指向第一个元素之前的那个内存位置的指针进行比较。</p> <h2>5.指针和数组</h2> <p><img loading="lazy" decoding="async" alt="" height="100" src="http://img.555519.xyz/uploads/20230119/4c205950032fdc075c99d0ec21c5614e.jpg"></p> <p>&nbsp;<img loading="lazy" decoding="async" alt="" height="306" src="http://img.555519.xyz/uploads/20230119/f5e959bea669baf69e43e1205a5467a8.jpg"></p> <p><img loading="lazy" decoding="async" alt="" height="283" src="http://img.555519.xyz/uploads/20230119/365e90ceb225fbfdcb697c1e94d08272.jpg"></p> <p>&nbsp;</p> <p>&nbsp;</p> <p>&nbsp;</p> <h2>6.二级指针</h2> <p>&nbsp; &nbsp; &nbsp; &nbsp; 指针变量也是变量，是变量就有地址，而指针变量的地址就存在</p> <p><img loading="lazy" decoding="async" alt="" height="246" src="http://img.555519.xyz/uploads/20230119/fbf7afe5d097c27d5e89b19e73f045b2.jpg"></p> <p>&nbsp;</p> <h2></h2> <h2>7.指针数组</h2> <p><img loading="lazy" decoding="async" alt="" height="219" src="http://img.555519.xyz/uploads/20230119/e8a9ea8e273e774be7f744ff205d1a52.jpg"></p> <p>&nbsp;</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 本文代码链接为：<a class="link-info" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/qigezongdui/C-"  title="https://github.com/qigezongdui/C-" rel="nofollow">https://github.com/qigezongdui/C-</a></p> </p></div> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4268.htm">centos7 64位下mysql5.7的安装配置卸载</a></p>
+                                                <p>下一个：<a href="/html/category/article-4270.htm">js promise 详解</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

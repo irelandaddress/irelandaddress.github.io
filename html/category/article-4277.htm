@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4277.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>Mybatis动态SQL原理解析 - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">Mybatis动态SQL原理解析</h1>
+                          				  				  				<div id="content_views" class="htmledit_views"> <h1>资料准备</h1> <h2>官网</h2> <p>&nbsp; &nbsp; &nbsp; &nbsp; 首先翻阅官网文档，（<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://mybatis.org/mybatis-3/dynamic-sql.html"  rel="nofollow">https://mybatis.org/mybatis-3/dynamic-sql.html</a>）这页文档首先描述了Mybatis的动态SQL是多么牛逼，解决了哪些问题，又讲了如何使用，而我们想知道他是如何实现的，所以这不是我们想要的。</p> <blockquote> <h2>Dynamic SQL</h2> <p>One of the most powerful features of MyBatis has always been its Dynamic SQL capabilities. If you have any experience with JDBC or any similar framework, you understand how painful it is to conditionally concatenate strings of SQL together, making sure not to forget spaces or to omit a comma at the end of a list of columns. Dynamic SQL can be downright painful to deal with.</p> <p>While working with Dynamic SQL will never be a party, MyBatis certainly improves the situation with a powerful Dynamic SQL language that can be used within any mapped SQL statement.</p> </blockquote> <h2>源码&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</h2> <p>现在，我们去找mybatis源码（<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/mybatis/mybatis-3/releases/tag/mybatis-3.5.4"  rel="nofollow">https://github.com/mybatis/mybatis-3/releases/tag/mybatis-3.5.4</a>）</p> <h1>源码解析</h1> <h2>1.从哪创建的SqlSource</h2> <p>&nbsp; &nbsp; &nbsp; &nbsp; 首先，在Mybatis中，首先从可以看到<strong>LanguageDriver</strong>接口中的createSqlSource方法，该类其中有2个方法，和2个实现类<strong>XMLLanguageDriver</strong>和<strong>RawLanguageDriver</strong>，他们的关系如下：</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img fetchpriority="high" decoding="async" alt="" height="243" src="http://img.555519.xyz/uploads/20230129/afb2c56da092e6c81bff14312523b908.jpg"></p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 接下来我们可以看到该接口的其中2个方法：</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 1.<strong>通过解析XML文件为XNode数据</strong></p> <pre><code class="language-java">/**  * Creates an {@link SqlSource} that will hold the statement read from a mapper xml file.   * It is called during startup, when the mapped statement is read from a class or an xml file.  *   * @param configuration The MyBatis configuration  * @param script XNode parsed from a XML file  * @param parameterType input parameter type got from a mapper method or specified in the parameterType xml attribute. Can be null.  * @return  */ SqlSource createSqlSource(Configuration configuration, XNode script, Class&lt;?&gt; parameterType);</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; <strong>2.通过解析注解内容</strong></p> <pre><code class="language-java">/**  * Creates an {@link SqlSource} that will hold the statement read from an annotation.  * It is called during startup, when the mapped statement is read from a class or an xml file.  *   * @param configuration The MyBatis configuration  * @param script The content of the annotation  * @param parameterType input parameter type got from a mapper method or specified in the parameterType xml attribute. Can be null.  * @return   */ SqlSource createSqlSource(Configuration configuration, String script, Class&lt;?&gt; parameterType);</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; 这两种方式都是为了获得<strong>SqlSource</strong>对象，第一个方法就是我们常规的通过XML配置SQL语句的方式创建，而第二种是在数据访问层通过对方法加对应注解（eg：@Select）的方式创建。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 而<strong>XMLLanguageDriver</strong>类实现了这两个方法</p> <pre><code class="language-java">@Override   public SqlSource createSqlSource(Configuration configuration, XNode script, Class&lt;?&gt; parameterType) {     XMLScriptBuilder builder = new XMLScriptBuilder(configuration, script, parameterType);     return builder.parseScriptNode();   }    @Override   public SqlSource createSqlSource(Configuration configuration, String script, Class&lt;?&gt; parameterType) {     // issue #3     if (script.startsWith("&lt;script&gt;")) {       XPathParser parser = new XPathParser(script, false, configuration.getVariables(), new XMLMapperEntityResolver());       return createSqlSource(configuration, parser.evalNode("/script"), parameterType);     } else {       // issue #127       script = PropertyParser.parse(script, configuration.getVariables());       TextSqlNode textSqlNode = new TextSqlNode(script);       if (textSqlNode.isDynamic()) {         return new DynamicSqlSource(configuration, textSqlNode);       } else {         return new RawSqlSource(configuration, script, parameterType);       }     }   }</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; 可以看到，在通过尝试使用注解的方式创建SqlSource对象时，仍然会检查是否是包含以“script”为开头的字符串，若包含，则仍会调用XML方式对其进行解析，也就是说，我们可以在注解中加入script头的方式使用动态语句使其使用XML方式解析。当然，不是必要的情况下不建议这么做。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 在方法结尾处，会通过TextSqlNode对象来判定该SqlNode是否是动态的，如果是动态的则使用<strong>DynamicSqlSource</strong>方式解析，若是静态，则使用<strong>RawSqlSource</strong>方式解析。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 而在<strong>LanguageDriver</strong>中，我们也看到了<strong>RawLanguageDriver</strong>类又继承了<strong>XMLLanguageDriver</strong>，但它和前者的区别就是<strong>RawLanguageDriver</strong>仅支持静态语句方式解析。</p> <h2>2.它是怎样解析数据的</h2> <p>&nbsp; &nbsp; &nbsp; &nbsp; 这时，我们回到<strong>XMLLanguageDriver</strong>的<strong>createSqlSource</strong>方法中，它是调用了<strong>XMLScriptBuilder</strong>的<strong>parseScriptNode</strong>方法来进行解析创建的，而这个方法又做了什么呢？</p> <pre><code class="language-java">XMLScriptBuilder builder = new XMLScriptBuilder(configuration, script, parameterType);     return builder.parseScriptNode();</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; 这个方法做了2个事，首先是将SqlNode集合混合，转换为MixedSqlNode对象，再判断是否为动态语句，再来决定是通过DynamicSqlSource还是RawSqlSource解析。</p> <pre><code class="language-java">public SqlSource parseScriptNode() {     MixedSqlNode rootSqlNode = parseDynamicTags(context);     SqlSource sqlSource = null;     if (isDynamic) {       sqlSource = new DynamicSqlSource(configuration, rootSqlNode);     } else {       sqlSource = new RawSqlSource(configuration, rootSqlNode, parameterType);     }     return sqlSource;   }</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; 而我们目前需要关心的是它的parseDynamicTags方法，看它是如何将多个SqlNode转换为MixedSqlNode对象的。</p> <pre><code class="language-java">protected MixedSqlNode parseDynamicTags(XNode node) {     List&lt;SqlNode&gt; contents = new ArrayList&lt;SqlNode&gt;();     NodeList children = node.getNode().getChildNodes();     for (int i = 0; i &lt; children.getLength(); i++) {       XNode child = node.newXNode(children.item(i));       if (child.getNode().getNodeType() == Node.CDATA_SECTION_NODE || child.getNode().getNodeType() == Node.TEXT_NODE) {         String data = child.getStringBody("");         TextSqlNode textSqlNode = new TextSqlNode(data);         if (textSqlNode.isDynamic()) {           contents.add(textSqlNode);           isDynamic = true;         } else {           contents.add(new StaticTextSqlNode(data));         }       } else if (child.getNode().getNodeType() == Node.ELEMENT_NODE) { // issue #628         String nodeName = child.getNode().getNodeName();         NodeHandler handler = nodeHandlerMap.get(nodeName);         if (handler == null) {           throw new BuilderException("Unknown element &lt;" + nodeName + "&gt; in SQL statement.");         }         handler.handleNode(child, contents);         isDynamic = true;       }     }     return new MixedSqlNode(contents);   }</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; 在上述方法中，会将节点中所有childNode转换为<strong>List&lt;SqlNode&gt;</strong>对象，再调用节点处理方法。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 首先将当前标签（&lt;SELECT&gt;）中所有子Node获取出来，再检查Node的类型：</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 1.若该childNode类型为CDATA节点或静态SQL节点，再检查是否为动态语句，若为动态语句则直接将当前Node加入到SqlNode中，若为静态语句，则使用StaticTextSqlNode对象加入到SqlNode。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 2.若该childNode类型为元素节点（if，choose），则根据节点名从预设节点处理集合中找到Node处理方式，若未从预设节点处理集合中找到对应的处理方法，则抛出构造器异常。</p> <p><strong>（注意，在这里处理动态SQLNode的时候，会进行handleNode方法的递归调用，用于处理所有嵌套的动态语句）</strong></p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 现在，我们继续看下去（以<strong>IfHandler</strong>为例）</p> <pre><code class="language-java">MixedSqlNode mixedSqlNode = parseDynamicTags(nodeToHandle);       String test = nodeToHandle.getStringAttribute("test");       IfSqlNode ifSqlNode = new IfSqlNode(mixedSqlNode, test);       targetContents.add(ifSqlNode);</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; 在处理完所有节点后，会返回一个MixedSqlNode节点，再通过nodeToHandle方法获取到对应的校验字符串（eg ：null ！= a），再将上述节点与该校验字符串混合，生成IfSqlNode对象，最后将IfSqlNode对象加入<strong>List&lt;SqlNode&gt;</strong>。</p> <h2>3.它是如何处理数据的</h2> <p>&nbsp; &nbsp; &nbsp; &nbsp; 在处理数据的时候，就会用到我们上面每个动态语句对应的nodeHandler了，同样，以IfHandler为例，</p> <pre><code class="language-java">@Override   public boolean apply(DynamicContext context) {     if (evaluator.evaluateBoolean(test, context.getBindings())) {       contents.apply(context);       return true;     }     return false;   }</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; 在IfHandler中，它只需要判断True/False,再根据是否结果，决定是否将当前动态语句是否加入到SqlNode中。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 在当前运算中，调用了表达式评估器ExpressionEvaluator的evaluateBoolean方法，传入了表达式与参数值。</p> <pre><code class="language-java">public boolean evaluateBoolean(String expression, Object parameterObject) {     Object value = OgnlCache.getValue(expression, parameterObject);     if (value instanceof Boolean) {       return (Boolean) value;     }     if (value instanceof Number) {       return new BigDecimal(String.valueOf(value)).compareTo(BigDecimal.ZERO) != 0;     }     return value != null;   }</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp; 在evaluateBoolean方法中，将表达式通过OgnlCache方法进行判定，若结果是Boolean，则直接返回，若结果是Number，再通过BigDecimal对象的compareTo对象检查，然后返回最终结果。</p> <p>（<strong>注意：这里的对象使用的是OgnlCache，打开类描述可以看到这里面对表达式有缓存</strong>）</p> <p>&nbsp;</p> <p>至此，从动态语句的创建，到解析，到处理完成，过两天下一篇来看看Mybatis的<strong>SqlSessionFactory</strong>是如何构建的！！！</p> </p></div> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4276.htm">详解css让子盒子水平和垂直居中的几种方法</a></p>
+                                                <p>下一个：<a href="/html/category/article-4278.htm">Javascript 实现二维码生成</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

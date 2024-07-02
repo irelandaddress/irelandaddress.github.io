@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4185.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>java中空指针异常情况以及解决办法 - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">java中空指针异常情况以及解决办法</h1>
+                          				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2> <a id="_0" rel="nofollow"></a>概述：</h2> <p>出现空指针异常，常常是因为我们调用的对象是空的而抛出的异常。</p> <h2> <a id="_4" rel="nofollow"></a>问题描述：</h2> <p><strong>第一种:</strong></p> <pre><code class="prism language-java">　out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span><span class="token function">getParameter</span><span class="token punctuation">(</span><span class="token string">"username"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  </code></pre> <p>如果request里面并没有username的值，这时无法对空对象进行操作的，就会抛出异常。</p> <p><strong>第二种：</strong></p> <pre><code class="prism language-java">String userName <span class="token operator">=</span> request<span class="token punctuation">.</span><span class="token function">getParameter</span><span class="token punctuation">(</span><span class="token string">"username"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  　　If <span class="token punctuation">(</span>userName<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"root"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  　　<span class="token punctuation">{<!-- --></span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>  </code></pre> <p>如果没有username值，或者username为null时，是不能将一个为null的对象与另外一个对象进行比较的。</p> <pre><code class="prism language-java">If <span class="token punctuation">(</span><span class="token string">"root"</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>user Name<span class="token punctuation">)</span><span class="token punctuation">)</span>  　 <span class="token punctuation">{<!-- --></span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span> </code></pre> <p>如果返回值与常量进行比较时，就可以避免调用null对象的equals方法。不会抛出异常。</p> <p><strong>第三种：</strong><br /> 假设有一个student类，有属性name。</p> <pre><code class="prism language-java">Student a<span class="token punctuation">;</span> String b <span class="token operator">=</span> a<span class="token punctuation">.</span>name<span class="token punctuation">;</span> </code></pre> <p>这个时候就会报错，因为a为空的，解决办法就是让a指向一个对象，Student a = new Student();</p> <h2> <a id="_40" rel="nofollow"></a>问题定位：</h2> <p>对于日志中的报错信息，在java中抛出异常是从内往外，因此只需要重点关注第一行报错信息，下面的报错都是由于一层层传递调用该方法导致。</p> <p><strong>Java空指针异常的若干解决方案：</strong><br /> Java中任何对象都可以为空，我们可以使用若干种方法来避免产生这类异常。比如我们传统的空值检测，编程规范，以及使用java中各种工具类。</p> <p>(1)最常用的一种就是直接对 对象进行判断，比如if(Object == null)来对所有用到的对象进行判断，这个对象也就是我们常用的函数参数，返回值，以及类实例的成员变量等。当我们检测到null值时，我们可以异常的类型抛出更具有针对性的异常类型，再附加上我们自己加的消息内容。我们也可以直接使用一些库函数来简化代码：</p> <pre><code class="prism language-java">Object checkData <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">requireNoNull</span><span class="token punctuation">(</span>resultMessage<span class="token punctuation">,</span><span class="token string">"The resultMessage must not be null"</span><span class="token punctuation">)</span> </code></pre> <p>如果我们使用过Lombok工具的话，里面有一个@NotNull注解，就是指被注释的元素不能为空，就会自定检测。</p> <p>（2）第二种方法就是遵守编程规范，可以减少一定的空指针异常的发生。</p> <pre><code class="prism language-java">Strings<span class="token punctuation">.</span><span class="token function">isNullOrEmpty</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span> CollectionUtils<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span>collection<span class="token punctuation">)</span><span class="token punctuation">;</span> StringUtils<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token keyword">if</span><span class="token punctuation">(</span>object <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     object<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">}</span> <span class="token comment">// 使用toString()这种方法的话，如果object为空的话，就会抛出异常</span>  String<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span> <span class="token comment">//将Object转换为字符串，不管是否为null，不会抛出异常</span> </code></pre> <p>如果返回是集合类型。而且是空的，不要返回null值，而是要返回一个空的集合，如果返回类型是对象的话，我们可以抛出异常。</p> <pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Example</span> <span class="token punctuation">{<!-- --></span>      <span class="token keyword">private</span> <span class="token keyword">static</span> List<span class="token generics function"><span class="token punctuation">&lt;</span>Integer<span class="token punctuation">&gt;</span></span> numbers <span class="token operator">=</span> null<span class="token punctuation">;</span>        <span class="token keyword">public</span> <span class="token keyword">static</span> List<span class="token generics function"><span class="token punctuation">&lt;</span>Integer<span class="token punctuation">&gt;</span></span> <span class="token function">getList</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>           <span class="token keyword">if</span> <span class="token punctuation">(</span>numbers <span class="token operator">==</span> null<span class="token punctuation">)</span>                <span class="token keyword">return</span> Collections<span class="token punctuation">.</span><span class="token function">emptyList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token keyword">else</span>                <span class="token keyword">return</span> numbers<span class="token punctuation">;</span>      <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <p>检查一个方法的参数，在执行方法之前，确保检查了参数是否null，当参数被适当检查后，方法会继续执行。否则抛出叫做llegalArgumentException的异常，并通知调用的方法传入的参数有误。</p> <p>使用三元运算符，可以避免NullPointerException，形式如下：<br /> boolean expression ? value1:value2;</p> <h2> <a id="NullPointerException_91" rel="nofollow"></a>存在NullPointerException的安全方法：</h2> <p><strong>第一种使用instanceof 操作符</strong><br /> 即使对象的引用为null，instanceOf操作符可使用。当引用为null时，instanceof操作符返回false，而且不会抛出NullPointerException,比如：</p> <pre><code class="prism language-java">String str <span class="token operator">=</span> null<span class="token punctuation">;</span> <span class="token keyword">if</span><span class="token punctuation">(</span>str <span class="token keyword">instanceof</span> <span class="token class-name">null</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     log<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> <span class="token punctuation">}</span> </code></pre> <h2> <a id="_103" rel="nofollow"></a>如何避免：</h2> <p>确保所有对象在使用之前被初始化。</p> </p></div> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4184.htm">python中脚本怎么执行sql语句？</a></p>
+                                                <p>下一个：<a href="/html/category/article-4186.htm">一个 Java8 的线程池 BUG 引发线上偶发 Bug 重现分析</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

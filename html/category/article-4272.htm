@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4272.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>HDFS Quotas Guide（HDFS配额指南） - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">HDFS Quotas Guide（HDFS配额指南）</h1>
+                          				  				  				  			 <div id="log-box">  				<div id="catalog"><ul id="catalog-ul"> <li><i class="be be-arrowright"></i> <a href="#title-0" title="Name Quota示例">Name Quota示例</a></li> <li><i class="be be-arrowright"></i> <a href="#title-1" title="Space Quota示例">Space Quota示例</a></li> </ul><span class="log-zd"><span class="log-close"><a title="隐藏目录"><i class="be be-cross"></i><strong>目录</strong></a></span></span></div>  			</div> <div id="content_views" class="htmledit_views"> <article class="_2rhmJa" style="font-size: 16px;" rel="nofollow"> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://links.jianshu.com/go?to=http%3A%2F%2Fhadoop.apache.org%2Fdocs%2Fstable%2Fhadoop-project-dist%2Fhadoop-hdfs%2FHdfsQuotaAdminGuide.html"  target="_blank" rel="nofollow">HDFS Quotas Guide官网链接2.9.2版本</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://links.jianshu.com/go?to=https%3A%2F%2Fhadoop.apache.org%2Fdocs%2Fr2.7.1%2Fhadoop-project-dist%2Fhadoop-hdfs%2FHdfsQuotaAdminGuide.html"  target="_blank" rel="nofollow">HDFS Quotas Guide官网链接2.7.1版本</a></p> <p>简介：Hadoop提供两种配额（quota）模式，name quota和space quota。name quota限制路径的文件（含文件夹）数目，space quota限制的”磁盘”占用空间。可以通过此功能实现团队的存储使用管理。</p> <h1>使用方法</h1> <ul> <li>Set the name quota to be N for each directory. Best effort for each directory, with faults reported if N is not a positive long integer, the directory does not exist or it is a file, or the directory would immediately exceed the new quota.<br /><code>$ hadoop dfsadmin -setQuota &lt;max_number&gt; &lt;directory&gt;</code> </li> <li>Remove any name quota for each directory. Best effort for each directory, with faults reported if the directory does not exist or it is a file. It is not a fault if the directory has no quota.<br /><code>$ hadoop dfsadmin -setSpaceQuota &lt;max_size&gt; &lt;directory&gt;</code> </li> <li>Remove any name quota for each directory. Best effort for each directory, with faults reported if the directory does not exist or it is a file. It is not a fault if the directory has no quota.<br /><code>$ hadoop dfsadmin -clrQuota &lt;directory&gt;</code> </li> <li>Remove any space quota for each directory. Best effort for each directory, with faults reported if the directory does not exist or it is a file. It is not a fault if the directory has no quota.<br /><code>$ hadoop dfsadmin -clrSpaceQuota &lt;directory&gt;</code> </li> </ul> <span class="directory"></span><h4 id="title-0">Name Quota示例</h4> <p>首先测试name quota，进行如下操作：</p> <ul> <li>准备hdfs路径，设置name quota，文件数量限制为5</li> </ul> <pre class="has"><code class="shell">$hdfs dfs -mkdir /name_quota $hdfs dfsadmin -setQuota 5 /name_quota</code></pre> <pre class="has"><code>$touch 1 $hdfs dfs -copyFromLocal 1 /name_quota/1 $hdfs dfs -copyFromLocal 1 /name_quota/2 $hdfs dfs -copyFromLocal 1 /name_quota/3 $hdfs dfs -copyFromLocal 1 /name_quota/4 $hdfs dfs -copyFromLocal 1 /name_quota/5 copyFromLocal: The NameSpace quota (directories and files) of directory /name_quota is exceeded: quota=5 file count=6</code></pre> <p>创建一个临时文件“1“，并将它复制到指定hdfs路径下，发现，当复制到第5个时失败，提示显示达到quota限制，说明quota生效，同时，我们设置quota_max_num为5，但只放了4个文件就满了，说明这个数字限制是包含文件夹的。<br /> 实际上是可以理解的，在HDFS中，无论文件和文件夹的基本抽象是一样的，占用基本同样的元数据信息，name quota实际上是元数据信息的配额。</p> <span class="directory"></span><h4 id="title-1">Space Quota示例</h4> <ul> <li>创建测试路径并设置space quota</li> </ul> <pre class="has"><code class="shell">$hdfs dfs -mkdir /space_quota $hdfs dfsadmin -setSpaceQUota 50m /space_quota</code></pre> <pre class="has"><code class="shell">$mkfile 10m 10m $hdfs dfs -copyFromLocal 10m /space_quota/10m_1</code></pre> <p>利用mkfile命令创建一个大小10m的文件（我用的是Mac，Linux系统使用dd命令创建指定大小文件），预期是在这个hdfs路径下可以存放5个10m的文件，第六个会超出，但实际情况是，第一个就失败了，报错如下：<br /><code>Caused by: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.protocol.DSQuotaExceededException): The DiskSpace quota of /space_quota is exceeded: quota = 52428800 B = 50 MB but diskspace consumed = 134217728 B = 128 MB</code><br /> 看提示就理解，因为HDFS是以block为单位进行实际存储的，对于一个10m的文件，仍然会打成一个block存储，我的HDFS block size是128m，所以space quota配置50m，一个block也放不下，自然失败，因此进行一下改动，重新设置：</p> <pre class="has"><code class="shell">$hdfs dfsadmin -setSpaceQUota 1024m /space_quota $mkfile 128m 128m $ hdfs dfs -copyFromLocal 128m /space_quota/128m_1 $ hdfs dfs -copyFromLocal 128m /space_quota/128m_2 $ hdfs dfs -copyFromLocal 128m /space_quota/128m_3 $ hdfs dfs -copyFromLocal 128m /space_quota/128m_4 $ hdfs dfs -copyFromLocal 128m /space_quota/128m_5 $ hdfs dfs -copyFromLocal 128m /space_quota/128m_6 $ hdfs dfs -copyFromLocal 128m /space_quota/128m_7 $ hdfs dfs -copyFromLocal 128m /space_quota/128m_8 $ hdfs dfs -copyFromLocal 128m /space_quota/128m_9</code></pre> <p>1024m的配额，可以放8个128m文件，在放第九个时，报错，核心信息如下：</p> <p><code>18/05/18 16:13:01 WARN hdfs.DFSClient: DataStreamer Exception org.apache.hadoop.hdfs.protocol.DSQuotaExceededException: The DiskSpace quota of /space_quota is exceeded: quota = 1073741824 B = 1 GB but diskspace consumed = 1207959552 B = 1.13 GB</code><br /> 符合预期，成功限制了规定路径下的存储空间配额。</p> <p>另外，经过测试（示例不详述），name quota和space quota可以同时作用于同一路径。</p> </article> </div> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4271.htm">elasticsearch 之时间类型</a></p>
+                                                <p>下一个：<a href="/html/category/article-4273.htm">Git基础版本控制系统介绍</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

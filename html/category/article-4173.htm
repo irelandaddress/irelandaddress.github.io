@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4173.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>vue+element-ui+axios多文件上传的实现并显示整体进度_vue.js - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">vue+element-ui+axios多文件上传的实现并显示整体进度_vue.js</h1>
+                          				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">element-ui+axios多文件上传并显示进度</a></li> <li><a href="#_label1" rel="nofollow">解决element ui多文件上传的问题</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_0" rel="nofollow">业务场景</a></li> <li><a href="#_lab2_1_1" rel="nofollow">解决办法</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>element-ui+axios多文件上传并显示进度</h2> <p>element-ui自带的多文件上传是做成了多文件多次上传,公司有需求需要选取多个文件一次上传全部.</p> <p><strong>代码部分</strong></p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;template&gt;    &lt;d2-container&gt;      &lt;el-form ref="form" :model="formData" label-width="120px"&gt;        &lt;el-row&gt;          &lt;el-col :span="10"&gt;            &lt;el-form-item label="图片"  prop="mediaFileUrl"&gt;              &lt;el-upload style="width: 100%;"                class="upload-demo"                ref="uploadMul"                multiple                action                drag                :limit="maxUploadSize"                :on-exceed="uploadLimit"                :http-request="uploadFile"                :file-list="fileList"                :auto-upload="false"                :on-remove="handleRemove"                :before-upload="beforeUpload"                :on-change="uploadChange"              &gt;                &lt;i class="el-icon-upload"&gt;&lt;/i&gt;                &lt;div class="el-upload__text"&gt;将文件拖到此处，或&lt;em&gt;点击上传&lt;/em&gt;&lt;/div&gt;                &lt;div class="el-upload__tip" slot="tip"&gt;支持上传jpg/png/gif文件，且不超过100M&lt;/div&gt;              &lt;/el-upload&gt;              &lt;div v-show="progressFlag" class="head-img"&gt;                &lt;el-progress :text-inside="true" :stroke-width="14" :percentage="progressPercent" status="success"&gt;&lt;/el-progress&gt;              &lt;/div&gt;              &lt;el-button size="mini" type="success" @click="submitUpload"&gt;上传到服务器&lt;/el-button&gt;              &lt;el-button v-if="this.fileList.length &gt; 0" size="mini" type="warning" @click="clearFiles"&gt;清空&lt;/el-button&gt;            &lt;/el-form-item&gt;          &lt;/el-col&gt;          &lt;el-col :offset="4"&gt;&lt;/el-col&gt;        &lt;/el-row&gt;      &lt;/el-form&gt;    &lt;/d2-container&gt;  &lt;/template&gt;</pre> </div> <div class="ay1code"> <pre class="brush:js;">&lt;script&gt;  import axios from 'axios'  export default {    data () {      return {        maxUploadSize: 10,        progressFlag: false,        progressPercent: 10,        innerVisible: false,        fileList: [],        isViewDisabled: false,        formData: {},        param: {} // 上传文件主要参数      }    },    methods: {      submitUpload () {        if (this.fileList.length &lt; 1) {          this.$message.warning('请选择文件!')          return false        }        this.$refs.uploadMul.submit()        if (this.param instanceof FormData) {          // 附加参数          this.param.append('expirationsec', 0)          this.param.append('fileproperty', 'publicfiles')          // const config = {          //   headers: { 'content-type': 'multipart/form-data' }          // }          // axios.post('/api/oss/ossUploadObject', this.param, config).then(res =&gt; {          //   if (res.status === 200 &amp;&amp; res.data.status === 200) {          //     this.$message.success('上传成功!')          //     let result = res.data.body.data          //     console.log(result)          //   }          //   this.$refs.uploadMul.clearFiles()          //   this.param = {}          // })          let that = this          that.progressFlag = true          axios({            url: '/api/oss/ossUploadObject',            method: 'post',            data: that.param,            headers: { 'Content-Type': 'multipart/form-data' },            onUploadProgress: progressEvent =&gt; {              // progressEvent.loaded:已上传文件大小              // progressEvent.total:被上传文件的总大小              // 进度条              that.progressPercent = ((progressEvent.loaded / progressEvent.total) * 100).toFixed(0) | 0            }          }).then(res =&gt; {            this.param = {}            this.fileList = []            console.log(res)            if (res.data.status === 200 &amp;&amp; that.progressPercent === 100) {              setTimeout(function () {                that.$message({                  message: '上传成功！',                  type: 'success',                  duration: '2000'                })                that.progressFlag = false                that.progressPercent = 0                that.$refs.uploadMul.clearFiles()              }, 1000)              let result = res.data.body.data              console.log(result)            } else {              setTimeout(function () {                that.$message({                  message: res.data.msg,                  type: 'error',                  duration: '2000'                })                that.progressFlag = false                that.progressPercent = 0                that.$refs.uploadMul.clearFiles()              }, 1000)            }          }).catch(() =&gt; {            that.progressFlag = false            that.progressPercent = 0            that.$refs.uploadMul.clearFiles()            that.$message({              message: '上传失败！',              type: 'error',              duration: '2000'            })          })        } else {          console.log(this.param instanceof FormData)        }      },      handleRemove (file, fileList) {        this.$message.warning(`已移除文件:  ${file.name}!`)        // 每移除一个文件,param重新赋值        this.param = new FormData()        this.fileList = [...fileList]        this.fileList.forEach((file, index) =&gt; {          this.param.append(`file`, file.raw) // 把单个文件重命名，存储起来（给后台）        })      },      uploadChange (file, fileList) {        // const videoType = ['image/gif', 'image/png', 'image/jpeg', 'video/mp4', 'video/flv', 'video/avi', 'video/rmvb']        // if (videoType.indexOf(file.raw.type) === -1) {        //   this.$message.error(`不支持此文件格式${file.raw.type}`)        //   this.$refs.uploadMul.clearFiles()        //   return false        // }        this.param = new FormData()        this.fileList = [...fileList]        this.fileList.forEach((file, index) =&gt; {          this.param.append(`file`, file.raw) // 把单个文件重命名，存储起来（给后台）        })      },      // 超出上传个数时调用      uploadLimit (files, fileList) {        this.$message.error(`最多允许同时上传${this.maxUploadSize}个文件!`)        // files.forEach((file, index) =&gt; {        //   console.log(index)        // })      },      beforeUpload (file) {      },      uploadFile (file) {        // 该方法需存在,防止空action时element-ui报404异常      },      clearFiles () {        this.fileList = []        this.param = {}        this.$refs.uploadMul.clearFiles()      },      // 初始化表单数据      init () {      }    }  }  &lt;/script&gt;  &lt;style lang="scss" scoped&gt;  &lt;/style&gt;    </pre> </div> <p>后端代码(模拟)</p> <div class="ay1code"> <pre class="brush:java;">@RequestMapping("/oss/ossUploadObject")  public ApiResponse&lt;FileDto&gt; uploadObject(@RequestParam("file") MultipartFile[] file, FileVo fileVo){      //...code      FileDto dto = new FileDto();      dto.setUrl("");      dto.setFileId("");      return ApiResponse.success(FileDto);  }</pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>解决element ui多文件上传的问题</h2> <p class="maodian"><a name="_lab2_1_0" rel="nofollow"></a></p> <h3>业务场景</h3> <p>在使用vue+elementui 实现文件上传的时候，我发现官网给的组件每次都会自动上传，而且一次上传一个文件。但是我实际的业务是，一次上传多个文件。</p> <p class="maodian"><a name="_lab2_1_1" rel="nofollow"></a></p> <h3>解决办法</h3> <p>前端代码：</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;template&gt;    &lt;div&gt;  &lt;!--    文件上传组件--&gt;  &lt;!--      :auto-upload="false" 这里设置为不自动上传 ，所以:action="BASE_API+'/upload'“ 失效--&gt;    &lt;el-upload      name="files"      class="upload-demo"      :on-change="OnChange"      :multiple="true"         :action="BASE_API+'/upload'"      :on-preview="handlePreview"      :before-remove="beforeRemove"      :file-list="list"      :auto-upload="false"      list-type="picture"&gt;      &lt;i class="el-icon-plus"&gt;&lt;/i&gt;      &lt;div slot="tip" class="el-upload__tip"&gt;只能上传jpg/png文件，且不超过500kb&lt;/div&gt;    &lt;/el-upload&gt;    &lt;el-dialog :visible.sync="dialogVisible"&gt;      &lt;img width="100%" :src="dialogImageUrl" alt=""&gt;    &lt;/el-dialog&gt;    &lt;el-button type="" @click="fun"&gt;点击查看filelist&lt;/el-button&gt;    &lt;el-button type="" @click="onSubmit"&gt;提交&lt;/el-button&gt;    &lt;/div&gt;     &lt;/template&gt;</pre> </div> <div class="ay1code"> <pre class="brush:js;">&lt;script&gt;    import upload from "@/api/upload"    import request from "@/utils/request"       export default {      data() {        return {          param: new FormData(),          form:{},          count:0,          list:[],          dialogVisible:false,          dialogImageUrl:'',          BASE_API: process.env.BASE_API, // 接口API地址        };      },      methods: {        handlePreview(file) {          this.dialogImageUrl = file.url;          this.dialogVisible = true;        },        beforeRemove(file, fileList) {          return this.$confirm(`确定移除 ${ file.name }？`);        },        OnChange(file,fileList){             console.log(fileList)          this.list=fileList           },        OnRemove(file,fileList){          this.list=fileList        },        fun(){          console.log('------------------------')          console.log(this.list)        },        onSubmit(){             // this.form={          //   a:1,          //   b:2,          //   c:3          // }          // let file=''          // for(let x in this.form){          //   this.param.append(x,this.form[x])          // }          // for(let i=0;i&lt;this.list.length;i++){          //    const file='file'+this.count          //   this.count++          //   this.param.append(file,this.list[i].raw)          // }          // console.log(this.param)             console.log(this.list[0])             let formData = new FormData();          let file1 = this.list[0]          let file2 = this.list[1]          console.log(file1)          console.log(file2)          // 这里必须是 .raw 不然后端springboot multipart 获取到的文件为 null          // 单个文件的话 后端接口写 Multipart file          // 多个文件的话 后端接口写 Multipart [] files          // 文件名需要对应          formData.append('files', file1.raw);          formData.append('files', file2.raw);          // formData.append('name', 'zhangsan');          // formData.append('files[]', file2);             request.post('/upload',formData,{            headers: {              'Content-Type': 'multipart/form-data'            }}).then(res=&gt;{            console.log(res)          })             // request.post('/testabc?name='+formData.get("name")).then(res=&gt;{          //   console.log(res)          // })             // upload.uploadfile(formData).then(res=&gt;{          //   console.log(res)          // })          // batchTagInfo(this.param)          //   .then(res=&gt;{          //     alert(res)          //   })        }      }    }  &lt;/script&gt;     &lt;style scoped&gt;  &lt;/style&gt;</pre> </div> <p>后端接口代码：</p> <div class="ay1code"> <pre class="brush:java;">package com.yj.wiki.controller;  import org.springframework.web.bind.annotation.CrossOrigin;  import org.springframework.web.bind.annotation.PostMapping;  import org.springframework.web.bind.annotation.RestController;  import org.springframework.web.multipart.MultipartFile;     @RestController  @CrossOrigin  public class UploadFileController {         @PostMapping("/upload")      public String upload(MultipartFile[] files){             for (MultipartFile file : files) {              System.out.println(file.getOriginalFilename());             }             return "ok";      }         @PostMapping("/testabc")      public String upload(String name){             System.out.println(name    );             return "ok";      }  }</pre> </div> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4172.htm">我们如何卸载MySQL中的时间/日期处理？</a></p>
+                                                <p>下一个：<a href="/html/category/article-4174.htm">C++定义全局变量的方法</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

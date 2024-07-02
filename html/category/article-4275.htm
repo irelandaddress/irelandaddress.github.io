@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4275.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>SpringBoot整合ActiveMQ（入门） - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">SpringBoot整合ActiveMQ（入门）</h1>
+                          				  				  				<div id="content_views" class="htmledit_views"> <p>这是一篇博客原文。</p> <p>&nbsp;消息队列中间件是分布式系统中重要的组件，<span style="color:#f33b45;"><strong>主要解决应用耦合，异步消息，流量削锋等问题。实现高性能，高可用，可伸缩和最终一致性架构</strong></span>。是大型分布式系统不可缺少的中间件。消息形式支持<span style="color:#f33b45;"><strong>点对点和订阅-发布</strong></span>。</p> <h2><strong>ActiveMQ是什么？</strong></h2> <blockquote> <ol> <li><strong>ActiveMQ是消息队列技术，为解决高并发问题而生</strong></li> <li><strong>ActiveMQ生产者消费者模型（生产者和消费者可以跨平台、跨系统）</strong></li> <li><strong>ActiveMQ支持如下两种消息传输方式</strong></li> </ol> <ul> <li><strong>点对点模式，生产者生产了一个消息，只能由一个消费者进行消费</strong></li> <li><strong>发布/订阅模式，生产者生产了一个消息，可以由多个消费者进行</strong></li> </ul> </blockquote> <h2><strong>SpringBoot整合ActiveMQ</strong></h2> <h3><strong>1. ActiveMQ下载启动</strong></h3> <blockquote> <p><strong>可直接进入官网下载完成。<a href="" rel="nofollow"> http://activemq.apache.org/download-archives.html</a></strong></p> </blockquote> <p>&nbsp;&nbsp;如果能成功访问<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:8161/admin"  rel="nofollow">http://localhost:8161/admin</a>（用户名和密码默认为admin），则启动成功。</p> <h3><strong>2.&nbsp; 创建两个springboot项目，分别作为消息提供者（provider）和消费者（consumer），添加依赖</strong></h3> <pre><code class="language-XML">&lt;dependency&gt;     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;     &lt;artifactId&gt;spring-boot-starter-activemq&lt;/artifactId&gt; &lt;/dependency&gt; &lt;!--消息队列连接池--&gt; &lt;dependency&gt;     &lt;groupId&gt;org.apache.activemq&lt;/groupId&gt;     &lt;artifactId&gt;activemq-pool&lt;/artifactId&gt;     &lt;version&gt;5.15.0&lt;/version&gt; &lt;/dependency&gt;</code></pre> <h3><strong>3.&nbsp; 在两个项目中的application.properires配置消息队列，并在启动类添加@EnableJms开启消息队列。</strong></h3> <h3><strong><span style="color:#3399ea;">application.properties</span></strong></h3> <pre><code class="language-XML"># failover:(tcp://localhost:61616,tcp://localhost:61617) # tcp://localhost:61616 spring.activemq.broker-url=tcp://localhost:61616 #true 表示使用内置的MQ，false则连接服务器 spring.activemq.in-memory=false #true表示使用连接池；false时，每发送一条数据创建一个连接 spring.activemq.pool.enabled=true #连接池最大连接数 spring.activemq.pool.max-connections=10 #空闲的连接过期时间，默认为30秒 spring.activemq.pool.idle-timeout=30000 #强制的连接过期时间，与idleTimeout的区别在于：idleTimeout是在连接空闲一段时间失效，而expiryTimeout不管当前连接的情况，只要达到指定时间就失效。默认为0，never spring.activemq.pool.expiry-timeout=0</code></pre> <p><span style="color:#f33b45;">这里采用的是key---value键值对方式配置。&nbsp; 也可以使用yaml格式配置（此格式为官方推荐格式）</span></p> <p><strong>启动类(provider)，consumer同样</strong></p> <pre><code class="language-java">@SpringBootApplication @EnableJms //启动消息队列 public class ProviderApplication { 	public static void main(String[] args) { 		SpringApplication.run(ProviderApplication.class, args); 	} }</code></pre> <h3><strong>4.&nbsp; prover项目结构图</strong></h3> <p><img fetchpriority="high" decoding="async" alt="" height="552" src="http://img.555519.xyz/uploads/20221120/fb5781e2d2d32ccce3ea2032d93f1f48.jpg"></p> <p><strong>BeanConfig定义消息队列</strong></p> <pre><code class="language-java">import javax.jms.Queue; import org.apache.activemq.command.ActiveMQQueue; import org.springframework.context.annotation.Bean; import org.springframework.context.annotation.Configuration;   /*  * @author ww  * @date 2021/3/23  11:55  */ @Configuration public class BeanConfig {       //定义存放消息的队列     @Bean     public Queue queue() {         return new ActiveMQQueue("ActiveMQQueue");     } }</code></pre> <p><strong>ProviderController</strong></p> <pre><code class="language-java">import javax.jms.Queue; import org.springframework.beans.factory.annotation.Autowired; import org.springframework.jms.core.JmsMessagingTemplate; import org.springframework.web.bind.annotation.RequestMapping; import org.springframework.web.bind.annotation.RestController;   /*  * @author ww  * @date   *  */ @RestController public class ProviderController {       //注入存放消息的队列，用于下列方法一     @Autowired     private Queue queue;       //注入springboot封装的工具类     @Autowired     private JmsMessagingTemplate jmsMessagingTemplate;       @RequestMapping("send")     public void send(String name) {         //方法一：添加消息到消息队列         jmsMessagingTemplate.convertAndSend(queue, name);         //方法二：这种方式不需要手动创建queue，系统会自行创建名为test的队列         //jmsMessagingTemplate.convertAndSend("test", name);     } }</code></pre> <h3><strong>5.&nbsp; 启动provider，向消息队列添加数据，本次添加5条数据</strong></h3> <blockquote> <p><span style="color:#3399ea;"><strong>这里使用postman工具模拟请求发送。</strong></span></p> </blockquote> <p><img decoding="async" alt="" height="177" src="http://img.555519.xyz/uploads/20221120/0de0ab021f8ce06ec42488fc02fc18f8.jpg"></p> <p><strong>查看<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:8161/admin/queues.jsp"  rel="nofollow">http://localhost:8161/admin/queues.jsp</a>&nbsp;如下</strong></p> <p><img decoding="async" alt="" height="534" src="http://img.555519.xyz/uploads/20221120/a322c465e46c336fb1819783cc169d2d.jpg"></p> <blockquote> <ul> <li><strong>Number Of Pending Messages：消息队列中待处理的消息</strong></li> <li><strong>Number Of Consumers：消费者的数量</strong></li> <li><strong>Messages Enqueued：累计进入过消息队列的总量</strong></li> <li><strong>Messages Dequeued：累计消费过的消息总量</strong></li> </ul> </blockquote> <h3><strong>&nbsp;6. consumer项目结构图</strong></h3> <p><img loading="lazy" decoding="async" alt="" height="427" src="http://img.555519.xyz/uploads/20221120/a0e70a6c001b7bbc831700e56e164ea8.jpg"></p> <p><strong>application.properties 和 ConsumerApplication 同 provider类似，如下为不同的ConsumerService：</strong></p> <pre><code class="language-java">import org.springframework.beans.factory.annotation.Autowired; import org.springframework.jms.annotation.JmsListener; import org.springframework.jms.core.JmsMessagingTemplate; import org.springframework.messaging.handler.annotation.SendTo; import org.springframework.stereotype.Component;   /*  * @author ww  * @date 2021/3/23  11:58  *  */ @Component public class ConsumerService {       @Autowired     private JmsMessagingTemplate jmsMessagingTemplate;       // 使用JmsListener配置消费者监听的队列，其中name是接收到的消息     @JmsListener(destination = "ActiveMQQueue")     // SendTo 会将此方法返回的数据, 写入到 OutQueue 中去.     @SendTo("SQueue")     public String handleMessage(String name) {         System.out.println("成功接受Name" + name);         return "成功接受Name" + name;     } }</code></pre> <h3><strong>&nbsp;7. 启动consumer，控制台输出如下</strong></h3> <p><img loading="lazy" decoding="async" alt="" height="180" src="http://img.555519.xyz/uploads/20221120/536cc52ab38f9308ab281a5721b93733.jpg"></p> <p>&nbsp;消息接收成功，查看<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:8161/admin/queues.jsp"  rel="nofollow">http://localhost:8161/admin/queues.jsp</a>&nbsp;，如下图所示，消息队列中不再有未处理的消息，由于consumer的启动，消费者的数量为1，Messages Dequeued（累计消费过的消息总量）的数值也变成了5；另外消费者接收到5条消息处理后，返回到OutQueue 5条消息，下图可以看出来。</p> <p><img loading="lazy" decoding="async" alt="" height="453" src="http://img.555519.xyz/uploads/20221120/cdba0bad8cbf5b23bd2520927f7c9544.jpg"></p> </div> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4274.htm">el-cascader得到数据和数据回显——基于中国省市区地址三级联动</a></p>
+                                                <p>下一个：<a href="/html/category/article-4276.htm">详解css让子盒子水平和垂直居中的几种方法</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

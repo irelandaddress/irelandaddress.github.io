@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4152.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>Spring Security 入门：自定义 Filter - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">Spring Security 入门：自定义 Filter</h1>
+                          				  				  				<div id="content_views" class="htmledit_views"> <div> <div> <h2>本文解决问题</h2> <p>将自定义的<code>Filter</code> 加入到 Spring Security 中的<code>Filter</code> 链中的指定位置。</p> <h2>Spring Security 默认的过滤器链</h2> <p>官网位置：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://link.jianshu.com?t=http://docs.spring.io/spring-security/site/docs/5.0.0.M1/reference/htmlsingle/#ns-custom-filters"  rel="nofollow">http://docs.spring.io/spring-security/site/docs/5.0.0.M1/reference/htmlsingle/#ns-custom-filters</a></p> <table> <thead> <tr> <th>别名</th> <th>类名称</th> <th>Namespace Element or Attribute</th> </tr> </thead> <tbody> <tr> <td>CHANNEL_FILTER</td> <td>ChannelProcessingFilter</td> <td>http/intercept-url@requires-channel</td> </tr> <tr> <td>SECURITY_CONTEXT_FILTER</td> <td>SecurityContextPersistenceFilter</td> <td>http</td> </tr> <tr> <td>CONCURRENT_SESSION_FILTER</td> <td>ConcurrentSessionFilter</td> <td>session-management/concurrency-control</td> </tr> <tr> <td>HEADERS_FILTER</td> <td>HeaderWriterFilter</td> <td>http/headers</td> </tr> <tr> <td>CSRF_FILTER</td> <td>CsrfFilter</td> <td>http/csrf</td> </tr> <tr> <td>LOGOUT_FILTER</td> <td>LogoutFilter</td> <td>http/logout</td> </tr> <tr> <td>X509_FILTER</td> <td>X509AuthenticationFilter</td> <td>http/x509</td> </tr> <tr> <td>PRE_AUTH_FILTER</td> <td>AbstractPreAuthenticatedProcessingFilter( Subclasses)</td> <td>N/A</td> </tr> <tr> <td>CAS_FILTER</td> <td>CasAuthenticationFilter</td> <td>N/A</td> </tr> <tr> <td>FORM_LOGIN_FILTER</td> <td>UsernamePasswordAuthenticationFilter</td> <td>http/form-login</td> </tr> <tr> <td>BASIC_AUTH_FILTER</td> <td>BasicAuthenticationFilter</td> <td>http/http-basic</td> </tr> <tr> <td>SERVLET_API_SUPPORT_FILTER</td> <td>SecurityContextHolderAwareRequestFilter</td> <td>http/@servlet-api-provision</td> </tr> <tr> <td>JAAS_API_SUPPORT_FILTER</td> <td>JaasApiIntegrationFilter</td> <td>http/@jaas-api-provision</td> </tr> <tr> <td>REMEMBER_ME_FILTER</td> <td>RememberMeAuthenticationFilter</td> <td>http/remember-me</td> </tr> <tr> <td>ANONYMOUS_FILTER</td> <td>AnonymousAuthenticationFilter</td> <td>http/anonymous</td> </tr> <tr> <td>SESSION_MANAGEMENT_FILTER</td> <td>SessionManagementFilter</td> <td>session-management</td> </tr> <tr> <td>EXCEPTION_TRANSLATION_FILTER</td> <td>ExceptionTranslationFilter</td> <td>http</td> </tr> <tr> <td>FILTER_SECURITY_INTERCEPTOR</td> <td>FilterSecurityInterceptor</td> <td>http</td> </tr> <tr> <td>SWITCH_USER_FILTER</td> <td>SwitchUserFilter</td> <td>N/A</td> </tr> </tbody> </table> <blockquote> <p>过滤器顺序从上到下</p> </blockquote> <h2>自定义 Filter</h2> <p>自定义的<code>Filter</code> 建议继承<code>GenericFilterBean</code>，本文示例：</p> <pre><code class="language-java"><code class="java"><span class="hljs-keyword">public</span><span class="hljs-class"><span class="hljs-keyword">class</span><span class="hljs-title">BeforeLoginFilter</span><span class="hljs-keyword">extends</span><span class="hljs-title">GenericFilterBean</span></span>{<span class="hljs-meta">@Override</span><span class="hljs-function"><span class="hljs-keyword">public</span><span class="hljs-keyword">void</span><span class="hljs-title">doFilter</span><span class="hljs-params">(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)</span><span class="hljs-keyword">throws</span> IOException, ServletException</span>{         System.out.println(<span class="hljs-string">"This is a filter before UsernamePasswordAuthenticationFilter."</span>);<span class="hljs-comment">// 继续调用 Filter 链</span>         filterChain.doFilter(servletRequest, servletResponse);     } }</code></code></pre> <h2>配置自定义 Filter 在 Spring Security 过滤器链中的位置</h2> <p>配置很简单，本文示例：</p> <pre><code class="language-cpp"><code class="cpp"><span class="hljs-function"><span class="hljs-keyword">protected</span><span class="hljs-keyword">void</span><span class="hljs-title">configure</span><span class="hljs-params">(HttpSecurity http)</span> throws Exception</span>{         http                 .authorizeRequests()                 .antMatchers(<span class="hljs-string">"/"</span>).permitAll()                 .antMatchers(<span class="hljs-string">"/user/**"</span>).hasRole(<span class="hljs-string">"USER"</span>)                 .<span class="hljs-keyword">and</span>()                 .formLogin().loginPage(<span class="hljs-string">"/login"</span>).defaultSuccessUrl(<span class="hljs-string">"/user"</span>)                 .<span class="hljs-keyword">and</span>()                 .logout().logoutUrl(<span class="hljs-string">"/logout"</span>).logoutSuccessUrl(<span class="hljs-string">"/login"</span>);<span class="hljs-comment">// 在 UsernamePasswordAuthenticationFilter 前添加 BeforeLoginFilter</span>         http.addFilterBefore(<span class="hljs-keyword">new</span> BeforeLoginFilter(), UsernamePasswordAuthenticationFilter.class);<span class="hljs-comment">// 在 CsrfFilter 后添加 AfterCsrfFilter</span>         http.addFilterAfter(<span class="hljs-keyword">new</span> AfterCsrfFilter(), CsrfFilter.class);     }</code></code></pre> <p>说明：<br /><code>HttpSecurity</code> 有三个常用方法来配置：</p> <ul> <li>addFilterBefore(Filter filter, Class&lt;? extends Filter&gt; beforeFilter)<br />在 beforeFilter 之前添加 filter</li> <li>addFilterAfter(Filter filter, Class&lt;? extends Filter&gt; afterFilter)<br />在 afterFilter 之后添加 filter</li> <li>addFilterAt(Filter filter, Class&lt;? extends Filter&gt; atFilter)<br />在 atFilter 相同位置添加 filter， 此 filter 不覆盖 filter</li> </ul> <blockquote> <p>通过在不同<code>Filter</code> 的<code>doFilter()</code> 方法中加断点调试，可以判断哪个 filter 先执行，从而判断 filter 的执行顺序 。</p> </blockquote> </div> <p>作者：Anoyi<br />链接：https://www.jianshu.com/p/deb512b41f99<br />來源：简书<br />著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</div> </div> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4151.htm">我们如何从MySQL表中删除多行？</a></p>
+                                                <p>下一个：<a href="/html/category/article-4153.htm">初探webpack之编写loader_在线工具</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

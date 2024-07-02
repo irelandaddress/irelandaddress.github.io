@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <!-- Required meta tags -->
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4236.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
+    <title>安装Pytorch如何选择CUDA的版本 - Ireland Address</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
+    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    <nav class="site-nav mt-3">
+        <div class="container">
+            <div class="site-navigation">
+                                <a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a>
+                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/html/category/">文章分类</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-section body-page">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">文章分类</h2>
+                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="img-wrap" data-aos="fade-left">
+                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div data-aos="fade-up">
+                        <h1 class="mb-5 text-center">安装Pytorch如何选择CUDA的版本</h1>
+                          				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night-eighties"> <div class="toc"> <h3>安装Pytorch时CUDA的选择</h3> <ul> <li> <ul> <li><a href="#Nvidia_CUDA_2" rel="nofollow">Nvidia CUDA</a></li> <li><a href="#CUDA_5" rel="nofollow">查看CUDA版本方法</a></li> <li> <ul> <li><a href="#CUDAAPI_7" rel="nofollow">查看CUDA的驱动API版本</a></li> <li><a href="#CUDAAPI_15" rel="nofollow">查看CUDA的运行API版本</a></li> <li> <ul> <li><a href="#CUDAAPI_17" rel="nofollow">查看官方CUDA的运行API版本</a></li> <li> <ul> <li><a href="#1_18" rel="nofollow">方法1</a></li> <li><a href="#2_26" rel="nofollow">方法2</a></li> </ul> </li> <li><a href="#Anacondacudatoolkit_31" rel="nofollow">查看Anaconda里cudatoolkit包版本</a></li> </ul> </li> </ul> </li> </ul> </li> </ul> </div> <p> CUDA是一个并行计算平台和编程模型，能够使得使用GPU进行通用计算变得简单和优雅。Nvidia官方提供的CUDA 库是一个完整的工具安装包，其中提供了 Nvidia驱动程序、开发 CUDA 程序相关的开发工具包等可供安装的选项。</p> <h2> <a id="Nvidia_CUDA_2" rel="nofollow"></a>Nvidia CUDA</h2> <p>Nvidia安装的cuda是一个完整的cuda库，包含cuda toolkit和相应的驱动。主要包含三部分：CUDA toolkit、CUDA driver和NVIDIA GPU driver。理论上在安装完驱动以后只需要安装CUDA toolkit就可以保证CUDA相关的程序运行。</p> <h2> <a id="CUDA_5" rel="nofollow"></a>查看CUDA版本方法</h2> <p>CUDA分为两种，驱动API和运行API，驱动API指的是指的显卡驱动支持的最高cuda版本，我们运行程序时用的是运行API。</p> <h3> <a id="CUDAAPI_7" rel="nofollow"></a>查看CUDA的驱动API版本</h3> <p>表示的是驱动所能支持的最大运行API版本。如果显示11.3，用我们常说的话就是最大支持11.3的cuda。下面为查看CUDA驱动API版本的命令：</p> <pre><code class="prism language-bash">nvidia-smi  <span class="token comment">#右上角显示CUDA版本(驱动API)</span> </code></pre> <p>显示结果：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221225/73069f300f285c96a5a71afafab06469.jpg" alt="安装Pytorch如何选择CUDA的版本"></p> <h3> <a id="CUDAAPI_15" rel="nofollow"></a>查看CUDA的运行API版本</h3> <p>这是平时我们所说的CUDA版本，由于<strong>运行API在CUDA里的CUDA Toolkit工具包</strong>中，所以运行API版本也是CUDA Toolkit工具包的版本。其实装了Anaconda之后Anaconda也会提供一个cudatoolkit工具包，同样包含了CUDA的运行API，可以用来替代官方CUDA的CUDA Toolkit。这也就是为什么有时候我们通过nvcc-V查看的cuda版本很低(比如7.5)，但是能成功运行cuda9.0的pytorch的原因。因为在安装完anaconda后，运行pytorch代码就会使用anaconda的cudatoolkit，而忽视官方的CUDA Toolkit，所以我们只需要根据anaconda的cudaoolkit包的版本来安装相应的pytorch即可。下面为查看运行API版本的命令：</p> <h4> <a id="CUDAAPI_17" rel="nofollow"></a>查看官方CUDA的运行API版本</h4> <h5> <a id="1_18" rel="nofollow"></a>方法1</h5> <pre><code class="prism language-bash">nvcc -V </code></pre> <p>结果显示官方CUDA提供的CUDA Toolkit工具包的版本为7.5。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221225/ba2bf5fd12a2cab9c12af499e3126abc.jpg" alt="安装Pytorch如何选择CUDA的版本"></p> <h5> <a id="2_26" rel="nofollow"></a>方法2</h5> <p>输入下面的命令，也是显示官方提供的CUDA Toolkit版本。显示的版本和上面一样，也是7.5。</p> <pre><code class="prism language-bash"><span class="token function">cat</span> /usr/local/cuda/version.txt </code></pre> <h4> <a id="Anacondacudatoolkit_31" rel="nofollow"></a>查看Anaconda里cudatoolkit包版本</h4> <p>输入以下命令，在显示列表中找到cudatoolkit包就可以看到它的版本了。</p> <pre><code class="prism language-bash">conda list </code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221225/ca7502447e16eae2db9804771e5085f0.jpg" alt="安装Pytorch如何选择CUDA的版本"><br /> 显示的版本为10.2.89。这是我们运行pytorch的cuda版本，根据它来下载对应的pytorch即可。</p> <blockquote> <p>以上为本人参考了博客和动手实践得出的结论，如有错误可在评论区指出，方便一起学习。</p> </blockquote> <p>参考博客：<br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://zhuanlan.zhihu.com/p/91334380"  rel="nofollow">显卡，显卡驱动,nvcc, cuda driver,cudatoolkit,cudnn到底是什么？</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://zhuanlan.zhihu.com/p/370673949"  rel="nofollow">CUDA、NVIDIA driver、多版本cuda</a></p> </p></div> 			                    </div>
+
+                    <div class="col-md-12 mt-5">
+                                                <p>上一个：<a href="/html/category/article-4235.htm">安装、升级pip，但是python -m pip install &#8211;upgrade pip报错的解决办法。</a></p>
+                                                <p>下一个：<a href="/html/category/article-4237.htm">Promise和async/await的区别</a></p>
+                                            </div>
+
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        Ireland Address 版权所有
+                        <br />
+                        Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>
