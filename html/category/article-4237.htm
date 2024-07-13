@@ -77,7 +77,7 @@ var _hmt = _hmt || [];
                 <div class="col-md-9">
                     <div data-aos="fade-up">
                         <h1 class="mb-5 text-center">Promise和async/await的区别</h1>
-                          				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>【JavaScript】Promise和async/await的区别</h3> <ul> <li><a href="#Promise_2" rel="nofollow">Promise</a></li> <li><a href="#asyncawait_5" rel="nofollow">async/await</a></li> <li><a href="#asyncawait__Promise__17" rel="nofollow">async/await 比 Promise 更省内存？</a></li> <li><a href="#_21" rel="nofollow">总结</a></li> </ul> </div> <h1><a id="Promise_2" rel="nofollow"></a>Promise</h1> <p><code>Promise</code> 是一种异步编程机制，为异步代码提供了清晰的抽象。解决了代码越来越复杂，回调策略可扩展性越来越差的问题。</p> <h1><a id="asyncawait_5" rel="nofollow"></a>async/await</h1> <p><code>async/await</code> 是ES8的关键字，是异步函数，将<code>Promise</code> 应用于<code>JavaScript</code> 函数的结果，让同步方式写的代码能异步执行。<br /> 旨在解决利用异步结构组织代码的问题。</p> <p><code>async</code> 关键字用于声明异步函数，且异步函数始终返回<code>Promise</code> 对象，如果异步函数使用<code>return</code> 关键字，则异步函数的返回值会被<code>Promise.resolve()</code> 包装成一个<code>Promise</code> 对象。</p> <p><code>await</code> 关键字会暂停执行异步函数后面的代码，<code>JavaScript</code> 运行时记录暂停执行的位置并让出执行线程，等到<code>await</code> 右边的值可用时，<code>JavaScript</code> 运行时会向消息队列中推送一个任务，这个任务会恢复异步函数的执行。</p> <p><code>await</code> 关键字必须在异步函数中使用，且只能直接出现在异步函数的定义中。</p> <p>在<code>async/await</code> 关键字中，<code>async</code> 仅仅是一个标识符，起作用的是<code>await</code> 关键字，如果异步函数不包含<code>await</code> 关键字，基本上跟普通函数一样。</p> <h1><a id="asyncawait__Promise__17" rel="nofollow"></a>async/await 比 Promise 更省内存？</h1> <p><code>JavaScript</code> 引擎在创建<code>Promise</code> 时会尽可能的保留完整的调用栈。在抛出错误时，调用栈由运行时错误处理逻辑获取，并出现在栈追踪信息中。而栈追踪信息会占用内存，有一些计算和存储成本。<br /> 当使用<code>async/await</code> 时，栈追踪信息不会记录await后抛出的错误，因为异步函数内部嵌套函数中存储着指向包含函数的指针，故栈追踪信息不会带来额外的消耗。所以，<code>async/await</code> 更省内存。</p> <h1><a id="_21" rel="nofollow"></a>总结</h1> <ul> <li><code>Promise</code> 的主要功能是为异步代码提供了清晰的抽象。</li> <li>异步函数是将<code>Promise</code> 应用于<code>JavaScript</code> 函数的结果。异步函数可以暂停执行，而不阻塞主线程。</li> <li>推荐使用<code>await/async</code>。</li> </ul> </div> 			                    </div>
+                          				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>【JavaScript】Promise和async/await的区别</h3> <ul> <li>Promise</li> <li>async/await</li> <li>async/await 比 Promise 更省内存？</li> <li>总结</li> </ul> </div> <h1>Promise</h1> <p><code>Promise</code> 是一种异步编程机制，为异步代码提供了清晰的抽象。解决了代码越来越复杂，回调策略可扩展性越来越差的问题。</p> <h1>async/await</h1> <p><code>async/await</code> 是ES8的关键字，是异步函数，将<code>Promise</code> 应用于<code>JavaScript</code> 函数的结果，让同步方式写的代码能异步执行。<br /> 旨在解决利用异步结构组织代码的问题。</p> <p><code>async</code> 关键字用于声明异步函数，且异步函数始终返回<code>Promise</code> 对象，如果异步函数使用<code>return</code> 关键字，则异步函数的返回值会被<code>Promise.resolve()</code> 包装成一个<code>Promise</code> 对象。</p> <p><code>await</code> 关键字会暂停执行异步函数后面的代码，<code>JavaScript</code> 运行时记录暂停执行的位置并让出执行线程，等到<code>await</code> 右边的值可用时，<code>JavaScript</code> 运行时会向消息队列中推送一个任务，这个任务会恢复异步函数的执行。</p> <p><code>await</code> 关键字必须在异步函数中使用，且只能直接出现在异步函数的定义中。</p> <p>在<code>async/await</code> 关键字中，<code>async</code> 仅仅是一个标识符，起作用的是<code>await</code> 关键字，如果异步函数不包含<code>await</code> 关键字，基本上跟普通函数一样。</p> <h1>async/await 比 Promise 更省内存？</h1> <p><code>JavaScript</code> 引擎在创建<code>Promise</code> 时会尽可能的保留完整的调用栈。在抛出错误时，调用栈由运行时错误处理逻辑获取，并出现在栈追踪信息中。而栈追踪信息会占用内存，有一些计算和存储成本。<br /> 当使用<code>async/await</code> 时，栈追踪信息不会记录await后抛出的错误，因为异步函数内部嵌套函数中存储着指向包含函数的指针，故栈追踪信息不会带来额外的消耗。所以，<code>async/await</code> 更省内存。</p> <h1>总结</h1> <ul> <li><code>Promise</code> 的主要功能是为异步代码提供了清晰的抽象。</li> <li>异步函数是将<code>Promise</code> 应用于<code>JavaScript</code> 函数的结果。异步函数可以暂停执行，而不阻塞主线程。</li> <li>推荐使用<code>await/async</code>。</li> </ul> </div> 			                    </div>
 
                     <div class="col-md-12 mt-5">
                                                 <p>上一个：<a href="/html/category/article-4236.htm">安装Pytorch如何选择CUDA的版本</a></p>
@@ -93,16 +93,16 @@ var _hmt = _hmt || [];
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/html/category/article-4577.htm" title="男生发型推荐2020(男生发型推荐帅气)">男生发型推荐2020(男生发型推荐帅气)</a></li>
-                        <li class="py-2"><a href="/html/category/article-4431.htm" title="猫咪疫苗三针间隔时间（猫的疫苗三针隔多久）">猫咪疫苗三针间隔时间（猫的疫苗三针隔多久）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4471.htm" title="动物疫苗的意义和作用是什么（动物疫苗的意义和作用是什么意思）">动物疫苗的意义和作用是什么（动物疫苗的意义和作用是什么意思）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4397.htm" title="济南 宠物领养 济南宠物领养">济南 宠物领养 济南宠物领养</a></li>
                         <li class="py-2"><a href="/html/category/article-4578.htm" title="日产cvt专用变速箱油(日产的cvt变速箱油需要更换吗)">日产cvt专用变速箱油(日产的cvt变速箱油需要更换吗)</a></li>
-                        <li class="py-2"><a href="/html/category/article-4507.htm" title="动物防疫站的职责是什么呢（动物防疫站的职责是什么呢英文）">动物防疫站的职责是什么呢（动物防疫站的职责是什么呢英文）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4506.htm" title="宠物美容店需要办什么证才能开（宠物美容店需要办什么证才能开呢）">宠物美容店需要办什么证才能开（宠物美容店需要办什么证才能开呢）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4397.htm" title="济南 宠物领养 济南宠物领养">济南 宠物领养 济南宠物领养</a></li>
+                        <li class="py-2"><a href="/html/category/article-4541.htm" title="cross和crocs鞋子区别(crocs和cross是什么牌子)">cross和crocs鞋子区别(crocs和cross是什么牌子)</a></li>
+                        <li class="py-2"><a href="/html/category/article-4577.htm" title="男生发型推荐2020(男生发型推荐帅气)">男生发型推荐2020(男生发型推荐帅气)</a></li>
+                        <li class="py-2"><a href="/html/category/article-5597.htm" title="动物疫苗经营许可证怎么申请的呢（动物疫苗审批）">动物疫苗经营许可证怎么申请的呢（动物疫苗审批）</a></li>
+                        <li class="py-2"><a href="/html/category/article-5957.htm" title="那些年湖南台捧过的韩国明星有哪些？(湖南卫视捧红的歌手)">那些年湖南台捧过的韩国明星有哪些？(湖南卫视捧红的歌手)</a></li>
+                        <li class="py-2"><a href="/html/category/article-4350.htm" title="办宠物医院需要什么证（宠物医院办理）">办宠物医院需要什么证（宠物医院办理）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4614.htm" title="领养狗狗好吗?（领养狗狗好吗现在）">领养狗狗好吗?（领养狗狗好吗现在）</a></li>
                         <li class="py-2"><a href="/html/category/article-4320.htm" title="领养宠物赚钱吗的简单介绍">领养宠物赚钱吗的简单介绍</a></li>
-                        <li class="py-2"><a href="/html/category/article-4351.htm" title="动物疫苗使用管理办法（动物防疫疫苗管理）">动物疫苗使用管理办法（动物防疫疫苗管理）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4396.htm" title="动物防疫注射栏 动物防疫注射栏图纸">动物防疫注射栏 动物防疫注射栏图纸</a></li>
+                        <li class="py-2"><a href="/html/category/article-4430.htm" title="适合穷人养的猫价格低（可以穷养的猫）">适合穷人养的猫价格低（可以穷养的猫）</a></li>
                     </ul>
     </div>
 </div>
@@ -114,7 +114,7 @@ var _hmt = _hmt || [];
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">18</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">24</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>

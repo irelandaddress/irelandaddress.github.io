@@ -77,7 +77,7 @@ var _hmt = _hmt || [];
                 <div class="col-md-9">
                     <div data-aos="fade-up">
                         <h1 class="mb-5 text-center">YARN基本介绍与HA</h1>
-                          				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>文章目录</h3> <ul> <li><a href="#YARN_4" rel="nofollow">YARN基本介绍</a></li> <li><a href="#ResourceManager_12" rel="nofollow">ResourceManager（资源管理）</a></li> <li> <ul> <li><a href="#_17" rel="nofollow">主备切换</a></li> </ul> </li> <li><a href="#NodeManager_31" rel="nofollow">NodeManager（节点管理）</a></li> <li><a href="#ApplicationMaster_32" rel="nofollow">ApplicationMaster（主应用程序）</a></li> <li><a href="#Container_33" rel="nofollow">Container（容器）</a></li> </ul> </div> <hr/> <h1><a id="YARN_4" rel="nofollow"></a>YARN基本介绍</h1> <p>YARN是Hadoop为了提供计算节点Master（JT）的扩展性，同时为了支持多计算模型和提高资源的细粒度调度而引入的全新一代分布式调度框架。</p> <p>其可以支持MapReduce、Tez、Spark、Storm、Imlala、Open MPI等计算引擎。</p> <p>YARN主要由ResourceManager（RM，资源管理）、NodeManager（NM，节点管理）、ApplicationMaster（AM、主应用程序）、Container（容器）四部分组成。</p> <h1><a id="ResourceManager_12" rel="nofollow"></a>ResourceManager（资源管理）</h1> <p>其中最为核心的是ResourceManager，它作为全局的资源管理，负责整个系统的资源管理和分配，同时接受来自各个节点（NodeManager）的资源汇报信息，并把这些信息按照一定的资源策略分配给各个应用程序（Application Manager），其内部维护了各个应用程序的ApplicationMaster信息、NodeManager信息以及资源使用信息等。</p> <p>YARN设计了一套Active/Standby模式的ResourceManager HA框架，在运行期间会有多个ResourceManager并存，并且其中只有一个ResourceManager处于Active状态，其他则处于Standby状态，当前Active节点无法正常工作时，其余处于Standby状态的节点则会通过竞争产生新的Active节点。</p> <h2><a id="_17" rel="nofollow"></a>主备切换</h2> <ol> <li>创建锁节点<br /> 所有的RM在启动的时候，都会去创建同一个临时节点，只有一个节点能够创建成功。<br /> 创建成功的那个RM就切换为Active状态，没有成功的那些RM则切换为Standby状态。</li> <li>注册Watcher监听<br /> 所有Standby状态的RM都会向节点注册监听，利用临时节点的特性，你能够快速感知到Active状态的Resource的运行状况。</li> <li>主备切换<br /> 当Active的RM出现故障或重启情况，在ZooKeeper创建的临时节点会被删除。此时其他Standby状态的RM都会收到Watcher事件通知，重复步骤1操作。</li> <li>脑裂现象<br /> 当RM1为Active出现”假死“状态，导致RM2为Active。当RM1恢复正常时，其依然认为自己还处于Active状态。出现多个Active状态RM，这就是”脑裂“现象。</li> <li>避免脑裂现象<br /> 解决方法是在创建节点的时候携带ACL信息，已防止其他RM对该节点更新。<br /> 当RM1为Active出现”假死“状态，导致RM2为Active。当RM1恢复正常时会试图更新节点相关数据，但是此时发现其没有权限更新节点数据，也就是说，RM1发现节点不是不是自己创建的，于是就自动切换为Standby状态，避免出现”脑裂“。</li> </ol> <h1><a id="NodeManager_31" rel="nofollow"></a>NodeManager（节点管理）</h1> <h1><a id="ApplicationMaster_32" rel="nofollow"></a>ApplicationMaster（主应用程序）</h1> <h1><a id="Container_33" rel="nofollow"></a>Container（容器）</h1> </div> 			                    </div>
+                          				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>文章目录</h3> <ul> <li>YARN基本介绍</li> <li>ResourceManager（资源管理）</li> <li> <ul> <li>主备切换</li> </ul> </li> <li>NodeManager（节点管理）</li> <li>ApplicationMaster（主应用程序）</li> <li>Container（容器）</li> </ul> </div> <hr/> <h1>YARN基本介绍</h1> <p>YARN是Hadoop为了提供计算节点Master（JT）的扩展性，同时为了支持多计算模型和提高资源的细粒度调度而引入的全新一代分布式调度框架。</p> <p>其可以支持MapReduce、Tez、Spark、Storm、Imlala、Open MPI等计算引擎。</p> <p>YARN主要由ResourceManager（RM，资源管理）、NodeManager（NM，节点管理）、ApplicationMaster（AM、主应用程序）、Container（容器）四部分组成。</p> <h1>ResourceManager（资源管理）</h1> <p>其中最为核心的是ResourceManager，它作为全局的资源管理，负责整个系统的资源管理和分配，同时接受来自各个节点（NodeManager）的资源汇报信息，并把这些信息按照一定的资源策略分配给各个应用程序（Application Manager），其内部维护了各个应用程序的ApplicationMaster信息、NodeManager信息以及资源使用信息等。</p> <p>YARN设计了一套Active/Standby模式的ResourceManager HA框架，在运行期间会有多个ResourceManager并存，并且其中只有一个ResourceManager处于Active状态，其他则处于Standby状态，当前Active节点无法正常工作时，其余处于Standby状态的节点则会通过竞争产生新的Active节点。</p> <h2>主备切换</h2> <ol> <li>创建锁节点<br /> 所有的RM在启动的时候，都会去创建同一个临时节点，只有一个节点能够创建成功。<br /> 创建成功的那个RM就切换为Active状态，没有成功的那些RM则切换为Standby状态。</li> <li>注册Watcher监听<br /> 所有Standby状态的RM都会向节点注册监听，利用临时节点的特性，你能够快速感知到Active状态的Resource的运行状况。</li> <li>主备切换<br /> 当Active的RM出现故障或重启情况，在ZooKeeper创建的临时节点会被删除。此时其他Standby状态的RM都会收到Watcher事件通知，重复步骤1操作。</li> <li>脑裂现象<br /> 当RM1为Active出现”假死“状态，导致RM2为Active。当RM1恢复正常时，其依然认为自己还处于Active状态。出现多个Active状态RM，这就是”脑裂“现象。</li> <li>避免脑裂现象<br /> 解决方法是在创建节点的时候携带ACL信息，已防止其他RM对该节点更新。<br /> 当RM1为Active出现”假死“状态，导致RM2为Active。当RM1恢复正常时会试图更新节点相关数据，但是此时发现其没有权限更新节点数据，也就是说，RM1发现节点不是不是自己创建的，于是就自动切换为Standby状态，避免出现”脑裂“。</li> </ol> <h1>NodeManager（节点管理）</h1> <h1>ApplicationMaster（主应用程序）</h1> <h1>Container（容器）</h1> </div> 			                    </div>
 
                     <div class="col-md-12 mt-5">
                                                 <p>上一个：<a href="/html/category/article-4218.htm">[ Shell ] 通过 Shell 脚本导出 GDSII/OASIS 文件</a></p>
@@ -93,16 +93,16 @@ var _hmt = _hmt || [];
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/html/category/article-4470.htm" title="北京天圣宠物医院（北京天圣动物医院）">北京天圣宠物医院（北京天圣动物医院）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4430.htm" title="适合穷人养的猫价格低（可以穷养的猫）">适合穷人养的猫价格低（可以穷养的猫）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4397.htm" title="济南 宠物领养 济南宠物领养">济南 宠物领养 济南宠物领养</a></li>
+                        <li class="py-2"><a href="/html/category/article-5957.htm" title="那些年湖南台捧过的韩国明星有哪些？(湖南卫视捧红的歌手)">那些年湖南台捧过的韩国明星有哪些？(湖南卫视捧红的歌手)</a></li>
                         <li class="py-2"><a href="/html/category/article-4396.htm" title="动物防疫注射栏 动物防疫注射栏图纸">动物防疫注射栏 动物防疫注射栏图纸</a></li>
-                        <li class="py-2"><a href="/html/category/article-4578.htm" title="日产cvt专用变速箱油(日产的cvt变速箱油需要更换吗)">日产cvt专用变速箱油(日产的cvt变速箱油需要更换吗)</a></li>
-                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                        <li class="py-2"><a href="/html/category/article-4506.htm" title="宠物美容店需要办什么证才能开（宠物美容店需要办什么证才能开呢）">宠物美容店需要办什么证才能开（宠物美容店需要办什么证才能开呢）</a></li>
+                        <li class="py-2"><a href="/html/category/article-5956.htm" title="动物医院附近（动物医院上班）">动物医院附近（动物医院上班）</a></li>
+                        <li class="py-2"><a href="/html/category/article-5598.htm" title="中国宠物粮市场分析 中国宠物粮市场分析报告">中国宠物粮市场分析 中国宠物粮市场分析报告</a></li>
+                        <li class="py-2"><a href="/html/category/article-4351.htm" title="动物疫苗使用管理办法（动物防疫疫苗管理）">动物疫苗使用管理办法（动物防疫疫苗管理）</a></li>
                         <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
-                        <li class="py-2"><a href="/html/category/article-4577.htm" title="男生发型推荐2020(男生发型推荐帅气)">男生发型推荐2020(男生发型推荐帅气)</a></li>
-                        <li class="py-2"><a href="/html/category/article-4431.htm" title="猫咪疫苗三针间隔时间（猫的疫苗三针隔多久）">猫咪疫苗三针间隔时间（猫的疫苗三针隔多久）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4320.htm" title="领养宠物赚钱吗的简单介绍">领养宠物赚钱吗的简单介绍</a></li>
+                        <li class="py-2"><a href="/html/category/article-5597.htm" title="动物疫苗经营许可证怎么申请的呢（动物疫苗审批）">动物疫苗经营许可证怎么申请的呢（动物疫苗审批）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4471.htm" title="动物疫苗的意义和作用是什么（动物疫苗的意义和作用是什么意思）">动物疫苗的意义和作用是什么（动物疫苗的意义和作用是什么意思）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4350.htm" title="办宠物医院需要什么证（宠物医院办理）">办宠物医院需要什么证（宠物医院办理）</a></li>
                     </ul>
     </div>
 </div>
@@ -114,7 +114,7 @@ var _hmt = _hmt || [];
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">18</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">24</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>

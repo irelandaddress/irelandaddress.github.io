@@ -77,7 +77,7 @@ var _hmt = _hmt || [];
                 <div class="col-md-9">
                     <div data-aos="fade-up">
                         <h1 class="mb-5 text-center">vue动态加载静态资源</h1>
-                          				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/zcmos/p/10277554.html"  rel="nofollow">vue动态加载静态资源</a></p> <p>项目背景：项目的使用场景是面向信息安全相关部门，环境很有可能没有公网，局域网并不稳定，所以无法使用七牛等CDN保存图片资源。从而采用引入本地资源的方式</p> <p>通常一张本地静态图片在vue中的写法是这样</p> <pre><code>&lt;img src="@/assets/icon/demo.png" alt="vue动态加载静态资源"&gt;</code></pre> <p>但是，img标签如果在src路径中使用变量，会被编译为字符串，导致编译后的路径就是我们写上去的字符串形式，比如你在data中定义了一个变量src，然后在img标签中引用</p> <pre><code>//data中定义变量src data() {   return {     src: 'demo'    } } //模版中的标签 &lt;img src="@/assets/icon/" + src + ".png" alt="vue动态加载静态资源"&gt;</code></pre> <p>你会发现这个时候图片并没有被加载出来，浏览器中这张图片的地址直接显示’@/assets/icon/demo.png’，也就是没有经过编译的步骤，直接将我们的输入当作字符串显示</p> <p>在实际开发中，难免会需要动态生成图片路径的场景，那么如何正确显示图片呢？</p> <ol> <li>在当前页面全局import图片地址</li> </ol> <pre><code>//使用import引入 import pic1 from '@/assets/icon/demo1.png' import pic2 from '@/assets/icon/demo2.png' //在data中定义图片变量 data() {   return {     pic: {[       name: 'demo1',       src: pic1,     ], [       name: 'demo2',       src: pic2,     ]}   } } //在HTML中使用 &lt;img v-for="item in pic" :src="item.src" :alt="item.name"/&gt;</code></pre> <p>图片可以正确显示，但需要图片名称和你引入的图片手动做好对应。作为一个程序员，当然不会使用这么low的操作了，所以就有了下文</p> <ol start="2"> <li>使用require<br /> require可以在代码中使用，所以我们可以在获取数据的同时，为数对象增加一个src的属性</li> </ol> <pre><code>getData() {   this.data.forEach(ele =&gt; {     ele.src = require('@/assets/icon/' + ele.name + '.png');   }) }</code></pre> <p>这就需要我们规范本地图片的命名了，确保能最有效地获取到正确的图片路径<br /> 使用require的时候也需要注意一点：require内容不能使用变量，如下写法会直接导致编译报错</p> <pre><code>let src = '@/assets/icon/demo.png'; require(src) //报错“. is not a module”</code></pre> <p>3.将本地资源放到static目录下引用</p> <pre><code>getData() {   this.data.forEach(ele =&gt; {     ele.src = 'static/icon/' + ele.name + '.png'   }) }</code></pre> </div> 			                    </div>
+                          				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>vue动态加载静态资源</p> <p>项目背景：项目的使用场景是面向信息安全相关部门，环境很有可能没有公网，局域网并不稳定，所以无法使用七牛等CDN保存图片资源。从而采用引入本地资源的方式</p> <p>通常一张本地静态图片在vue中的写法是这样</p> <pre><code><img src="@/assets/icon/demo.png" alt="vue动态加载静态资源"></code></pre> <p>但是，img标签如果在src路径中使用变量，会被编译为字符串，导致编译后的路径就是我们写上去的字符串形式，比如你在data中定义了一个变量src，然后在img标签中引用</p> <pre><code>//data中定义变量src data() {   return {     src: 'demo'    } } //模版中的标签 <img src="@/assets/icon/" + src + ".png" alt="vue动态加载静态资源"></code></pre> <p>你会发现这个时候图片并没有被加载出来，浏览器中这张图片的地址直接显示’@/assets/icon/demo.png’，也就是没有经过编译的步骤，直接将我们的输入当作字符串显示</p> <p>在实际开发中，难免会需要动态生成图片路径的场景，那么如何正确显示图片呢？</p> <ol> <li>在当前页面全局import图片地址</li> </ol> <pre><code>//使用import引入 import pic1 from '@/assets/icon/demo1.png' import pic2 from '@/assets/icon/demo2.png' //在data中定义图片变量 data() {   return {     pic: {[       name: 'demo1',       src: pic1,     ], [       name: 'demo2',       src: pic2,     ]}   } } //在HTML中使用 <img v-for="item in pic" :src="item.src" :alt="item.name"/></code></pre> <p>图片可以正确显示，但需要图片名称和你引入的图片手动做好对应。作为一个程序员，当然不会使用这么low的操作了，所以就有了下文</p> <ol start="2"> <li>使用require<br /> require可以在代码中使用，所以我们可以在获取数据的同时，为数对象增加一个src的属性</li> </ol> <pre><code>getData() {   this.data.forEach(ele => {     ele.src = require('@/assets/icon/' + ele.name + '.png');   }) }</code></pre> <p>这就需要我们规范本地图片的命名了，确保能最有效地获取到正确的图片路径<br /> 使用require的时候也需要注意一点：require内容不能使用变量，如下写法会直接导致编译报错</p> <pre><code>let src = '@/assets/icon/demo.png'; require(src) //报错“. is not a module”</code></pre> <p>3.将本地资源放到static目录下引用</p> <pre><code>getData() {   this.data.forEach(ele => {     ele.src = 'static/icon/' + ele.name + '.png'   }) }</code></pre> </div> 			                    </div>
 
                     <div class="col-md-12 mt-5">
                                                 <p>上一个：<a href="/html/category/article-4255.htm">深度学习网络篇——DenseNet</a></p>
@@ -94,15 +94,15 @@ var _hmt = _hmt || [];
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2"><a href="/html/category/article-4507.htm" title="动物防疫站的职责是什么呢（动物防疫站的职责是什么呢英文）">动物防疫站的职责是什么呢（动物防疫站的职责是什么呢英文）</a></li>
+                        <li class="py-2"><a href="/html/category/article-5598.htm" title="中国宠物粮市场分析 中国宠物粮市场分析报告">中国宠物粮市场分析 中国宠物粮市场分析报告</a></li>
                         <li class="py-2"><a href="/html/category/article-4321.htm" title="女人开始养猫意味着（养猫最忌讳的一个生肖）">女人开始养猫意味着（养猫最忌讳的一个生肖）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4541.htm" title="cross和crocs鞋子区别(crocs和cross是什么牌子)">cross和crocs鞋子区别(crocs和cross是什么牌子)</a></li>
-                        <li class="py-2"><a href="/html/category/article-4351.htm" title="动物疫苗使用管理办法（动物防疫疫苗管理）">动物疫苗使用管理办法（动物防疫疫苗管理）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
-                        <li class="py-2"><a href="/html/category/article-4350.htm" title="办宠物医院需要什么证（宠物医院办理）">办宠物医院需要什么证（宠物医院办理）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4397.htm" title="济南 宠物领养 济南宠物领养">济南 宠物领养 济南宠物领养</a></li>
+                        <li class="py-2"><a href="/html/category/article-4577.htm" title="男生发型推荐2020(男生发型推荐帅气)">男生发型推荐2020(男生发型推荐帅气)</a></li>
+                        <li class="py-2"><a href="/html/category/article-4578.htm" title="日产cvt专用变速箱油(日产的cvt变速箱油需要更换吗)">日产cvt专用变速箱油(日产的cvt变速箱油需要更换吗)</a></li>
+                        <li class="py-2"><a href="/html/category/article-4430.htm" title="适合穷人养的猫价格低（可以穷养的猫）">适合穷人养的猫价格低（可以穷养的猫）</a></li>
                         <li class="py-2"><a href="/html/category/article-4431.htm" title="猫咪疫苗三针间隔时间（猫的疫苗三针隔多久）">猫咪疫苗三针间隔时间（猫的疫苗三针隔多久）</a></li>
                         <li class="py-2"><a href="/html/category/article-4506.htm" title="宠物美容店需要办什么证才能开（宠物美容店需要办什么证才能开呢）">宠物美容店需要办什么证才能开（宠物美容店需要办什么证才能开呢）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4577.htm" title="男生发型推荐2020(男生发型推荐帅气)">男生发型推荐2020(男生发型推荐帅气)</a></li>
+                        <li class="py-2"><a href="/html/category/article-4396.htm" title="动物防疫注射栏 动物防疫注射栏图纸">动物防疫注射栏 动物防疫注射栏图纸</a></li>
+                        <li class="py-2"><a href="/html/category/article-5956.htm" title="动物医院附近（动物医院上班）">动物医院附近（动物医院上班）</a></li>
                     </ul>
     </div>
 </div>
@@ -114,7 +114,7 @@ var _hmt = _hmt || [];
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">18</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">24</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>

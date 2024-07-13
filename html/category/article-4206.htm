@@ -77,7 +77,7 @@ var _hmt = _hmt || [];
                 <div class="col-md-9">
                     <div data-aos="fade-up">
                         <h1 class="mb-5 text-center">详解encodeURI和encodeURIComponent的区别</h1>
-                          				  				  				<div id="content_views" class="htmledit_views"> <p>Global对象的encodeURI()和encodeURIComponent()方法可以对URI进行编码。</p> <p><strong>encodeURI()</strong></p> <p>encodeURI()主要用于整个URI(<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.w3school.com.cn"  rel="nofollow">http://www.w3school.com.cn</a>)，实例：</p> <pre class="has"><code>&lt;html&gt; &lt;body&gt;  &lt;script type="text/javascript"&gt;  document.write(encodeURI("http://www.w3school.com.cn")+ "&lt;br /&gt;") document.write(encodeURI("http://www.w3school.com.cn/My first/")+ "&lt;br /&gt;") document.write(encodeURI(",/?:@&amp;=+$#"))  &lt;/script&gt;  &lt;/body&gt; &lt;/html&gt;</code></pre> <p>运行结果为:</p> <blockquote> <p>http://www.w3school.com.cn<br /> http://www.w3school.com.cn/My%20first/<br /> ,/?:@&amp;=+$#</p> </blockquote> <p><strong>encodeURIComponent()</strong></p> <p>encodeURIComponent()主要用于对URI中的某一段进行编码。它们的主要区别在于，encodeURI()不会对本身属于URI的特殊字符进行编码，例如冒号、正斜杠、问号和井字号；而encodeURIComponent()则会对它发现的任何非标准字符进行编码。来看下面的例子：</p> <pre class="has"><code>&lt;html&gt; &lt;body&gt;  &lt;script type="text/javascript"&gt;  document.write(encodeURIComponent("http://www.w3school.com.cn")+ "&lt;br /&gt;") document.write(encodeURIComponent("http://www.w3school.com.cn/My first/")+ "&lt;br /&gt;") document.write(encodeURIComponent(",/?:@&amp;=+$#"))  &lt;/script&gt;  &lt;/body&gt; &lt;/html&gt;</code></pre> <p>运行结果为:</p> <blockquote> <p>http%3A%2F%2Fwww.w3school.com.cn<br /> http%3A%2F%2Fwww.w3school.com.cn%2FMy%20first%2F<br /> %2C%2F%3F%3A%40%26%3D%2B%24%23</p> </blockquote> <p>使用encodeURI()编码后的结果是除了空格之外的其他字符都原封不动，只有空格被替换成了%20。而encodeURIComponent()方法则会使用对应的编码替换所有非字母数字字符。这也正是可以对整个URI使用encodeURI()，而只能对附加在现有URI后面的字符串使用encodeURIComponent()的原因所在。一般来说,我们使用encodeURIComponent()方法的时候要比使用encodeURI()更多,因为在实践中更常见的是对查询字符串参数而不是对基础URL进行编码.</p> <p></p> </div> 			                    </div>
+                          				  				  				<div id="content_views" class="htmledit_views"> <p>Global对象的encodeURI()和encodeURIComponent()方法可以对URI进行编码。</p> <p><strong>encodeURI()</strong></p> <p>encodeURI()主要用于整个URI(http://www.w3school.com.cn)，实例：</p> <pre class="has"><code><html> <body>  <script type="text/javascript">  document.write(encodeURI("http://www.w3school.com.cn")+ "<br />") document.write(encodeURI("http://www.w3school.com.cn/My first/")+ "<br />") document.write(encodeURI(",/?:@&=+$#"))  </script>  </body> </html></code></pre> <p>运行结果为:</p> <blockquote> <p>http://www.w3school.com.cn<br /> http://www.w3school.com.cn/My%20first/<br /> ,/?:@&=+$#</p> </blockquote> <p><strong>encodeURIComponent()</strong></p> <p>encodeURIComponent()主要用于对URI中的某一段进行编码。它们的主要区别在于，encodeURI()不会对本身属于URI的特殊字符进行编码，例如冒号、正斜杠、问号和井字号；而encodeURIComponent()则会对它发现的任何非标准字符进行编码。来看下面的例子：</p> <pre class="has"><code><html> <body>  <script type="text/javascript">  document.write(encodeURIComponent("http://www.w3school.com.cn")+ "<br />") document.write(encodeURIComponent("http://www.w3school.com.cn/My first/")+ "<br />") document.write(encodeURIComponent(",/?:@&=+$#"))  </script>  </body> </html></code></pre> <p>运行结果为:</p> <blockquote> <p>http%3A%2F%2Fwww.w3school.com.cn<br /> http%3A%2F%2Fwww.w3school.com.cn%2FMy%20first%2F<br /> %2C%2F%3F%3A%40%26%3D%2B%24%23</p> </blockquote> <p>使用encodeURI()编码后的结果是除了空格之外的其他字符都原封不动，只有空格被替换成了%20。而encodeURIComponent()方法则会使用对应的编码替换所有非字母数字字符。这也正是可以对整个URI使用encodeURI()，而只能对附加在现有URI后面的字符串使用encodeURIComponent()的原因所在。一般来说,我们使用encodeURIComponent()方法的时候要比使用encodeURI()更多,因为在实践中更常见的是对查询字符串参数而不是对基础URL进行编码.</p> <p></p> </div> 			                    </div>
 
                     <div class="col-md-12 mt-5">
                                                 <p>上一个：<a href="/html/category/article-4205.htm">IntelliJ IDEA配置Maven详解</a></p>
@@ -93,16 +93,16 @@ var _hmt = _hmt || [];
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/html/category/article-4542.htm" title="猫咬伤多久能好（猫咬了之后多久多长时间***）">猫咬伤多久能好（猫咬了之后多久多长时间***）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
-                        <li class="py-2"><a href="/html/category/article-4396.htm" title="动物防疫注射栏 动物防疫注射栏图纸">动物防疫注射栏 动物防疫注射栏图纸</a></li>
-                        <li class="py-2"><a href="/html/category/article-4351.htm" title="动物疫苗使用管理办法（动物防疫疫苗管理）">动物疫苗使用管理办法（动物防疫疫苗管理）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4397.htm" title="济南 宠物领养 济南宠物领养">济南 宠物领养 济南宠物领养</a></li>
-                        <li class="py-2"><a href="/html/category/article-4470.htm" title="北京天圣宠物医院（北京天圣动物医院）">北京天圣宠物医院（北京天圣动物医院）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4578.htm" title="日产cvt专用变速箱油(日产的cvt变速箱油需要更换吗)">日产cvt专用变速箱油(日产的cvt变速箱油需要更换吗)</a></li>
-                        <li class="py-2"><a href="/html/category/article-4541.htm" title="cross和crocs鞋子区别(crocs和cross是什么牌子)">cross和crocs鞋子区别(crocs和cross是什么牌子)</a></li>
+                        <li class="py-2"><a href="/html/category/article-4614.htm" title="领养狗狗好吗?（领养狗狗好吗现在）">领养狗狗好吗?（领养狗狗好吗现在）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4613.htm" title="农大动物医院电话24小时营业吗北京 农大动物医院电话24小时营业吗北京市">农大动物医院电话24小时营业吗北京 农大动物医院电话24小时营业吗北京市</a></li>
                         <li class="py-2"><a href="/html/category/article-4320.htm" title="领养宠物赚钱吗的简单介绍">领养宠物赚钱吗的简单介绍</a></li>
-                        <li class="py-2"><a href="/html/category/article-4507.htm" title="动物防疫站的职责是什么呢（动物防疫站的职责是什么呢英文）">动物防疫站的职责是什么呢（动物防疫站的职责是什么呢英文）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                        <li class="py-2"><a href="/html/category/article-4542.htm" title="猫咬伤多久能好（猫咬了之后多久多长时间***）">猫咬伤多久能好（猫咬了之后多久多长时间***）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4350.htm" title="办宠物医院需要什么证（宠物医院办理）">办宠物医院需要什么证（宠物医院办理）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4577.htm" title="男生发型推荐2020(男生发型推荐帅气)">男生发型推荐2020(男生发型推荐帅气)</a></li>
+                        <li class="py-2"><a href="/html/category/article-4321.htm" title="女人开始养猫意味着（养猫最忌讳的一个生肖）">女人开始养猫意味着（养猫最忌讳的一个生肖）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4541.htm" title="cross和crocs鞋子区别(crocs和cross是什么牌子)">cross和crocs鞋子区别(crocs和cross是什么牌子)</a></li>
+                        <li class="py-2"><a href="/html/category/article-4431.htm" title="猫咪疫苗三针间隔时间（猫的疫苗三针隔多久）">猫咪疫苗三针间隔时间（猫的疫苗三针隔多久）</a></li>
                     </ul>
     </div>
 </div>
@@ -114,7 +114,7 @@ var _hmt = _hmt || [];
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">18</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">24</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
