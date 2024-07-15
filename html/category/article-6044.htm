@@ -3,11 +3,12 @@
 
 <head>
         <!-- Required meta tags -->
-    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-4259.htm" />
+    <link rel="canonical" href="https://irelandaddress.github.io/html/category/article-6044.htm" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
-    <title>Spring boot将图片转成base64,使用sun.misc.BASE64Decoder转换图片 - Ireland Address</title>
+    <title>赵英俊图片（赵英俊是光头强的原型吗）</title>
+        <meta name="description" content="7月28日，是已故明星赵英俊的45岁冥诞，他生前为人善良，结交了一群娱乐圈知己好友。在这个特殊的日子，一众明星纷纷发文悼念，让人不忍泪目。     作为赵英俊生前的挚友，薛之谦简单的一个“念”字却包含" />
         <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
@@ -76,12 +77,12 @@ var _hmt = _hmt || [];
             <div class="row">
                 <div class="col-md-9">
                     <div data-aos="fade-up">
-                        <h1 class="mb-5 text-center">Spring boot将图片转成base64,使用sun.misc.BASE64Decoder转换图片</h1>
-                          				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h1>一、前情</h1> <p>本来项目要求的是后台给前端返回文件的地址，前端可以读取文件，图片或者pdf文件都能读取到，pdf根据浏览器会有显示和下载两种情况，doc等其他类型需要联网使用微软公司的接口。但是这样就暴露了服务器存放文件的地址，所以更改为把图片大小限制后转成base64编码持久化保存。</p> <h1>二、导包</h1> <p>pom文件直接导入：</p> <pre><code><!-- 图片转base64 -->         <!-- https://mvnrepository.com/artifact/com.slzx.third/sun.misc.BASE64Decoder --> 		<dependency> 		    <groupId>com.slzx.third</groupId> 		    sun.misc.BASE64Decoder</artifactId> 		    <version>1.0</version> 		</dependency></code></pre> <p>就是文件下载不下来，就直接把jar包下载下来放到本地mvn库中<br /> 路径不变<br /> 进cmd后输入</p> <pre><code>mvn install:install-file -DgroupId=com.slzx.third -DartifactId=sun.misc.BASE64Decoder -Dversion=1.0 -Dpackaging=jar -Dfile=D:\software\sunmiscbase64decoder\sun.misc.BASE64Decoder.jar</code></pre> <h1><a id="_20" rel="nofollow">三、使用</h1> <p>@param imgFilePath 待处理图片的地址<br /> @return 注意这里只返回图片的base64编码，没有文件类型》》data:image/png;base64,添加类型信息后可以在img标签中显示</p> <pre><code>package com.psbc.pfpj.utils;  import java.io.File; import java.io.FileInputStream; import java.io.FileOutputStream; import java.io.IOException; import java.io.InputStream; import java.io.OutputStream;  import Decoder.BASE64Decoder; import Decoder.BASE64Encoder;  public class ImgTypeConvert { 	 	/** 	 * 将图片转换成Base64编码 	 *  	 * @param imgFilePath  待处理图片文件的地址 	 * @return 注意这里只返回图片的base64编码，没有文件类型》》data:image/png;base64,添加类型信息后可以在img标签中显示 	 */ 	public static String getImgStr(String imgFilePath) { 		// 将图片文件转化为字节数组字符串，并对其进行Base64编码处理 		File file=new File(imgFilePath); 		InputStream in = null; 		byte[] data = null; 		// 读取图片字节数组 		try { 			in = new FileInputStream(file); 			data = new byte[in.available()]; 			in.read(data); 			in.close(); 			if(data!=null&&data.length>0){ 				//删除图片 //				file.delete(); 			} 		} catch (IOException e) { 			e.printStackTrace(); 		} 		 		BASE64Encoder encoder = new BASE64Encoder(); 		return encoder.encode(data); 	} 	          public static void main(String[] args) {     	String base64 = ImgTypeConvert.getImgStr("C:\\Users\\28054\\Pictures\\QQ浏览器截图\\QQ浏览器截图20210112094524.png"); 		System.out.println(base64); 		System.out.println(ImgTypeConvert.GenerateImage(base64, "D:\\a.jpg")); 		 	}          /** 	 * @Description: 将base64编码字符串转换为图片 	 * @Author:  	 * @CreateTime:  	 * @param imgStr base64编码字符串 	 * @param path 图片路径-文件名自己定义 	 * @return 	*/      public static boolean GenerateImage(String imgStr,String imgFilePath)       {   //对字节数组字符串进行Base64解码并生成图片           if (imgStr == null) //图像数据为空               return false;           BASE64Decoder decoder = new BASE64Decoder();           try            {               //Base64解码               byte[] b = decoder.decodeBuffer(imgStr);               for(int i=0;i<b.length;++i)               {                   if(b[i]<0)                   {//调整异常数据                       b[i]+=256;                   }               }               //生成图片               OutputStream out = new FileOutputStream(imgFilePath);                   out.write(b);               out.flush();               out.close();               return true;           }            catch (Exception e)            {               return false;           }       }               }</code></pre> </div> 			                    </div>
+                        <h1 class="mb-5 text-center">赵英俊图片（赵英俊是光头强的原型吗）</h1>
+                          			<div class="orbui orbui-post orbui-post-01"></script>  <ins class="adsbygoogle"       style="display:block; text-align:center;"       data-ad-layout="in-article"       data-ad-format="fluid"       data-ad-client="ca-pub-6016799283272811"       data-ad-slot="9026798696"></ins>  </script></div>						 <p>     </h1>     <p style="font-size: 18px; line-height: 40px; text-align: left; margin-bottom: 30px;">7月28日，是已故明星赵英俊的45岁冥诞，他生前为人善良，结交了一群娱乐圈知己好友。在这个特殊的日子，一众明星纷纷发文悼念，让人不忍泪目。</p>     <p style="font-size: 18px; line-height: 40px; text-align: left; margin-bottom: 30px;">作为赵英俊生前的挚友，薛之谦简单的一个“念”字却包含着满满的不舍和怀念。</p>     <p style="font-size: 18px; line-height: 40px; text-align: left; margin-bottom: 30px;">画面中，薛之谦穿着一身黑衣，走在去墓地的路上。他的右手拉着一个推车，里面摆放了满满一车的菊花，足以见其用心。更让人感动的是，薛之谦此次来墓地祭奠，还带上了赵英俊的母亲，他左手牢牢地牵着年迈的赵母，将她照顾地非常好。</p>     <p style="font-size: 18px; line-height: 40px; text-align: left; margin-bottom: 30px;">在赵英俊去世的这段时间，他们几位好友都会时常看望赵英俊父母，陪他们解闷。其实除了赵英俊的父母，乔任梁的父母薛之谦私下也在多加照顾，这样的友情让人感动不已。</p>     <p style="font-size: 18px; line-height: 40px; text-align: left; margin-bottom: 30px;">赵英俊的另一位好友大鹏也用自己独特的方式悼念，他弹唱了一首歌曲，名叫《这就是命》，歌词写到“没有遗憾也不算完整”，弹唱时，大鹏一改往日的幽默面孔，悲伤的深情让人感慨良多。</p>     <p style="font-size: 18px; line-height: 40px; text-align: left; margin-bottom: 30px;">王传君也分享了赵英俊的生前作品。</p>     <p style="font-size: 18px; line-height: 40px; text-align: left; margin-bottom: 30px;">除了这些明星艺人，不少网友也发文，怀念起这位才华横溢的好艺人。</p>     <p style="font-size: 18px; line-height: 40px; text-align: left; margin-bottom: 30px;">2021年2月3日，赵英俊因病医治无效在北京去世，曾有媒体透露他生前是身患肝癌。作为歌手兼制片人，赵英俊曾为诸多影视作品创作或演唱歌曲，例如《泰囧》《港囧》《煎饼侠》《送你一朵小红花》等等，还曾搭档朱时茂执导电影。</p>     <p style="font-size: 18px; line-height: 40px; text-align: left; margin-bottom: 30px;">他在娱乐圈人缘非常好，去世的消息曝光后，一众艺人都发文哀悼，追悼会现场不仅王宝强黄渤现身，薛之谦还崩溃痛哭，让人难过。</p>     <p style="font-size: 18px; line-height: 40px; text-align: left; margin-bottom: 30px;">当时，赵英俊的遗书也让许多吃瓜群众落下眼泪，为这个才子惋惜不已。</p>     <p style="font-size: 18px; line-height: 40px; text-align: left; margin-bottom: 30px;">转眼间，赵英俊已经去世一年有余，圈内艺人和网友们都没有忘却他。除了特殊纪念日会发文哀悼，大鹏还会将生活琐事以留言的方式分享给赵英俊，仿佛他从未走远过。</p>     <p style="font-size: 18px; line-height: 40px; text-align: left; margin-bottom: 30px;">斯人已逝，我们也祝愿赵英俊在另一个世界可以远离病魔，做一个无忧无虑的音乐才子！</p>     <p style="font-size: 18px; line-height: 40px; text-align: left; margin-bottom: 30px;">祝他生日快乐。</p>     <p style="font-size: 18px; line-height: 40px; text-align: left; margin-bottom: 30px;">#赵英俊冥诞#、#众星悼念#、#薛之谦#</p>     <p style="font-size: 18px; line-height: 40px; text-align: left; margin-bottom: 30px;">作者：栗子</p>     <p style="font-size: 18px; line-height: 40px; text-align: left; margin-bottom: 30px;">责编：小重山</p>     </p> 					                    </div>
 
                     <div class="col-md-12 mt-5">
-                                                <p>上一个：<a href="/html/category/article-4258.htm">Springboot 使用Maven实现多环境打包</a></p>
-                                                <p>下一个：<a href="/html/category/article-4260.htm">在Vue3项目中使用pinia代替Vuex进行数据存储</a></p>
+                                                <p>上一个：<a href="/html/category/article-5983.htm">激战奇轮（不看后悔）激战2星岬岛攻略，大嫂大嫂电视剧，激战1，</a></p>
+                                                <p>下一个：<a href="/html/category/article-6045.htm">上海地区宠物领养中心 上海地区宠物领养中心地址</a></p>
                                             </div>
 
                     
@@ -93,16 +94,16 @@ var _hmt = _hmt || [];
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/html/category/article-5956.htm" title="动物医院附近（动物医院上班）">动物医院附近（动物医院上班）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
-                        <li class="py-2"><a href="/html/category/article-4577.htm" title="男生发型推荐2020(男生发型推荐帅气)">男生发型推荐2020(男生发型推荐帅气)</a></li>
-                        <li class="py-2"><a href="/html/category/article-4430.htm" title="适合穷人养的猫价格低（可以穷养的猫）">适合穷人养的猫价格低（可以穷养的猫）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
-                        <li class="py-2"><a href="/html/category/article-4321.htm" title="女人开始养猫意味着（养猫最忌讳的一个生肖）">女人开始养猫意味着（养猫最忌讳的一个生肖）</a></li>
-                        <li class="py-2"><a href="/html/category/article-5983.htm" title="激战奇轮（不看后悔）激战2星岬岛攻略，大嫂大嫂电视剧，激战1，">激战奇轮（不看后悔）激战2星岬岛攻略，大嫂大嫂电视剧，激战1，</a></li>
-                        <li class="py-2"><a href="/html/category/article-6044.htm" title="赵英俊图片（赵英俊是光头强的原型吗）">赵英俊图片（赵英俊是光头强的原型吗）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4506.htm" title="宠物美容店需要办什么证才能开（宠物美容店需要办什么证才能开呢）">宠物美容店需要办什么证才能开（宠物美容店需要办什么证才能开呢）</a></li>
                         <li class="py-2"><a href="/html/category/article-5957.htm" title="那些年湖南台捧过的韩国明星有哪些？(湖南卫视捧红的歌手)">那些年湖南台捧过的韩国明星有哪些？(湖南卫视捧红的歌手)</a></li>
+                        <li class="py-2"><a href="/html/category/article-5956.htm" title="动物医院附近（动物医院上班）">动物医院附近（动物医院上班）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4291.htm" title="融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)">融安旅游景点哪个好玩的地方推荐(融安旅游景点哪个好玩的地方推荐一下)</a></li>
+                        <li class="py-2"><a href="/html/category/article-4471.htm" title="动物疫苗的意义和作用是什么（动物疫苗的意义和作用是什么意思）">动物疫苗的意义和作用是什么（动物疫苗的意义和作用是什么意思）</a></li>
+                        <li class="py-2"><a href="/html/category/article-5597.htm" title="动物疫苗经营许可证怎么申请的呢（动物疫苗审批）">动物疫苗经营许可证怎么申请的呢（动物疫苗审批）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4290.htm" title="青岛市动物医院 青岛市动物医院电话">青岛市动物医院 青岛市动物医院电话</a></li>
+                        <li class="py-2"><a href="/html/category/article-4542.htm" title="猫咬伤多久能好（猫咬了之后多久多长时间***）">猫咬伤多久能好（猫咬了之后多久多长时间***）</a></li>
                         <li class="py-2"><a href="/html/category/article-4613.htm" title="农大动物医院电话24小时营业吗北京 农大动物医院电话24小时营业吗北京市">农大动物医院电话24小时营业吗北京 农大动物医院电话24小时营业吗北京市</a></li>
+                        <li class="py-2"><a href="/html/category/article-5983.htm" title="激战奇轮（不看后悔）激战2星岬岛攻略，大嫂大嫂电视剧，激战1，">激战奇轮（不看后悔）激战2星岬岛攻略，大嫂大嫂电视剧，激战1，</a></li>
                     </ul>
     </div>
 </div>
