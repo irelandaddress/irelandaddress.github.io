@@ -1,434 +1,865 @@
-<!doctype html>
-<html lang="zh-CN">
-
+<!DOCTYPE html>
+<html>
 <head>
-	    <!-- Required meta tags -->
-    <link rel="canonical" href="https://irelandaddress.github.io" />
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="/assets/addons/xcblog/img/irelandaddress/favicon.ico" type="image/x-icon"/>
-    <title>Ireland Address的技术分享</title>
-        <meta name="keywords" content="Ireland Address的技术文章" />
-        <meta name="description" content="Ireland Address的技术文章，Ireland Address的技术分享" />
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/icomoon/style.css">
-    <link rel="stylesheet" href="/assets/addons/xcblog/fonts/irelandaddress/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/bootstrap.css">
-    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/tiny-slider.css">
-    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/aos.css">
-    <link rel="stylesheet" href="/assets/addons/xcblog/css/irelandaddress/style.css">
-    <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?638cd9f716f7b41384d0241d34bf2f4c";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
-     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>System Error</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <style>
+        /* Base */
+        body {
+            color: #333;
+            font: 14px Verdana, "Helvetica Neue", helvetica, Arial, 'Microsoft YaHei', sans-serif;
+            margin: 0;
+            padding: 0 20px 20px;
+            word-break: break-word;
+        }
+        h1{
+            margin: 10px 0 0;
+            font-size: 28px;
+            font-weight: 500;
+            line-height: 32px;
+        }
+        h2{
+            color: #4288ce;
+            font-weight: 400;
+            padding: 6px 0;
+            margin: 6px 0 0;
+            font-size: 18px;
+            border-bottom: 1px solid #eee;
+        }
+        h3.subheading {
+            color: #4288ce;
+            margin: 6px 0 0;
+            font-weight: 400;
+        }
+        h3{
+            margin: 12px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        abbr{
+            cursor: help;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+        }
+        a{
+            color: #868686;
+            cursor: pointer;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        .line-error{
+            background: #f8cbcb;
+        }
+
+        .echo table {
+            width: 100%;
+        }
+
+        .echo pre {
+            padding: 16px;
+            overflow: auto;
+            font-size: 85%;
+            line-height: 1.45;
+            background-color: #f7f7f7;
+            border: 0;
+            border-radius: 3px;
+            font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+
+        .echo pre > pre {
+            padding: 0;
+            margin: 0;
+        }
+        /* Layout */
+        .col-md-3 {
+            width: 25%;
+        }
+        .col-md-9 {
+            width: 75%;
+        }
+        [class^="col-md-"] {
+            float: left;
+        }
+        .clearfix {
+            clear:both;
+        }
+        @media only screen 
+        and (min-device-width : 375px) 
+        and (max-device-width : 667px) { 
+            .col-md-3,
+            .col-md-9 {
+                width: 100%;
+            }
+        }
+        /* Exception Info */
+        .exception {
+            margin-top: 20px;
+        }
+        .exception .message{
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-bottom: 0 none;
+            line-height: 18px;
+            font-size:16px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+
+        .exception .code{
+            float: left;
+            text-align: center;
+            color: #fff;
+            margin-right: 12px;
+            padding: 16px;
+            border-radius: 4px;
+            background: #999;
+        }
+        .exception .source-code{
+            padding: 6px;
+            border: 1px solid #ddd;
+
+            background: #f9f9f9;
+            overflow-x: auto;
+
+        }
+        .exception .source-code pre{
+            margin: 0;
+        }
+        .exception .source-code pre ol{
+            margin: 0;
+            color: #4288ce;
+            display: inline-block;
+            min-width: 100%;
+            box-sizing: border-box;
+        font-size:14px;
+            font-family: "Century Gothic",Consolas,"Liberation Mono",Courier,Verdana;
+            padding-left: 48px;
+        }
+        .exception .source-code pre li{
+            border-left: 1px solid #ddd;
+            height: 18px;
+            line-height: 18px;
+        }
+        .exception .source-code pre code{
+            color: #333;
+            height: 100%;
+            display: inline-block;
+            border-left: 1px solid #fff;
+        font-size:14px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+        .exception .trace{
+            padding: 6px;
+            border: 1px solid #ddd;
+            border-top: 0 none;
+            line-height: 16px;
+        font-size:14px;
+            font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑";
+        }
+        .exception .trace ol{
+            margin: 12px;
+        }
+        .exception .trace ol li{
+            padding: 2px 4px;
+        }
+        .exception div:last-child{
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        /* Exception Variables */
+        .exception-var table{
+            width: 100%;
+            margin: 12px 0;
+            box-sizing: border-box;
+            table-layout:fixed;
+            word-wrap:break-word;            
+        }
+        .exception-var table caption{
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 6px 0;
+        }
+        .exception-var table caption small{
+            font-weight: 300;
+            display: inline-block;
+            margin-left: 10px;
+            color: #ccc;
+        }
+        .exception-var table tbody{
+            font-size: 13px;
+            font-family: Consolas,"Liberation Mono",Courier,"微软雅黑";
+        }
+        .exception-var table td{
+            padding: 0 6px;
+            vertical-align: top;
+            word-break: break-all;
+        }
+        .exception-var table td:first-child{
+            width: 28%;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        .exception-var table td pre{
+            margin: 0;
+        }
+
+        /* Copyright Info */
+        .copyright{
+            margin-top: 24px;
+            padding: 12px 0;
+            border-top: 1px solid #eee;
+        }
+
+        /* SPAN elements with the classes below are added by prettyprint. */
+        pre.prettyprint .pln { color: #000 }  /* plain text */
+        pre.prettyprint .str { color: #080 }  /* string content */
+        pre.prettyprint .kwd { color: #008 }  /* a keyword */
+        pre.prettyprint .com { color: #800 }  /* a comment */
+        pre.prettyprint .typ { color: #606 }  /* a type name */
+        pre.prettyprint .lit { color: #066 }  /* a literal value */
+        /* punctuation, lisp open bracket, lisp close bracket */
+        pre.prettyprint .pun, pre.prettyprint .opn, pre.prettyprint .clo { color: #660 }
+        pre.prettyprint .tag { color: #008 }  /* a markup tag name */
+        pre.prettyprint .atn { color: #606 }  /* a markup attribute name */
+        pre.prettyprint .atv { color: #080 }  /* a markup attribute value */
+        pre.prettyprint .dec, pre.prettyprint .var { color: #606 }  /* a declaration; a variable name */
+        pre.prettyprint .fun { color: red }  /* a function name */
+    </style>
 </head>
-
 <body>
-	    <div class="site-mobile-menu site-navbar-target">
-        <div class="site-mobile-menu-header">
-            <div class="site-mobile-menu-close">
-                <span class="icofont-close js-menu-toggle"></span>
+    <div class="echo">
             </div>
-        </div>
-        <div class="site-mobile-menu-body"></div>
-    </div>
-    <nav class="site-nav mt-3">
-        <div class="container">
-            <div class="site-navigation">
-                                <h1><a href="/" class="logo m-0 mt-2 float-start">Ireland Address</a></h1>
-                                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
-                                        <li><a href="/">首页</a></li>
-                                        <li><a href="/html/category/">文章分类</a></li>
-                                        <li><a href="#">关于</a></li>
-                    <li><a href="#">联系</a></li>
-                </ul>
-                <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
-                    <span></span>
-                </a>
-            </div>
-        </div>
-    </nav>
-    <div class="hero-section">
-        <div class="container">
-            <div class="row justify-content-between">
-                <div class="col-lg-5">
-                    <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">Ireland Address的技术分享</h2>
-                    <p class="mb-5" data-aos="fade-up" data-aos-delay="200">一个专注于技术分享的博客平台,大家以共同学习,乐于分享,拥抱开源的价值观进行学习交流</p>
-
+        <div class="exception">
+    <div class="message">
+        
+            <div class="info">
+                <div>
+                    <h2>[8]&nbsp;<abbr title="think\exception\ErrorException">ErrorException</abbr> in <a class="toggle" title="E:\SVNRepositories\AddressBaseGitPages\addons\xcblog\controller\Index.php line 78">Index.php line 78</a></h2>
                 </div>
-                <div class="col-lg-6">
-                    <div class="img-wrap" data-aos="fade-left">
-                        <img src="/assets/addons/xcblog/img/irelandaddress/hero_1.png" alt="Image" class="img-fluid">
-                    </div>
-                </div>
+                <div><h1>Trying to access array offset on value of type null</h1></div>
             </div>
+        
+    </div>
+	        <div class="source-code">
+            <pre class="prettyprint lang-php"><ol start="69"><li class="line-69"><code>
+</code></li><li class="line-70"><code>    public function index()
+</code></li><li class="line-71"><code>    {
+</code></li><li class="line-72"><code>        $name_url = Worldarea::get_name_url($this-&gt;site_config['index_country']);
+</code></li><li class="line-73"><code>        $area_model = Db::table('abgp_world_area')
+</code></li><li class="line-74"><code>            -&gt;where('name_url', $name_url)
+</code></li><li class="line-75"><code>            -&gt;where('level', 2)
+</code></li><li class="line-76"><code>            -&gt;find();
+</code></li><li class="line-77"><code>
+</code></li><li class="line-78"><code>        $country = $area_model['name_en'];
+</code></li><li class="line-79"><code>
+</code></li><li class="line-80"><code>        //热门地区列表
+</code></li><li class="line-81"><code>        $hot_region_list = $this-&gt;hot_list('', $area_model['id'], 3);
+</code></li><li class="line-82"><code>
+</code></li><li class="line-83"><code>        //热门城市列表
+</code></li><li class="line-84"><code>        $hot_city_list = [];
+</code></li><li class="line-85"><code>
+</code></li><li class="line-86"><code>        $model = $this-&gt;get_address($country);
+</code></li><li class="line-87"><code>
+</code></li></ol></pre>
+        </div>
+	        <div class="trace">
+            <h2>Call Stack</h2>
+            <ol>
+                <li>in <a class="toggle" title="E:\SVNRepositories\AddressBaseGitPages\addons\xcblog\controller\Index.php line 78">Index.php line 78</a></li>
+                                <li>
+                at <abbr title="think\Error">Error</abbr>::appError(8, '<a class="toggle" title="Trying to access array offset on value of type null">Trying to access arr...</a>', '<a class="toggle" title="E:\SVNRepositories\AddressBaseGitPages\addons\xcblog\controller\Index.php">E:\SVNRepositories\A...</a>', 78, ['name_url' => '', 'area_model' => <em>null</em>]) in <a class="toggle" title="E:\SVNRepositories\AddressBaseGitPages\addons\xcblog\controller\Index.php line 78">Index.php line 78</a>                </li>
+                                <li>
+                at <abbr title="addons\xcblog\controller\Index">Index</abbr>->index()                </li>
+                                <li>
+                at call_user_func_array([<em>object</em>(<abbr title="addons\xcblog\controller\Index">Index</abbr>), 'index'], []) in <a class="toggle" title="E:\SVNRepositories\AddressBaseGitPages\vendor\karsonzhang\fastadmin-addons\src\addons\Route.php line 78">Route.php line 78</a>                </li>
+                                <li>
+                at <abbr title="think\addons\Route">Route</abbr>->execute('xcblog', 'index', 'index')                </li>
+                                <li>
+                at <abbr title="ReflectionMethod">ReflectionMethod</abbr>->invokeArgs(<em>object</em>(<abbr title="think\addons\Route">Route</abbr>), ['xcblog', 'index', <em>null</em>]) in <a class="toggle" title="E:\SVNRepositories\AddressBaseGitPages\thinkphp\library\think\App.php line 343">App.php line 343</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::invokeMethod(['\think\addons\Route', 'execute'], ['website_id' => '15', 'addon' => 'xcblog', 'controller' => 'index', ...]) in <a class="toggle" title="E:\SVNRepositories\AddressBaseGitPages\thinkphp\library\think\App.php line 470">App.php line 470</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::exec(['type' => 'method', 'method' => ['\think\addons\Route', 'execute'], 'var' => []], ['app_host' => '', 'app_debug' => <em>true</em>, 'app_trace' => <em>false</em>, ...]) in <a class="toggle" title="E:\SVNRepositories\AddressBaseGitPages\thinkphp\library\think\App.php line 139">App.php line 139</a>                </li>
+                                <li>
+                at <abbr title="think\App">App</abbr>::run() in <a class="toggle" title="E:\SVNRepositories\AddressBaseGitPages\thinkphp\start.php line 19">start.php line 19</a>                </li>
+                                <li>
+                at require('<a class="toggle" title="E:\SVNRepositories\AddressBaseGitPages\thinkphp\start.php">E:\SVNRepositories\A...</a>') in <a class="toggle" title="E:\SVNRepositories\AddressBaseGitPages\public\index.php line 23">index.php line 23</a>                </li>
+                            </ol>
         </div>
     </div>
-    <div class="section section-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-9">
-                                        <div class="row justify-content-between item">
-                        <div class="col-md-3" data-aos="fade-up">
-                            <a href="/html/category/article-7471.htm">
-                                <img src="/uploads/20240303/c0ed41dad363898b3bc564a242037c9e.webp" alt="茶叶蛋怎么煮蛋黄不硬(请问茶叶蛋怎么煮)" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="col-md-9" data-aos="fade-up" data-aos-delay="100">
-                            <h3 class="heading mb-4">
-                                <a href="/html/category/article-7471.htm">茶叶蛋怎么煮蛋黄不硬(请问茶叶蛋怎么煮)</a>
-                            </h3>
-                            <p>茶叶蛋是一道历史悠久的传统食品，不仅因为它的美味和独特的香味而备受欢迎，更因为它与中国文化密不可分。在家里制作茶叶蛋是一种简单而充满乐趣的方式，在这里我们将介绍如何煮茶叶蛋。 选择优质的原料   选择</p>
-                            
-                        </div>
-                    </div>
-                                        <div class="row justify-content-between item">
-                        <div class="col-md-3" data-aos="fade-up">
-                            <a href="/html/category/article-7470.htm">
-                                <img src="/uploads/20240303/48d36459087cf0b12251867f380f20ca.webp" alt="动物疫苗使用时的注意事项不包括 动物疫苗使用时的注意事项不包括什么" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="col-md-9" data-aos="fade-up" data-aos-delay="100">
-                            <h3 class="heading mb-4">
-                                <a href="/html/category/article-7470.htm">动物疫苗使用时的注意事项不包括 动物疫苗使用时的注意事项不包括什么</a>
-                            </h3>
-                            <p>摘要：       大家好，今天小编关注到一个比较有意思的话题，就是关于动物疫苗使用时的注意事项不包括的问题，于是小编就整理了3个相关介绍动物疫苗使用时的注意事项不包括的解答，让我们一起看看吧。小泰迪</p>
-                            
-                        </div>
-                    </div>
-                                        <div class="row justify-content-between item">
-                        <div class="col-md-3" data-aos="fade-up">
-                            <a href="/html/category/article-7425.htm">
-                                <img src="/uploads/20240303/1ff112e028cd504716ca7f283e279e64.webp" alt="宠物店北京（北京宠物专卖店）" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="col-md-9" data-aos="fade-up" data-aos-delay="100">
-                            <h3 class="heading mb-4">
-                                <a href="/html/category/article-7425.htm">宠物店北京（北京宠物专卖店）</a>
-                            </h3>
-                            <p>摘要：       今天给各位分享宠物店北京的知识，其中也会对北京宠物专卖店进行解释，如果能碰巧解决你现在面临的问题，别忘了关注本站，现在开始吧！本文目录一览：1、北京哪里有卖猫的宠物店...    </p>
-                            
-                        </div>
-                    </div>
-                                        <div class="row justify-content-between item">
-                        <div class="col-md-3" data-aos="fade-up">
-                            <a href="/html/category/article-7424.htm">
-                                <img src="/uploads/20240303/32d9322411cc647dc00c61b8043cbeb8.webp" alt="美丽的小丑摄影" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="col-md-9" data-aos="fade-up" data-aos-delay="100">
-                            <h3 class="heading mb-4">
-                                <a href="/html/category/article-7424.htm">美丽的小丑摄影</a>
-                            </h3>
-                            <p>塔鲁克斯 (Tarucus) 是灰蝶科蝴蝶中的一个属。它们通常被称为蓝色小丑或简称小丑。后一个通于密切相关的 Castalius 属 浆果比商店的要小，是野草莓和欧洲品种的杂交品种，是许多鸟类、以及人</p>
-                            
-                        </div>
-                    </div>
-                                        <div class="row justify-content-between item">
-                        <div class="col-md-3" data-aos="fade-up">
-                            <a href="/html/category/article-7379.htm">
-                                <img src="/uploads/20240303/5f28d60feab951561c03b6208901dbd0.webp" alt="在什么平台卖宠物卖的快（离我最近的狗市场）" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="col-md-9" data-aos="fade-up" data-aos-delay="100">
-                            <h3 class="heading mb-4">
-                                <a href="/html/category/article-7379.htm">在什么平台卖宠物卖的快（离我最近的狗市场）</a>
-                            </h3>
-                            <p>摘要：       本篇文章给大家谈谈在什么平台卖宠物卖的快，以及离我最近的狗市场对应的知识点，希望对各位有所帮助，不要忘了收藏本站喔。本文目录一览：1、卖狗上什么网2、...        本篇文章</p>
-                            
-                        </div>
-                    </div>
-                                        <div class="row justify-content-between item">
-                        <div class="col-md-3" data-aos="fade-up">
-                            <a href="/html/category/article-7378.htm">
-                                <img src="/uploads/20240303/a5a9215615fc6b70db3c926aa2269cf1.webp" alt="猫打疫苗要多少钱一次（猫打疫苗总共多少钱）" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="col-md-9" data-aos="fade-up" data-aos-delay="100">
-                            <h3 class="heading mb-4">
-                                <a href="/html/category/article-7378.htm">猫打疫苗要多少钱一次（猫打疫苗总共多少钱）</a>
-                            </h3>
-                            <p>摘要：       本篇文章给大家谈谈猫打疫苗要多少钱一次，以及猫打疫苗总共多少钱对应的知识点，希望对各位有所帮助，不要忘了收藏本站喔。本文目录一览：1、猫咪打疫苗的价格多少?2、...       </p>
-                            
-                        </div>
-                    </div>
-                                        <div class="row justify-content-between item">
-                        <div class="col-md-3" data-aos="fade-up">
-                            <a href="/html/category/article-7333.htm">
-                                <img src="/uploads/20240303/a5a9215615fc6b70db3c926aa2269cf1.webp" alt="日式饭团的做法（日式饭团的做法和配料）" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="col-md-9" data-aos="fade-up" data-aos-delay="100">
-                            <h3 class="heading mb-4">
-                                <a href="/html/category/article-7333.htm">日式饭团的做法（日式饭团的做法和配料）</a>
-                            </h3>
-                            <p>本文目录           日本饭团的？  食材：米饭（冷米饭为宜哦）、火腿肠半根、半根、生菜、肉松。 做法： 1：照烧料汁：2勺生抽+1勺蚝油+1勺番茄酱+1勺蜂蜜，搅拌均匀。 2：米饭+火腿+胡</p>
-                            
-                        </div>
-                    </div>
-                                        <div class="row justify-content-between item">
-                        <div class="col-md-3" data-aos="fade-up">
-                            <a href="/html/category/article-7332.htm">
-                                <img src="/uploads/20240303/32d9322411cc647dc00c61b8043cbeb8.webp" alt="动物疫苗对人有害处吗知乎 动物疫苗对人有害处吗知乎" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="col-md-9" data-aos="fade-up" data-aos-delay="100">
-                            <h3 class="heading mb-4">
-                                <a href="/html/category/article-7332.htm">动物疫苗对人有害处吗知乎 动物疫苗对人有害处吗知乎</a>
-                            </h3>
-                            <p>摘要：       大家好，今天小编关注到一个比较有意思的话题，就是关于动物疫苗对人有害处吗知乎的问题，于是小编就整理了3个相关介绍动物疫苗对人有害处吗知乎的解答，让我们一起看看吧。猫不打疫苗对人有害</p>
-                            
-                        </div>
-                    </div>
-                                        <div class="row justify-content-between item">
-                        <div class="col-md-3" data-aos="fade-up">
-                            <a href="/html/category/article-7287.htm">
-                                <img src="/uploads/20240303/62e40d419d1aa77899fef0974cf293a1.webp" alt="瑞派宠物诊所电话（瑞派宠物医院天眼查）" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="col-md-9" data-aos="fade-up" data-aos-delay="100">
-                            <h3 class="heading mb-4">
-                                <a href="/html/category/article-7287.htm">瑞派宠物诊所电话（瑞派宠物医院天眼查）</a>
-                            </h3>
-                            <p>摘要：       今天给各位分享瑞派宠物诊所电话的知识，其中也会对瑞派宠物医院天眼查进行解释，如果能碰巧解决你现在面临的问题，别忘了关注本站，现在开始吧！本文目录一览：1、成都哪有卖皇家猫粮的宠物.</p>
-                            
-                        </div>
-                    </div>
-                                        <div class="row justify-content-between item">
-                        <div class="col-md-3" data-aos="fade-up">
-                            <a href="/html/category/article-7286.htm">
-                                <img src="/uploads/20240303/136bc0272fb80d68b3f9b909dd50fe09.webp" alt="世界卫生组织宣布阿斯巴甜可能致癌。这就是它对您的无糖汽水的意义。 :" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="col-md-9" data-aos="fade-up" data-aos-delay="100">
-                            <h3 class="heading mb-4">
-                                <a href="/html/category/article-7286.htm">世界卫生组织宣布阿斯巴甜可能致癌。这就是它对您的无糖汽水的意义。 :</a>
-                            </h3>
-                            <p>国际癌症研究机构 (IARC) 是世界卫生组织的专门癌症机构，已宣布阿斯巴甜可能对人类有致癌危险。 世界卫生组织的另一个分支机构世界卫生组织和粮食及农业组织联合食品添加剂专家委员会评估了风险，并就阿斯</p>
-                            
-                        </div>
-                    </div>
-                                        <div class="row justify-content-between item">
-                        <div class="col-md-3" data-aos="fade-up">
-                            <a href="/html/category/article-7241.htm">
-                                <img src="/uploads/20240303/5f28d60feab951561c03b6208901dbd0.webp" alt="上海领养宠物猫的地方（上海有没有领养猫咪的机构）" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="col-md-9" data-aos="fade-up" data-aos-delay="100">
-                            <h3 class="heading mb-4">
-                                <a href="/html/category/article-7241.htm">上海领养宠物猫的地方（上海有没有领养猫咪的机构）</a>
-                            </h3>
-                            <p>摘要：       本篇文章给大家谈谈上海领养宠物猫的地方，以及上海有没有领养猫咪的机构对应的知识点，希望对各位有所帮助，不要忘了收藏本站喔。本文目录一览：1、静安区哪里有流浪狗猫宠物动物救助收容..</p>
-                            
-                        </div>
-                    </div>
-                                        <div class="row justify-content-between item">
-                        <div class="col-md-3" data-aos="fade-up">
-                            <a href="/html/category/article-7240.htm">
-                                <img src="/uploads/20240303/34e8b5cf328a5cf9548fdbac0e002920.webp" alt="大碗面的做法大全家常窍门(大碗面的做法大全家常)" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="col-md-9" data-aos="fade-up" data-aos-delay="100">
-                            <h3 class="heading mb-4">
-                                <a href="/html/category/article-7240.htm">大碗面的做法大全家常窍门(大碗面的做法大全家常)</a>
-                            </h3>
-                            <p>大碗面是一道重要的传统美食，以其丰富的口感和独特的气味而闻名于世。它是一道颇具享受和魅力的美食，深受广大人民群众的喜爱。下面我们来详细介绍一下大碗面的做法。 材料：  1. 面粉500克 2. 鸡蛋4</p>
-                            
-                        </div>
-                    </div>
-                                        <div class="row justify-content-between item">
-                        <div class="col-md-3" data-aos="fade-up">
-                            <a href="/html/category/article-7195.htm">
-                                <img src="/uploads/20240303/d86c0bd4106855b45aab4fb1d7d03ef8.webp" alt="窗花怎么贴（窗花怎么贴不会掉）" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="col-md-9" data-aos="fade-up" data-aos-delay="100">
-                            <h3 class="heading mb-4">
-                                <a href="/html/category/article-7195.htm">窗花怎么贴（窗花怎么贴不会掉）</a>
-                            </h3>
-                            <p>本文目录          窗花贴法？  1.贴窗花首先应该确保窗花的表面干净，确保墙面以及所贴玻璃干净整洁，不含有杂质。 2.可以先用固体胶涂抹在窗花的后面，可以粘得比较牢，到了第二年可以更好的取下</p>
-                            
-                        </div>
-                    </div>
-                                        <div class="row justify-content-between item">
-                        <div class="col-md-3" data-aos="fade-up">
-                            <a href="/html/category/article-7194.htm">
-                                <img src="/uploads/20240303/d86c0bd4106855b45aab4fb1d7d03ef8.webp" alt="宠物医院仓鼠医药费多少（宠物医院给仓鼠看病吗）" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="col-md-9" data-aos="fade-up" data-aos-delay="100">
-                            <h3 class="heading mb-4">
-                                <a href="/html/category/article-7194.htm">宠物医院仓鼠医药费多少（宠物医院给仓鼠看病吗）</a>
-                            </h3>
-                            <p>摘要：       今天给各位分享宠物医院仓鼠医药费多少的知识，其中也会对宠物医院给仓鼠看病吗进行解释，如果能碰巧解决你现在面临的问题，别忘了关注本站，现在开始吧！本文目录一览：1、给仓鼠打疫苗要多.</p>
-                            
-                        </div>
-                    </div>
-                                        <div class="row justify-content-between item">
-                        <div class="col-md-3" data-aos="fade-up">
-                            <a href="/html/category/article-7149.htm">
-                                <img src="/uploads/20240303/136bc0272fb80d68b3f9b909dd50fe09.webp" alt="兽用疫苗保存温度（兽用疫苗冰箱）" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="col-md-9" data-aos="fade-up" data-aos-delay="100">
-                            <h3 class="heading mb-4">
-                                <a href="/html/category/article-7149.htm">兽用疫苗保存温度（兽用疫苗冰箱）</a>
-                            </h3>
-                            <p>摘要：       今天给各位分享兽用疫苗保存温度的知识，其中也会对兽用疫苗冰箱进行解释，如果能碰巧解决你现在面临的问题，别忘了关注本站，现在开始吧！本文目录一览：1、美国产卫佳5犬四联苗保存温度..</p>
-                            
-                        </div>
-                    </div>
-                                        <div class="row justify-content-between item">
-                        <div class="col-md-3" data-aos="fade-up">
-                            <a href="/html/category/article-7148.htm">
-                                <img src="/uploads/20240303/5f28d60feab951561c03b6208901dbd0.webp" alt="动物疫苗打多了好不好呢（动物疫苗打多了好不好呢视频）" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="col-md-9" data-aos="fade-up" data-aos-delay="100">
-                            <h3 class="heading mb-4">
-                                <a href="/html/category/article-7148.htm">动物疫苗打多了好不好呢（动物疫苗打多了好不好呢视频）</a>
-                            </h3>
-                            <p>摘要：       本篇文章给大家谈谈动物疫苗打多了好不好呢，以及动物疫苗打多了好不好呢视频对应的知识点，希望对各位有所帮助，不要忘了收藏本站喔。本文目录一览：1、羊的三联四防打多了咋办?...   </p>
-                            
-                        </div>
-                    </div>
-                                        <div class="row justify-content-between item">
-                        <div class="col-md-3" data-aos="fade-up">
-                            <a href="/html/category/article-7103.htm">
-                                <img src="/uploads/20240303/6f0963e67bdb7c0fe1881b0beb1842e3.webp" alt="晚礼服十大品牌排行榜有哪些牌子(晚礼服十大品牌排行榜有哪些图片)" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="col-md-9" data-aos="fade-up" data-aos-delay="100">
-                            <h3 class="heading mb-4">
-                                <a href="/html/category/article-7103.htm">晚礼服十大品牌排行榜有哪些牌子(晚礼服十大品牌排行榜有哪些图片)</a>
-                            </h3>
-                            <p>晚礼服相关内容，小编在这里做了整理，希望能对大家有所帮助，关于晚礼服十大品牌排行榜有哪些信息，一起来了解一下吧！本文目录一览：1、晚礼服十大品牌排行榜有哪些2、请问晚礼服该如何挑选？3、圣诞节送什么礼</p>
-                            
-                        </div>
-                    </div>
-                                        <div class="row justify-content-between item">
-                        <div class="col-md-3" data-aos="fade-up">
-                            <a href="/html/category/article-7102.htm">
-                                <img src="/uploads/20240303/5f28d60feab951561c03b6208901dbd0.webp" alt="加盟狗粮公司代理点电话（狗粮招商加盟）" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="col-md-9" data-aos="fade-up" data-aos-delay="100">
-                            <h3 class="heading mb-4">
-                                <a href="/html/category/article-7102.htm">加盟狗粮公司代理点电话（狗粮招商加盟）</a>
-                            </h3>
-                            <p>摘要：       今天给各位分享加盟狗粮公司代理点电话的知识，其中也会对狗粮招商加盟进行解释，如果能碰巧解决你现在面临的问题，别忘了关注本站，现在开始吧！本文目录一览：1、我想做进口宠物粮代理,怎.</p>
-                            
-                        </div>
-                    </div>
-                                        <div class="row justify-content-between item">
-                        <div class="col-md-3" data-aos="fade-up">
-                            <a href="/html/category/article-7057.htm">
-                                <img src="/uploads/20240303/ca878f612787b29343ab548ba24df5ea.webp" alt="家猫养多久才能养熟（家猫养多久可以放出去）" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="col-md-9" data-aos="fade-up" data-aos-delay="100">
-                            <h3 class="heading mb-4">
-                                <a href="/html/category/article-7057.htm">家猫养多久才能养熟（家猫养多久可以放出去）</a>
-                            </h3>
-                            <p>摘要：       今天给各位分享家猫养多久才能养熟的知识，其中也会对家猫养多久可以放出去进行解释，如果能碰巧解决你现在面临的问题，别忘了关注本站，现在开始吧！本文目录一览：1、猫养多久才能养熟...</p>
-                            
-                        </div>
-                    </div>
-                                        <div class="row justify-content-between item">
-                        <div class="col-md-3" data-aos="fade-up">
-                            <a href="/html/category/article-7056.htm">
-                                <img src="/uploads/20240303/d86c0bd4106855b45aab4fb1d7d03ef8.webp" alt="广州有领养宠物猫的地方吗?（广州有领养宠物猫的地方吗在哪里）" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="col-md-9" data-aos="fade-up" data-aos-delay="100">
-                            <h3 class="heading mb-4">
-                                <a href="/html/category/article-7056.htm">广州有领养宠物猫的地方吗?（广州有领养宠物猫的地方吗在哪里）</a>
-                            </h3>
-                            <p>摘要：       今天给各位分享广州有领养宠物猫的地方吗?的知识，其中也会对广州有领养宠物猫的地方吗在哪里进行解释，如果能碰巧解决你现在面临的问题，别忘了关注本站，现在开始吧！本文目录一览：1、广.</p>
-                            
-                        </div>
-                    </div>
-                                    </div>
-                <div class="col-md-3">
-                	<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">热门文章</h3>
-    </div>
-    <div class="panel-body">
-        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/html/category/article-5597.htm" title="动物疫苗经营许可证怎么申请的呢（动物疫苗审批）">动物疫苗经营许可证怎么申请的呢（动物疫苗审批）</a></li>
-                        <li class="py-2"><a href="/html/category/article-6088.htm" title="合肥宠物猫领养中心电话地址（合肥宠物领养中心）">合肥宠物猫领养中心电话地址（合肥宠物领养中心）</a></li>
-                        <li class="py-2"><a href="/html/category/article-6220.htm" title="北京开一个宠物店多少钱（北京开个宠物店要多少钱）">北京开一个宠物店多少钱（北京开个宠物店要多少钱）</a></li>
-                        <li class="py-2"><a href="/html/category/article-6780.htm" title="动物疫苗预防控制中心官网电话（动物疫苗厂家电话）">动物疫苗预防控制中心官网电话（动物疫苗厂家电话）</a></li>
-                        <li class="py-2"><a href="/html/category/article-7425.htm" title="宠物店北京（北京宠物专卖店）">宠物店北京（北京宠物专卖店）</a></li>
-                        <li class="py-2"><a href="/html/category/article-5957.htm" title="那些年湖南台捧过的韩国明星有哪些？(湖南卫视捧红的歌手)">那些年湖南台捧过的韩国明星有哪些？(湖南卫视捧红的歌手)</a></li>
-                        <li class="py-2"><a href="/html/category/article-6132.htm" title="卖动物疫苗需要什么资质 卖动物疫苗需要什么资质证书">卖动物疫苗需要什么资质 卖动物疫苗需要什么资质证书</a></li>
-                        <li class="py-2"><a href="/html/category/article-4578.htm" title="日产cvt专用变速箱油(日产的cvt变速箱油需要更换吗)">日产cvt专用变速箱油(日产的cvt变速箱油需要更换吗)</a></li>
-                        <li class="py-2"><a href="/html/category/article-7241.htm" title="上海领养宠物猫的地方（上海有没有领养猫咪的机构）">上海领养宠物猫的地方（上海有没有领养猫咪的机构）</a></li>
-                        <li class="py-2"><a href="/html/category/article-5982.htm" title="畜牧站卖疫苗吗（畜牧站可以打狂犬疫苗吗）">畜牧站卖疫苗吗（畜牧站可以打狂犬疫苗吗）</a></li>
-                    </ul>
-    </div>
-</div>
-
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">归纳</h3>
-    </div>
-    <div class="panel-body">
-        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">16</span> <a href="/html/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">33</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
-            </li>
-                    </ul>
-    </div>
-</div>
-
-
-
+        
+    
+        <div class="exception-var">
+        <h2>Environment Variables</h2>
+                <div>
+                        <h3 class="subheading">GET Data</h3>
+            <div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>website_id</strong></div>
+                    <div class="col-md-9"><small>
+                        15                    </small></div>
                 </div>
+                            </div>
+                    </div>
+                <div>
+                        <div class="clearfix">
+                <div class="col-md-3"><strong>POST Data</strong></div>
+                <div class="col-md-9"><small>empty</small></div>
             </div>
-        </div>
-    </div>
-        <div class="site-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <p>
-                        Ireland Address 版权所有
-                        <br />
-                        Powered by WordPress
-                    </p>
+                    </div>
+                <div>
+                        <div class="clearfix">
+                <div class="col-md-3"><strong>Files</strong></div>
+                <div class="col-md-9"><small>empty</small></div>
+            </div>
+                    </div>
+                <div>
+                        <div class="clearfix">
+                <div class="col-md-3"><strong>Cookies</strong></div>
+                <div class="col-md-9"><small>empty</small></div>
+            </div>
+                    </div>
+                <div>
+                        <div class="clearfix">
+                <div class="col-md-3"><strong>Session</strong></div>
+                <div class="col-md-9"><small>empty</small></div>
+            </div>
+                    </div>
+                <div>
+                        <h3 class="subheading">Server/Request Data</h3>
+            <div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>ALLUSERSPROFILE</strong></div>
+                    <div class="col-md-9"><small>
+                        C:\ProgramData                    </small></div>
                 </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>APPDATA</strong></div>
+                    <div class="col-md-9"><small>
+                        C:\Windows\system32\config\systemprofile\AppData\Roaming                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CommonProgramFiles</strong></div>
+                    <div class="col-md-9"><small>
+                        C:\Program Files\Common Files                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CommonProgramFiles(x86)</strong></div>
+                    <div class="col-md-9"><small>
+                        C:\Program Files (x86)\Common Files                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CommonProgramW6432</strong></div>
+                    <div class="col-md-9"><small>
+                        C:\Program Files\Common Files                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>COMPUTERNAME</strong></div>
+                    <div class="col-md-9"><small>
+                        DESKTOP-NSJC0E1                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>ComSpec</strong></div>
+                    <div class="col-md-9"><small>
+                        C:\Windows\system32\cmd.exe                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>DriverData</strong></div>
+                    <div class="col-md-9"><small>
+                        C:\Windows\System32\Drivers\DriverData                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>LOCALAPPDATA</strong></div>
+                    <div class="col-md-9"><small>
+                        C:\Windows\system32\config\systemprofile\AppData\Local                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>NUMBER_OF_PROCESSORS</strong></div>
+                    <div class="col-md-9"><small>
+                        6                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>OS</strong></div>
+                    <div class="col-md-9"><small>
+                        Windows_NT                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>Path</strong></div>
+                    <div class="col-md-9"><small>
+                                            </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>PATHEXT</strong></div>
+                    <div class="col-md-9"><small>
+                        .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>PROCESSOR_ARCHITECTURE</strong></div>
+                    <div class="col-md-9"><small>
+                        AMD64                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>PROCESSOR_IDENTIFIER</strong></div>
+                    <div class="col-md-9"><small>
+                        Intel64 Family 6 Model 158 Stepping 10, GenuineIntel                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>PROCESSOR_LEVEL</strong></div>
+                    <div class="col-md-9"><small>
+                        6                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>PROCESSOR_REVISION</strong></div>
+                    <div class="col-md-9"><small>
+                        9e0a                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>ProgramData</strong></div>
+                    <div class="col-md-9"><small>
+                        C:\ProgramData                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>ProgramFiles</strong></div>
+                    <div class="col-md-9"><small>
+                        C:\Program Files                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>ProgramFiles(x86)</strong></div>
+                    <div class="col-md-9"><small>
+                        C:\Program Files (x86)                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>ProgramW6432</strong></div>
+                    <div class="col-md-9"><small>
+                        C:\Program Files                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>PSModulePath</strong></div>
+                    <div class="col-md-9"><small>
+                        C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>PUBLIC</strong></div>
+                    <div class="col-md-9"><small>
+                        C:\Users\Public                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SystemDrive</strong></div>
+                    <div class="col-md-9"><small>
+                        C:                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SystemRoot</strong></div>
+                    <div class="col-md-9"><small>
+                        C:\Windows                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>TEMP</strong></div>
+                    <div class="col-md-9"><small>
+                        C:\Windows\TEMP                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>TMP</strong></div>
+                    <div class="col-md-9"><small>
+                        C:\Windows\TEMP                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>USERDOMAIN</strong></div>
+                    <div class="col-md-9"><small>
+                        WORKGROUP                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>USERNAME</strong></div>
+                    <div class="col-md-9"><small>
+                        DESKTOP-NSJC0E1$                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>USERPROFILE</strong></div>
+                    <div class="col-md-9"><small>
+                        C:\Windows\system32\config\systemprofile                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>windir</strong></div>
+                    <div class="col-md-9"><small>
+                        C:\Windows                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>HTTP_ACCEPT</strong></div>
+                    <div class="col-md-9"><small>
+                        */*                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>HTTP_USER_AGENT</strong></div>
+                    <div class="col-md-9"><small>
+                        Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.98 Safari/537.36                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>HTTP_HOST</strong></div>
+                    <div class="col-md-9"><small>
+                        abgp.com                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REDIRECT_STATUS</strong></div>
+                    <div class="col-md-9"><small>
+                        200                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SERVER_NAME</strong></div>
+                    <div class="col-md-9"><small>
+                        abgp.com                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SERVER_PORT</strong></div>
+                    <div class="col-md-9"><small>
+                        80                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SERVER_ADDR</strong></div>
+                    <div class="col-md-9"><small>
+                        127.0.0.1                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REMOTE_PORT</strong></div>
+                    <div class="col-md-9"><small>
+                        52483                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REMOTE_ADDR</strong></div>
+                    <div class="col-md-9"><small>
+                        127.0.0.1                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SERVER_SOFTWARE</strong></div>
+                    <div class="col-md-9"><small>
+                        nginx/1.15.11                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>GATEWAY_INTERFACE</strong></div>
+                    <div class="col-md-9"><small>
+                        CGI/1.1                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REQUEST_SCHEME</strong></div>
+                    <div class="col-md-9"><small>
+                        http                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SERVER_PROTOCOL</strong></div>
+                    <div class="col-md-9"><small>
+                        HTTP/1.1                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>DOCUMENT_ROOT</strong></div>
+                    <div class="col-md-9"><small>
+                        E:/SVNRepositories/AddressBaseGitPages/public                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>DOCUMENT_URI</strong></div>
+                    <div class="col-md-9"><small>
+                        /index.php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REQUEST_URI</strong></div>
+                    <div class="col-md-9"><small>
+                        /addons/xcblog/index?website_id=15                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SCRIPT_NAME</strong></div>
+                    <div class="col-md-9"><small>
+                        /index.php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CONTENT_LENGTH</strong></div>
+                    <div class="col-md-9"><small>
+                                            </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CONTENT_TYPE</strong></div>
+                    <div class="col-md-9"><small>
+                                            </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REQUEST_METHOD</strong></div>
+                    <div class="col-md-9"><small>
+                        GET                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>QUERY_STRING</strong></div>
+                    <div class="col-md-9"><small>
+                        s=/addons/xcblog/index&amp;website_id=15                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>PATH_TRANSLATED</strong></div>
+                    <div class="col-md-9"><small>
+                        E:/SVNRepositories/AddressBaseGitPages/public                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>PATH_INFO</strong></div>
+                    <div class="col-md-9"><small>
+                        /addons/xcblog/index                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>SCRIPT_FILENAME</strong></div>
+                    <div class="col-md-9"><small>
+                        E:/SVNRepositories/AddressBaseGitPages/public/index.php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>FCGI_ROLE</strong></div>
+                    <div class="col-md-9"><small>
+                        RESPONDER                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>PHP_SELF</strong></div>
+                    <div class="col-md-9"><small>
+                        /index.php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REQUEST_TIME_FLOAT</strong></div>
+                    <div class="col-md-9"><small>
+                        1723168269.0111                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>REQUEST_TIME</strong></div>
+                    <div class="col-md-9"><small>
+                        1723168269                    </small></div>
+                </div>
+                            </div>
+                    </div>
+                <div>
+                        <div class="clearfix">
+                <div class="col-md-3"><strong>Environment Variables</strong></div>
+                <div class="col-md-9"><small>empty</small></div>
             </div>
-        </div>
+                    </div>
+                <div>
+                        <h3 class="subheading">ThinkPHP Constants</h3>
+            <div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>APP_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        E:\SVNRepositories\AddressBaseGitPages\public/../application/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>THINK_VERSION</strong></div>
+                    <div class="col-md-9"><small>
+                        5.0.26                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>THINK_START_TIME</strong></div>
+                    <div class="col-md-9"><small>
+                        1723168269.0134                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>THINK_START_MEM</strong></div>
+                    <div class="col-md-9"><small>
+                        408992                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>EXT</strong></div>
+                    <div class="col-md-9"><small>
+                        .php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>DS</strong></div>
+                    <div class="col-md-9"><small>
+                        \                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>THINK_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        E:\SVNRepositories\AddressBaseGitPages\thinkphp\                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>LIB_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        E:\SVNRepositories\AddressBaseGitPages\thinkphp\library\                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CORE_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        E:\SVNRepositories\AddressBaseGitPages\thinkphp\library\think\                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>TRAIT_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        E:\SVNRepositories\AddressBaseGitPages\thinkphp\library\traits\                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>ROOT_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        E:\SVNRepositories\AddressBaseGitPages\                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>EXTEND_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        E:\SVNRepositories\AddressBaseGitPages\extend\                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>VENDOR_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        E:\SVNRepositories\AddressBaseGitPages\vendor\                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>RUNTIME_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        E:\SVNRepositories\AddressBaseGitPages\runtime\                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>LOG_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        E:\SVNRepositories\AddressBaseGitPages\runtime\log\                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CACHE_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        E:\SVNRepositories\AddressBaseGitPages\runtime\cache\                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>TEMP_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        E:\SVNRepositories\AddressBaseGitPages\runtime\temp\                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CONF_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        E:\SVNRepositories\AddressBaseGitPages\public/../application/                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>CONF_EXT</strong></div>
+                    <div class="col-md-9"><small>
+                        .php                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>ENV_PREFIX</strong></div>
+                    <div class="col-md-9"><small>
+                        PHP_                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>IS_CLI</strong></div>
+                    <div class="col-md-9"><small>
+                        false                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>IS_WIN</strong></div>
+                    <div class="col-md-9"><small>
+                        true                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>FILTER_VALIDATE_BOOL</strong></div>
+                    <div class="col-md-9"><small>
+                        258                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>HTMLPURIFIER_PREFIX</strong></div>
+                    <div class="col-md-9"><small>
+                        E:\SVNRepositories\AddressBaseGitPages\vendor\ezyang\htmlpurifier\library                    </small></div>
+                </div>
+                                <div class="clearfix">
+                    <div class="col-md-3"><strong>ADDON_PATH</strong></div>
+                    <div class="col-md-9"><small>
+                        E:\SVNRepositories\AddressBaseGitPages\addons\                    </small></div>
+                </div>
+                            </div>
+                    </div>
+            </div>
+    
+    <div class="copyright">
+        <a title="官方网站" href="http://www.thinkphp.cn">ThinkPHP</a> 
+        <span>V5.0.26</span> 
+        <span>{ 十年磨一剑-为API开发设计的高性能框架 }</span>
     </div>
-    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/jquery.min.js"></script>
-    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/bootstrap.bundle.min.js"></script>
-    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/tiny-slider.js"></script>
-    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/aos.js"></script>
-    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/navbar.js"></script>
-    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/counter.js"></script>
-    <script src="/assets/addons/xcblog/js/frontend/irelandaddress/custom.js"></script>
-</body>
+        <script>
+        var LINE = 78;
 
+        function $(selector, node){
+            var elements;
+
+            node = node || document;
+            if(document.querySelectorAll){
+                elements = node.querySelectorAll(selector);
+            } else {
+                switch(selector.substr(0, 1)){
+                    case '#':
+                        elements = [node.getElementById(selector.substr(1))];
+                        break;
+                    case '.':
+                        if(document.getElementsByClassName){
+                            elements = node.getElementsByClassName(selector.substr(1));
+                        } else {
+                            elements = get_elements_by_class(selector.substr(1), node);
+                        }
+                        break;
+                    default:
+                        elements = node.getElementsByTagName();
+                }
+            }
+            return elements;
+
+            function get_elements_by_class(search_class, node, tag) {
+                var elements = [], eles, 
+                    pattern  = new RegExp('(^|\\s)' + search_class + '(\\s|$)');
+
+                node = node || document;
+                tag  = tag  || '*';
+
+                eles = node.getElementsByTagName(tag);
+                for(var i = 0; i < eles.length; i++) {
+                    if(pattern.test(eles[i].className)) {
+                        elements.push(eles[i])
+                    }
+                }
+
+                return elements;
+            }
+        }
+
+        $.getScript = function(src, func){
+            var script = document.createElement('script');
+            
+            script.async  = 'async';
+            script.src    = src;
+            script.onload = func || function(){};
+            
+            $('head')[0].appendChild(script);
+        }
+
+        ;(function(){
+            var files = $('.toggle');
+            var ol    = $('ol', $('.prettyprint')[0]);
+            var li    = $('li', ol[0]);   
+
+            // 短路径和长路径变换
+            for(var i = 0; i < files.length; i++){
+                files[i].ondblclick = function(){
+                    var title = this.title;
+
+                    this.title = this.innerHTML;
+                    this.innerHTML = title;
+                }
+            }
+
+            // 设置出错行
+            var err_line = $('.line-' + LINE, ol[0])[0];
+            err_line.className = err_line.className + ' line-error';
+
+            $.getScript('//cdn.bootcss.com/prettify/r298/prettify.min.js', function(){
+                prettyPrint();
+
+                // 解决Firefox浏览器一个很诡异的问题
+                // 当代码高亮后，ol的行号莫名其妙的错位
+                // 但是只要刷新li里面的html重新渲染就没有问题了
+                if(window.navigator.userAgent.indexOf('Firefox') >= 0){
+                    ol[0].innerHTML = ol[0].innerHTML;
+                }
+            });
+
+        })();
+    </script>
+    </body>
 </html>
